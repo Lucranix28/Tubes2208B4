@@ -1,8 +1,11 @@
+//scan input paragraf
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-//scan input paragraf
+
+
+void readFile(arr[][]);
 
 void readFile(char *arr[][]){
     FILE *fp;
@@ -12,7 +15,6 @@ void readFile(char *arr[][]){
     int temp[1024][1024];
     int index = 0;
     int i_last = 0;
-    int j_last = 0;
     int isBreak = 0;
     int last, i;
 
