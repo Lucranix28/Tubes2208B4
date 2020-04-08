@@ -4,7 +4,7 @@
 
 //scan input paragraf
 
-void readFile(char arr[][]){
+void readFile(char *arr[][]){
     FILE *fp;
 
     int loop = 0;
@@ -37,7 +37,7 @@ void readFile(char arr[][]){
                     isBreak = 1;
                     break;
                 }
-                arr [i][j] = temp[i_last][j + j_last];
+                *arr [i][j] = temp[i_last][j + j_last];
                 last++;
             }
 
