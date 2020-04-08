@@ -1,5 +1,6 @@
 // Coba-Coba Punya Ian
 // Testing dari Luck
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
