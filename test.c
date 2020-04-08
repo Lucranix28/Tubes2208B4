@@ -1,5 +1,13 @@
 //scan input paragraf
-void readFile(arr[][]){
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
+void readFile(arr[][]);
+
+void readFile(char *arr[][]){
     FILE *fp;
 
     int loop = 0;
@@ -8,6 +16,7 @@ void readFile(arr[][]){
     int index = 0;
     int i_last = 0;
     int isBreak = 0;
+    int last, i;
 
     printf("File: ");
     scanf("%s", filename);
@@ -30,7 +39,7 @@ void readFile(arr[][]){
                     isBreak = 1;
                     break;
                 }
-                arr[i][j] = temp[i_last][j + j_last]
+                *arr [i][j] = temp[i_last][j + j_last];
                 last++;
             }
 
