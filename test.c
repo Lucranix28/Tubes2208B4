@@ -37,7 +37,7 @@ void readFile(char arr[][]){
                     isBreak = 1;
                     break;
                 }
-                strcpy(arr[i][j], temp[i_last][j + j_last]);
+                arr [i][j] = temp[i_last][j + j_last];
                 last++;
             }
 
