@@ -1,6 +1,4 @@
 //scan input paragraf
-
-
 void readFile(arr[][]){
     FILE *fp;
 
@@ -9,7 +7,6 @@ void readFile(arr[][]){
     int temp[1024][1024];
     int index = 0;
     int i_last = 0;
-    int j_last = 0;
     int isBreak = 0;
 
     printf("File: ");
