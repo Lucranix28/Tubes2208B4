@@ -73,7 +73,7 @@ void readFile(struct node **head){
     word_store->next = NULL;
 
     //read txt
-    fp = fopen("APoemFromAFriend.txt", "r");
+    fp = fopen("testcase/APoemFromAFriend.txt", "r");
     while(!feof(fp)){
         lines_new = malloc(sizeof(struct fileProcess));
         fgets(temp, 1024, fp);
