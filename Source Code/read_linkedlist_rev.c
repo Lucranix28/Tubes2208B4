@@ -1,10 +1,8 @@
-//scan input paragraf
+//Scan Input Paragraf
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
-#define MAX_WORD 25
 
 struct fileProcess{
     char data[1024];
@@ -46,22 +44,17 @@ void readFile(struct node **head){
     int loop = 0;
     char filename[64];
     char temp[1024];
-    int index = 0;
-    int i_last = 0;
     int j_last = 0;
 
     struct node *word_store;
     struct node *head_new;
-    struct node *head_temp;
 
     struct fileProcess *lines;
     struct fileProcess *lines_new;
 
     //IO
-    /*
     printf("File: ");
     scanf("%s", filename);
-    */
 
     //initialize structs
     lines = malloc(sizeof(struct fileProcess));
@@ -88,12 +81,15 @@ void readFile(struct node **head){
         temp[i] = 0;
     }
     
-    //to words
+    //lines to words
     int i = 0;
+
+    //iterasi tiap baris
     while(lines != NULL){
-        for (int j = 0; j < 100; j++){
+        //iterasi tiap char pada 1 linked list fileProcess
+        for (int j = 0; j < 1024; j++){
+            //write kata kalau ketemu character space atau tab
             if (lines->data[j] == ' '  || lines->data[j] == 9){
-                //puts("a");
                 temp[j_last] = '\0';
 
                 head_new = malloc(sizeof(struct node));
@@ -104,11 +100,11 @@ void readFile(struct node **head){
                     temp[i] = 0;
                 }
                 
-                //printf("->%s", head_new->data);
                 j_last = 0;
             }
+
+            //write kata dan pindah linked list kalau ketemu character enter atau new line
             else if (lines->data[j] == '\0' || lines->data[j] == '\n'){
-                //puts("b");
                 temp[j_last] = '\0';
                 
                 head_new = malloc(sizeof(struct node));
@@ -119,26 +115,25 @@ void readFile(struct node **head){
                     temp[i] = 0;
                 }
                 
-                //printf("->%s", head_new->data);
                 j_last = 0;
                 break;
             }
+
+            //kondisi untuk ASCII petik aneh dari test case
             else if (lines->data[j] == -30){
                 temp[j_last] = 34;
                 j_last++;
             }
+
+            //kondisi untuk ASCII petik aneh dari test case
             else if (lines->data[j] < 0){
             }
+
+            //Build kata
             else{
-                //printf("1st index = %d\n", i_last);
-                //printf("CHAR = %c\n", temp[i_last][j]);
                 temp[j_last] = lines->data[j];
-                //printf("PRINTED CHAR = %c\n", arr[i][j_last]);
                 j_last++;
             }
-
-            
-
         }
         lines = lines->next;
     }
@@ -150,22 +145,9 @@ void readFile(struct node **head){
 
     //final assignment
     *head = word_store;
-
-    /*
-    //debug
-    puts("DEBUGGGGG SLURR");
-    struct node *temp_print = word_store;
-    while(temp_print != NULL){
-        printf("%s",temp_print->data);
-        printf("-- %d \n",temp_print->data[0]);
-        temp_print = temp_print->next;
-    }
-    */
 }
 
-
 void inverse_fileProcess(struct fileProcess **head){
-
     struct fileProcess *p, *q, *r;
  
     p = q = r = *head;
@@ -185,7 +167,6 @@ void inverse_fileProcess(struct fileProcess **head){
 }
 
 void inverse_node(struct node **head){
-
     struct node *p, *q, *r;
  
     p = q = r = *head;
