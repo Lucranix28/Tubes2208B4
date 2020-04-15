@@ -7,7 +7,7 @@
 
 int check (char str[], char (*arr)[100], int i){
 	int result = -1;
-	for (int a = 0; a<i; a++){
+	for (int a = 0; a<i; a++){ 
 		if (strcmp(str,arr[a]) == 0){
 			result = a;
 		}
