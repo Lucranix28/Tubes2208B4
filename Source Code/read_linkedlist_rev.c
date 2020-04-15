@@ -42,7 +42,7 @@ void readFile(struct node **head){
     FILE *fp;
 
     int loop = 0;
-    char filename[64];
+    char filename[1024];
     char temp[1024];
     int j_last = 0;
 
@@ -66,7 +66,11 @@ void readFile(struct node **head){
     word_store->next = NULL;
 
     //read txt
-    fp = fopen("APoemFromAFriend.txt", "r");
+    fp = fopen(filename, "r");
+    if (fp == NULL){
+        puts("Invalid file");
+        return;
+    }
     while(!feof(fp)){
         lines_new = malloc(sizeof(struct fileProcess));
         fgets(temp, 1024, fp);
