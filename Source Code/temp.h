@@ -628,7 +628,7 @@ void arrBuild(node *key, value_node *value, char **arr_key, char ***arr_value)
     }
 }
 
-int main()
+int main_h()
 {
     linked_list = link_gram(words, ngram);
     key = link_key(words, linked_list, ngram);
@@ -675,4 +675,24 @@ int main()
 
     arrBuild(key2, value2, arrKey, arrValue);
     output(arrKey, arrValue, range_value, range_key, ngram);
+}
+
+void red()
+{
+    printf("\033[1;31m");
+}
+
+void yellow()
+{
+    printf("\033[1;33m");
+}
+
+void blue()
+{
+    printf("\033[1;34m");
+}
+
+void reset()
+{
+    printf("\033[0m");
 }
