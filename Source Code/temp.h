@@ -58,12 +58,13 @@ int isReady(){
 }
 
 int isLUT_ready(){
-    if (key == NULL)
+    int is = 1;
+    if (key == NULL && isReady())
     {
         printf("LUT not ready yet");
-        return 0;
+        is = 0;
     }
-    return 1;
+    return is;
 }
 
 // Naoko Punya
