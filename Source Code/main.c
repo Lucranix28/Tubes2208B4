@@ -21,10 +21,9 @@ void Print_menu();
 
 int main()
 {
-    reset();
     red();
     printf("\t\tHELLO TO TUBES KEL B4\n");
-    yellow();
+    reset();
 
     do
     {
@@ -41,6 +40,7 @@ void Menu()
 {
     yellow();
     Print_menu();
+    reset();
 
     blue();
     printf("Input pilihan menu : ");
@@ -62,26 +62,13 @@ void Menu()
     case 3:
         break;
     case 4:
-        printf("\nLinking Gram\n");
-        linked_list = link_gram(words, ngram);
-        key = link_key(words, linked_list, ngram);
-        value = link_value(key, linked_list, ngram);
-
-        printf("\nLinking Key 1\n");
-        key1 = link_key(words, linked_list, ngram);
-        value1 = link_value(key, linked_list, ngram);
-
-        printf("\nLinking Key 2\n");
-        key2 = link_key(words, linked_list, ngram);
-        value2 = link_value(key, linked_list, ngram);
-
-        range_key = count_key(key, value);
-        printf("\nRange : %d", range_key);
+        process();
         break;
     case 5:
         display_LUT(key, value);
         break;
     case 6:
+        output(arrKey, arrValue, range_value, range_key, ngram);
         break;
     case 7:
         break;
