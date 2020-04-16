@@ -4,7 +4,7 @@
 #include <time.h>
 
 typedef struct node{
-    char data[100];
+    char data[1024];
     struct node *next;
 }node;
 
@@ -117,7 +117,7 @@ void readFile(struct node **head){
     
     //to words
     while(lines != NULL){
-        for (int j = 0; j < 100; j++){
+        for (int j = 0; j < 1024; j++){
             if (lines->data[j] == ' '  || lines->data[j] == 9){
                 //puts("a");
                 temp[j_last] = '\0';
@@ -368,7 +368,7 @@ value_node* link_value (node *key_head, node* link_gram_head, int n_gram){
 // Raka Punya
 void st_wordRemove(char *s,char *w)
 {
-    int n,a[1000],i,j,k=0,l,found=0,t=0;
+    int n,a[1000],i,j,k=0,l,t=0;
  
     for(i=0;s[i];i++)
     {
