@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// #include "TUBES_Ngram.c"
+#include "temp.h" // Copied From NGram_linkedlist_new_1_file.c
 
 int state = 0;
 /*
@@ -15,29 +15,9 @@ int state = 0;
 0. Exit Program
 */
 
+//Function 
 void Menu();
 void Print_menu();
-
-//Color Text
-void red()
-{
-    printf("\033[1;31m");
-}
-
-void yellow()
-{
-    printf("\033[1;33m");
-}
-
-void blue()
-{
-    printf("\033[1;34m");
-}
-
-void reset()
-{
-    printf("\033[0m");
-}
 
 int main()
 {
@@ -73,14 +53,30 @@ void Menu()
     case 0:
         break;
     case 1:
+        readFile(&words);
         break;
     case 2:
+        printf("Input N-gram : ");
+        scanf("%d", &ngram);
         break;
     case 3:
         break;
     case 4:
+        linked_list = link_gram(words, ngram);
+        key = link_key(words, linked_list, ngram);
+        value = link_value(key, linked_list, ngram);
+
+        key1 = link_key(words, linked_list, ngram);
+        value1 = link_value(key, linked_list, ngram);
+
+        key2 = link_key(words, linked_list, ngram);
+        value2 = link_value(key, linked_list, ngram);
+
+        range_key = count_key(key, value);
+        printf("\nrange : %d", range_key);
         break;
     case 5:
+        display_LUT(key, value);
         break;
     case 6:
         break;
@@ -107,3 +103,4 @@ void Print_menu()
     printf("\t7. Print Result Text \n");
     printf("\t0. Exit \n");
 }
+
