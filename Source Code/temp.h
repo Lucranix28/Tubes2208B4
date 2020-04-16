@@ -5,7 +5,7 @@
 
 typedef struct node
 {
-    char data[100];
+    char data[400];
     struct node *next;
 } node;
 
@@ -27,27 +27,31 @@ typedef struct value_node
     node *key, *key1, *key2;
     value_node *value, *value1, *value2;
     int ngram, range_key, maksimum = 0;
-
-// Naoko Punya
-void inverse_fileProcess(struct fileProcess **head)
-{
-
-    struct fileProcess *p, *q, *r;
-
-    p = q = r = *head;
-    p = p->next->next;
-    q = q->next;
-    r->next = NULL;
-    q->next = r;
-
-    while (p != NULL)
+    
+    char **arrKey; 
+    char **arrKey_temp;
+    char ***arrValue;
+    int *range_value;
+        // Naoko Punya
+    void inverse_fileProcess(struct fileProcess **head)
     {
-        r = q;
-        q = p;
-        p = p->next;
+
+        struct fileProcess *p, *q, *r;
+
+        p = q = r = *head;
+        p = p->next->next;
+        q = q->next;
+        r->next = NULL;
         q->next = r;
-    }
-    *head = q;
+
+        while (p != NULL)
+        {
+            r = q;
+            q = p;
+            p = p->next;
+            q->next = r;
+        }
+        *head = q;
 }
 
 void inverse_node(struct node **head)
@@ -602,8 +606,13 @@ int max_value(int range_value[], int range)
     return maksimum;
 }
 
-void arrBuild(node *key, value_node *value, char **arr_key, char ***arr_value)
+void arrBuild()
 {
+    node *key = key2;
+    value_node *value = value2;
+    char **arr_key = arrKey;
+    char ***arr_value = arrValue;
+
     int counter = 0, i;
     while (key != NULL)
     {
@@ -628,7 +637,7 @@ void arrBuild(node *key, value_node *value, char **arr_key, char ***arr_value)
     }
 }
 
-int main()
+int main_h()
 {
     linked_list = link_gram(words, ngram);
     key = link_key(words, linked_list, ngram);
@@ -645,11 +654,91 @@ int main()
     range_key = count_key(key, value);
     printf("\nrange : %d", range_key);
 
-    int *range_value = (int *)malloc(range_key * sizeof(int));
+    range_value = (int *)malloc(range_key * sizeof(int));
 
     count_value(key1, value1, range_value);
     maksimum = max_value(range_value, range_key);
     printf("\nMaksimum_value : %d", maksimum);
+
+    arrKey = (char **)malloc(range_key * sizeof(char *));
+    for (int i = 0; i < range_key; i++)
+    {
+        arrKey[i] = (char *)malloc(100 * sizeof(char));
+    }
+
+    arrKey_temp = (char **)malloc(range_key * sizeof(char *));
+    for (int i = 0; i < range_key; i++)
+    {
+        arrKey_temp[i] = (char *)malloc(100 * sizeof(char));
+    }
+
+    arrValue = (char ***)malloc(range_key * sizeof(char **));
+    for (int i = 0; i < range_key; i++)
+    {
+        arrValue[i] = (char **)malloc(range_value[i] * sizeof(char *));
+        for (int j = 0; j < range_value[i]; j++)
+        {
+            arrValue[i][j] = (char *)malloc(100 * sizeof(char));
+        }
+    }
+
+    arrBuild();
+}
+
+void red()
+{
+    printf("\033[1;31m");
+}
+
+void yellow()
+{
+    printf("\033[1;33m");
+}
+
+void blue()
+{
+    printf("\033[1;34m");
+}
+
+void reset()
+{
+    printf("\033[0m");
+}
+
+void process(){
+
+    red();
+    printf("\nLinking Gram\n");
+    reset();
+
+    linked_list = link_gram(words, ngram);
+    key = link_key(words, linked_list, ngram);
+    value = link_value(key, linked_list, ngram);
+
+    blue();
+    printf("\nLinking Key 1\n");
+    reset();
+    key1 = link_key(words, linked_list, ngram);
+    value1 = link_value(key, linked_list, ngram);
+
+    yellow();
+    printf("\nLinking Key 2\n");
+    reset();
+    key2 = link_key(words, linked_list, ngram);
+    value2 = link_value(key, linked_list, ngram);
+
+    red();
+    printf("\nDone Linking\nStatistic :");
+
+    range_key = count_key(key, value);
+    printf("\nRange : %d", range_key);
+
+    int *range_value = (int *)malloc(range_key * sizeof(int));
+
+    count_value(key1, value1, range_value);
+    maksimum = max_value(range_value, range_key);
+    printf("\nMaksimum_value : %d \n", maksimum);
+    reset();
 
     char **arrKey = (char **)malloc(range_key * sizeof(char *));
     for (int i = 0; i < range_key; i++)
@@ -674,5 +763,4 @@ int main()
     }
 
     arrBuild(key2, value2, arrKey, arrValue);
-    output(arrKey, arrValue, range_value, range_key, ngram);
 }
