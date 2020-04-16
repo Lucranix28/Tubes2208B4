@@ -5,15 +5,9 @@
 
 typedef struct node
 {
-    char data[400];
+    char data[1024];
     struct node *next;
 } node;
-
-struct fileProcess
-{
-    char data[1024];
-    struct fileProcess *next;
-};
 
 typedef struct value_node
 {
@@ -21,43 +15,62 @@ typedef struct value_node
     struct value_node *nexts;
 } value_node;
 
+node *words;
+node *linked_list;
+node *key, *key1, *key2;
+value_node *value, *value1, *value2;
 
-    node *words;
-    node *linked_list;
-    node *key, *key1, *key2;
-    value_node *value, *value1, *value2;
-    int ngram, range_key, maksimum = 0;
-    
-    char **arrKey; 
-    char **arrKey_temp;
-    char ***arrValue;
-    int *range_value;
-        // Naoko Punya
-    void inverse_fileProcess(struct fileProcess **head)
+node *word_store;
+node *head_new;
+
+node *lines;
+node *lines_new;
+
+int ngram, range_key, maksimum = 0;
+
+char **arrKey; 
+char **arrKey_temp;
+char ***arrValue;
+int *range_value;
+
+// File Setting
+FILE *ref_text, *buff, *result;
+char out_dir[] = "text samples/out.txt";
+char file_dir[64] = "text samples/";
+char default_folder[] = "text samples/";
+char filename[64];
+
+int isReady(){
+    int is = 1;
+    buff = fopen(file_dir, "r");
+    if (buff == NULL)
     {
+        is = 0;
+        printf("\nReference Text Not Exist yet \n");
+    }
+    if (ngram == 0)
+    {
+        is = 0;
+        printf("\n'N'-Gram Not Set Yet\n");
+    }
 
-        struct fileProcess *p, *q, *r;
-
-        p = q = r = *head;
-        p = p->next->next;
-        q = q->next;
-        r->next = NULL;
-        q->next = r;
-
-        while (p != NULL)
-        {
-            r = q;
-            q = p;
-            p = p->next;
-            q->next = r;
-        }
-        *head = q;
+    return is;
 }
 
-void inverse_node(struct node **head)
+int isLUT_ready(){
+    if (key == NULL)
+    {
+        printf("LUT not ready yet");
+        return 0;
+    }
+    return 1;
+}
+
+// Naoko Punya
+void inverse_node(node **head)
 {
 
-    struct node *p, *q, *r;
+    node *p, *q, *r;
 
     p = q = r = *head;
     p = p->next->next;
@@ -75,9 +88,9 @@ void inverse_node(struct node **head)
     *head = q;
 }
 
-void processing(struct node *head)
+void processing(node *head)
 {
-    struct node *temp = head;
+    node *temp = head;
 
     while (temp->next != NULL)
     {
@@ -92,45 +105,71 @@ void processing(struct node *head)
     }
 }
 
-void readFile(struct node **head)
+void prepare_text(){
+   
+    printf("File Name in Directory text samples : ");
+    scanf("%s", filename);
+
+    strcpy(file_dir, default_folder);
+    strcat(file_dir, filename);
+    strcat(file_dir, ".txt");
+
+    printf("Directori : %s \n", file_dir);
+
+    ref_text = fopen(file_dir, "r");
+    if (ref_text == NULL)
+    {
+            /* code */
+        perror("File could not be opened.");
+        prepare_text();
+    }
+
+    printf("File Opened");
+    
+}
+
+void print_ref(){
+    char c;
+
+    buff = fopen(file_dir, "r");
+    c = fgetc(buff);
+    while (c != EOF)
+    {
+        printf("%c", c);
+        c = fgetc(buff);
+    }
+}
+
+void readFile(node **head)
 {
-    FILE *fp;
-    char filename[64];
     char temp[1024];
     int j_last = 0;
 
-    struct node *word_store;
-    struct node *head_new;
-
-    struct fileProcess *lines;
-    struct fileProcess *lines_new;
-
     //IO
-    printf("File: ");
-    scanf("%s", filename);
+    prepare_text();
 
     //initialize structs
-    lines = malloc(sizeof(struct fileProcess));
+    lines = malloc(sizeof(node));
     strcpy(lines->data, "START");
     lines->next = NULL;
 
-    word_store = malloc(sizeof(struct node));
+    word_store = malloc(sizeof(node));
     strcpy(word_store->data, "START");
     word_store->next = NULL;
 
     //read txt
-    fp = fopen(filename, "r");
-    while (!feof(fp))
+    while (!feof(ref_text))
     {
-        lines_new = malloc(sizeof(struct fileProcess));
-        fgets(temp, 1024, fp);
+        lines_new = malloc(sizeof(node));
+        fgets(temp, 1024, ref_text);
         strcpy(lines_new->data, temp);
         lines_new->next = lines;
         lines = lines_new;
     }
 
-    //inverse_fileProcess
-    inverse_fileProcess(&lines);
+    //inverse_Node
+    inverse_node(&lines);
+
     for (int i = 0; i < 1024; i++)
     {
         temp[i] = 0;
@@ -139,14 +178,14 @@ void readFile(struct node **head)
     //to words
     while (lines != NULL)
     {
-        for (int j = 0; j < 100; j++)
+        for (int j = 0; j < 1024; j++)
         {
             if (lines->data[j] == ' ' || lines->data[j] == 9)
             {
                 //puts("a");
                 temp[j_last] = '\0';
 
-                head_new = malloc(sizeof(struct node));
+                head_new = malloc(sizeof(node));
                 strcpy(head_new->data, temp);
                 head_new->next = word_store;
                 word_store = head_new;
@@ -161,7 +200,7 @@ void readFile(struct node **head)
             {
                 temp[j_last] = '\0';
 
-                head_new = malloc(sizeof(struct node));
+                head_new = malloc(sizeof(node));
                 strcpy(head_new->data, temp);
                 head_new->next = word_store;
                 word_store = head_new;
@@ -478,88 +517,105 @@ int printRandoms(int upper)
 
 void output(char **key, char ***value, int arr[], int range, int Ngram)
 { // ----> Raka
-    int num_words, counter, choosen_value, choosen_key, choosen_to_key, same_1_word = 0, i, end = 0;
-    int index_selected[range];
-    char *token, str[100];
-
-    printf("\nMasukkan jumlah kata yang ingin ditampilkan :");
-    scanf("%d", &num_words);
-
-    printf("\n...");
-
-    char **key_temp = (char **)malloc(range * sizeof(char *));
-    for (int i = 0; i < range; i++)
+    if (isLUT_ready)
     {
-        key_temp[i] = (char *)malloc(100 * sizeof(char));
-    }
+        /* code */
+        result = fopen(out_dir,"w");
 
-    for (int i = 0; i < range; i++)
-    {
-        strcpy(key_temp[i], key[i]);
-    }
+        int num_words, counter, choosen_value, choosen_key, choosen_to_key, same_1_word = 0, i, end = 0;
+        int index_selected[range];
+        char *token, str[100];
 
-    char **words = (char **)malloc(num_words * sizeof(char *));
-    for (int i = 0; i < num_words; i++)
-    {
-        words[i] = (char *)malloc(100 * sizeof(char));
-        words[i] = '\0';
-    }
-
-    srand(time(0));
-    choosen_key = printRandoms(range);
-
-    printf("%s", key_temp[choosen_key]);
-
-    counter = Ngram;
-
-    while ((counter < num_words) && (end != 1))
-    {
-
-        choosen_value = printRandoms(arr[choosen_key] - 1);
-
-        printf("%s ", value[choosen_key][choosen_value]);
-
-        strcpy(str, key_temp[choosen_key]);
-        token = strtok(key[choosen_key], " ");
-        st_wordRemove(str, token);
-
-        strcat(str, value[choosen_key][choosen_value]);
-        strcat(str, " ");
-
-        i = 0;
-        while (same_1_word != 1)
+        do
         {
-            if (strcmp(key_temp[i], str) == 0)
+            /* code */
+            printf("\nMasukkan jumlah kata yang ingin ditampilkan :");
+            scanf("%d", &num_words);
+        } while (num_words < ngram+1);
+        
+        fprintf(result,"\n...");
+
+        char **key_temp = (char **)malloc(range * sizeof(char *));
+        for (int i = 0; i < range; i++)
+        {
+            key_temp[i] = (char *)malloc(100 * sizeof(char));
+        }
+
+        for (int i = 0; i < range; i++)
+        {
+            strcpy(key_temp[i], key[i]);
+        }
+
+        char **words = (char **)malloc(num_words * sizeof(char *));
+        for (int i = 0; i < num_words; i++)
+        {
+            words[i] = (char *)malloc(100 * sizeof(char));
+            words[i] = '\0';
+        }
+
+        srand(time(0));
+        choosen_key = printRandoms(range);
+
+        fprintf(result,"%s", key_temp[choosen_key]);
+
+        counter = Ngram;
+
+        while ((counter < num_words) && (end != 1))
+        {
+
+            choosen_value = printRandoms(arr[choosen_key] - 1);
+
+            fprintf(result,"%s ", value[choosen_key][choosen_value]);
+
+            strcpy(str, key_temp[choosen_key]);
+            token = strtok(key[choosen_key], " ");
+            st_wordRemove(str, token);
+
+            strcat(str, value[choosen_key][choosen_value]);
+            strcat(str, " ");
+
+            i = 0;
+            while (same_1_word != 1)
             {
-                index_selected[same_1_word] = i;
-                same_1_word = 1;
+                if (strcmp(key_temp[i], str) == 0)
+                {
+                    index_selected[same_1_word] = i;
+                    same_1_word = 1;
+                }
+                i += 1;
             }
-            i += 1;
+
+            choosen_to_key = printRandoms(same_1_word - 1);
+            // fprintf(result,"\nchoosen to key : %d", choosen_to_key);
+            choosen_key = index_selected[choosen_to_key];
+            same_1_word = 0;
+
+            if (i == range)
+            {
+                counter = range;
+                end = 1;
+            }
+
+            counter += 1;
+            fprintf(result,"(%d)", counter);
         }
 
-        choosen_to_key = printRandoms(same_1_word - 1);
-        // printf("\nchoosen to key : %d", choosen_to_key);
-        choosen_key = index_selected[choosen_to_key];
-        same_1_word = 0;
-
-        if (i == range)
+        if (end == 1)
         {
-            counter = range;
-            end = 1;
+            fprintf(result,"\nThis is the end of a texts");
+        }
+        else
+        {
+            fprintf(result,"...");
         }
 
-        counter += 1;
-        printf("(%d)", counter);
-    }
-
-    if (end == 1)
-    {
-        printf("\nThis is the end of a texts");
+        fclose(result);
     }
     else
     {
-        printf("...");
+        /* code */
     }
+    
 }
 
 int count_key(node *key, value_node *value)
@@ -637,54 +693,6 @@ void arrBuild()
     }
 }
 
-int main_h()
-{
-    linked_list = link_gram(words, ngram);
-    key = link_key(words, linked_list, ngram);
-    value = link_value(key, linked_list, ngram);
-
-    display_LUT(key, value);
-
-    key1 = link_key(words, linked_list, ngram);
-    value1 = link_value(key, linked_list, ngram);
-
-    key2 = link_key(words, linked_list, ngram);
-    value2 = link_value(key, linked_list, ngram);
-
-    range_key = count_key(key, value);
-    printf("\nrange : %d", range_key);
-
-    range_value = (int *)malloc(range_key * sizeof(int));
-
-    count_value(key1, value1, range_value);
-    maksimum = max_value(range_value, range_key);
-    printf("\nMaksimum_value : %d", maksimum);
-
-    arrKey = (char **)malloc(range_key * sizeof(char *));
-    for (int i = 0; i < range_key; i++)
-    {
-        arrKey[i] = (char *)malloc(100 * sizeof(char));
-    }
-
-    arrKey_temp = (char **)malloc(range_key * sizeof(char *));
-    for (int i = 0; i < range_key; i++)
-    {
-        arrKey_temp[i] = (char *)malloc(100 * sizeof(char));
-    }
-
-    arrValue = (char ***)malloc(range_key * sizeof(char **));
-    for (int i = 0; i < range_key; i++)
-    {
-        arrValue[i] = (char **)malloc(range_value[i] * sizeof(char *));
-        for (int j = 0; j < range_value[i]; j++)
-        {
-            arrValue[i][j] = (char *)malloc(100 * sizeof(char));
-        }
-    }
-
-    arrBuild();
-}
-
 void red()
 {
     printf("\033[1;31m");
@@ -706,7 +714,8 @@ void reset()
 }
 
 void process(){
-
+    if(isReady()){
+        
     red();
     printf("\nLinking Gram\n");
     reset();
@@ -763,4 +772,5 @@ void process(){
     }
 
     arrBuild(key2, value2, arrKey, arrValue);
+    }
 }

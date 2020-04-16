@@ -2,7 +2,7 @@
 
 #include "temp.h" // Copied From NGram_linkedlist_new_1_file.c
 
-int state = 0;
+char state = '0';
 /*
 1. Input Text
 2. Input (N)-Gram
@@ -46,33 +46,36 @@ void Menu()
     printf("Input pilihan menu : ");
     reset();
 
-    scanf(" %d", &state);
+    scanf(" %c", &state);
+
 
     switch (state)
     {
-    case 0:
+    case '0':
         break;
-    case 1:
+    case '1':
         readFile(&words);
         break;
-    case 2:
+    case '2':
         printf("Input N-gram : ");
         scanf("%d", &ngram);
         break;
-    case 3:
+    case '3' :
+        print_ref();
         break;
-    case 4:
+    case '4' :
         process();
         break;
-    case 5:
+    case '5':
         display_LUT(key, value);
         break;
-    case 6:
+    case '6':
         output(arrKey, arrValue, range_value, range_key, ngram);
         break;
-    case 7:
+    case '7':
         break;
-    case 8:
+    case '8':
+
         break;
     default:
         printf("--Input Menu Keliru--\n");
