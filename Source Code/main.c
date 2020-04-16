@@ -20,7 +20,11 @@ void Print_menu();
 
 
 
-int main(){
+int main()
+{
+    printf("\033[1;31m");
+    printf("\t\tHELLO TO TUBES KEL B4\n");
+    printf("\033[0m");
 
     do
     {
@@ -72,7 +76,7 @@ void Print_menu()
     printf("\t3. Print Text \n");
     printf("\t4. Process Key and Value \n");
     printf("\t5. Print Key and Value \n");
-    printf("\t6. Generate N - Gram - ed Text \n");
-    printf("\t7. Print Result Text");
+    printf("\t6. Generate N-Gram-ed Text \n");
+    printf("\t7. Print Result Text \n");
     printf("\t0. Exit \n");
 }
