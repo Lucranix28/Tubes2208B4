@@ -18,27 +18,54 @@ int state = 0;
 void Menu();
 void Print_menu();
 
+//Color Text
+void red()
+{
+    printf("\033[1;31m");
+}
 
+void yellow()
+{
+    printf("\033[1;33m");
+}
+
+void blue()
+{
+    printf("\033[1;34m");
+}
+
+void reset()
+{
+    printf("\033[0m");
+}
 
 int main()
 {
-    printf("\033[1;31m");
+    reset();
+    red();
     printf("\t\tHELLO TO TUBES KEL B4\n");
-    printf("\033[0m");
+    yellow();
 
     do
     {
         /* code */ 
         Menu();
     } while (state != 0);
+
+    reset();
     printf("Program Ended");
     return 0;
 }
 
 void Menu()
 {
+    yellow();
     Print_menu();
+
+    blue();
     printf("Input pilihan menu : ");
+    reset();
+
     scanf(" %d", &state);
 
     switch (state)
