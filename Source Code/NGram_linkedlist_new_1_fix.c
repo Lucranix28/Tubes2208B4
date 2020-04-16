@@ -366,7 +366,7 @@ value_node* link_value (node *key_head, node* link_gram_head, int n_gram){
 
 
 // Raka Punya
-int st_wordRemove(char *s,char *w)
+void st_wordRemove(char *s,char *w)
 {
     int n,a[1000],i,j,k=0,l,found=0,t=0;
  
@@ -487,7 +487,6 @@ void output(char **key, char ***value, int arr[], int range, int Ngram){ // ----
 		}
 		
 		counter += 1;
-		printf("(%d)", counter);
 	}
 
 	if (end == 1)
