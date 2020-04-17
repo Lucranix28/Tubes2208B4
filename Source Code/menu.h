@@ -37,8 +37,11 @@ void Menu()
         readFile(&words);
         break;
     case '2':
-        printf("Input N-gram : ");
-        scanf("%d", &ngram);
+        do
+        {
+            printf("Input N-gram : ");
+            scanf("%d", &ngram);
+        } while (ngram <= 0);  
         break;
     case '3':
         print_text("lut");
