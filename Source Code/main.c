@@ -2,7 +2,7 @@
 
 #include "temp.h" // Copied From NGram_linkedlist_new_1_file.c
 
-int state = 0;
+char state = '0';
 /*
 1. Input Text
 2. Input (N)-Gram
@@ -21,16 +21,15 @@ void Print_menu();
 
 int main()
 {
-    reset();
     red();
     printf("\t\tHELLO TO TUBES KEL B4\n");
-    yellow();
+    reset();
 
     do
     {
         /* code */ 
         Menu();
-    } while (state != 0);
+    } while (state != '0');
 
     reset();
     printf("Program Ended");
@@ -41,51 +40,42 @@ void Menu()
 {
     yellow();
     Print_menu();
+    reset();
 
     blue();
     printf("Input pilihan menu : ");
     reset();
 
-    scanf(" %d", &state);
+    scanf(" %s", &state);
 
     switch (state)
     {
-    case 0:
+    case '0':
         break;
-    case 1:
+    case '1':
         readFile(&words);
         break;
-    case 2:
+    case '2':
         printf("Input N-gram : ");
         scanf("%d", &ngram);
         break;
-    case 3:
+    case '3' :
+        print_ref();
         break;
-    case 4:
-        printf("\nLinking Gram\n");
-        linked_list = link_gram(words, ngram);
-        key = link_key(words, linked_list, ngram);
-        value = link_value(key, linked_list, ngram);
-
-        printf("\nLinking Key 1\n");
-        key1 = link_key(words, linked_list, ngram);
-        value1 = link_value(key, linked_list, ngram);
-
-        printf("\nLinking Key 2\n");
-        key2 = link_key(words, linked_list, ngram);
-        value2 = link_value(key, linked_list, ngram);
-
-        range_key = count_key(key, value);
-        printf("\nRange : %d", range_key);
+    case '4' :
+        process();
         break;
-    case 5:
+    case '5':
+        save_LUT(key, value);
+        break;
+    case '6':
         display_LUT(key, value);
         break;
-    case 6:
+    case '7':
+        output(arrKey, arrValue, range_value, range_key, ngram);
         break;
-    case 7:
-        break;
-    case 8:
+    case '8':
+        print_out();
         break;
     default:
         printf("--Input Menu Keliru--\n");
@@ -101,9 +91,10 @@ void Print_menu()
     printf("\t2. Input(N) - Gram \n");
     printf("\t3. Print Text \n");
     printf("\t4. Process Key and Value \n");
-    printf("\t5. Print Key and Value \n");
-    printf("\t6. Generate N-Gram-ed Text \n");
-    printf("\t7. Print Result Text \n");
+    printf("\t5. Save Key and Value \n");
+    printf("\t6. Print Key and Value \n");
+    printf("\t7. Generate N-Gram-ed Text \n");
+    printf("\t8. Print Result Text \n");
     printf("\t0. Exit \n");
 }
 
