@@ -36,10 +36,10 @@ int *range_value;
 
 // File Setting
 FILE *ref_text, *buff, *result, *LUT;
-char out_dir[] = "text samples/out.txt";
-char lut_dir[] = "text samples/lut.txt";
+char out_dir[] = "output/out.txt";
+char lut_dir[] = "output/lut.txt";
 char file_dir[64] = "text samples/";
-char file_out[64] = "text samples/";
+char file_out[64] = "result/";
 char default_folder[] = "text samples/";
 char filename[64];
 
