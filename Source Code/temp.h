@@ -616,7 +616,8 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
     if (isLUT_ready())
     {
         /* code */
-        result = fopen(out_dir,"w");
+        char count;
+
 
         int num_words, counter, choosen_value, choosen_key, choosen_to_key, same_1_word = 0, i, end = 0;
         int index_selected[range];
@@ -626,9 +627,23 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         {
             /* code */
             printf("\nMasukkan jumlah kata yang ingin ditampilkan : ");
-            scanf("%d", &num_words);
+            scanf(" %d", &num_words);
         } while (num_words < ngram+1);
-        
+
+        do
+        {
+            /* code */
+            printf("\n Apakah perlu counter (Y/N) : ");
+            scanf(" %c", &count);
+        } while (!((count == 'Y') ^ (count == 'N')));
+
+        red();
+        printf("SAVING..\n");
+        reset();
+    	
+        result = fopen(out_dir, "w");
+
+
         fprintf(result,"\n...");
 
         char **key_temp = (char **)malloc(range * sizeof(char *));
@@ -693,10 +708,10 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
             }
 
             counter += 1;
-            if (counter % 10 == 0)
+            if ((counter % 10 == 0) && (count == 'Y'))
             {
                 /* code */
-                //fprintf(result,"(%d)", counter);
+                fprintf(result,"(%d)", counter);
             }
             
         }
