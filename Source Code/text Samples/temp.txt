@@ -42,7 +42,6 @@ char file_dir[64] = "text samples/";
 char default_folder[] = "text samples/";
 char filename[64];
 
-int w_len = 10;
 
 void red()
 {
@@ -350,15 +349,14 @@ int num_Len(int counter){
 }
 void display_LUT(node *key, value_node *value)
 {
-    int len =ngram*w_len; 
-    char str[len]; // Asusmsi word rata"sepanjang 10 char
+    char str[ngram*10]; // Asusmsi word rata"sepanjang 10 char
     int counter = 1, num_len;
     printf("|\tKey  %-15s|\tValue\n","");
     while (key != NULL)
     {
         num_len = num_Len(counter);
         strcpy(str,key->data);
-        printf(" %d%-*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", (len / 2) + (strlen(str) / 2), str, (len / 2) - (strlen(str) / 2), "");
+        printf(" %d%-*s|\t%*s%*s|\t{",counter,7-num_len, " ", ngram * 5 + strlen(str) / 2, str, ngram * 5 - strlen(str) / 2, "");
         display_value(value->value);
         value = value->nexts;
         printf("}\n");
@@ -385,8 +383,7 @@ void display_save(node *head, FILE* LUT)
 
 void save_LUT()
 {
-    int len = ngram * w_len;
-    char str[len]; // Asusmsi word rata"sepanjang 10 char
+    char str[ngram * 10]; // Asusmsi word rata"sepanjang 10 char
     int counter = 1, num_len;
     LUT = fopen(lut_dir,"w");
     printf("Saving LUT");
@@ -395,7 +392,7 @@ void save_LUT()
     {
         num_len = num_Len(counter);
         strcpy(str, key->data);
-        fprintf(LUT, "%d%*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", (len / 2) + (strlen(str) / 2), str, (len / 2) - (strlen(str) / 2), "");
+        fprintf(LUT, "%d%-*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", ngram * 5 + strlen(str) / 2, str, ngram * 5 - strlen(str) / 2, "");
         display_save(value->value, LUT);
         value = value->nexts;
         fprintf(LUT, "}\n");
