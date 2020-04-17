@@ -201,7 +201,7 @@ void print_text(char *s)
     strcat(file_out, s);
     strcat(file_out, ".txt");
 
-    buff = fopen(file_dir, "r");
+    buff = fopen(file_out, "r");
     c = fgetc(buff);
     while (c != EOF)
     {
@@ -210,7 +210,7 @@ void print_text(char *s)
     }
 
     red();
-    printf("\n\nEND OF %s \n", file_dir);
+    printf("\n\nEND OF %s \n", file_out);
     reset();
 }
 
