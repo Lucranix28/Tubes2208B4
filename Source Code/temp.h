@@ -618,7 +618,7 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         /* code */
         char count;
 
-
+        
         int num_words, counter, choosen_value, choosen_key, choosen_to_key, same_1_word = 0, i, end = 0;
         int index_selected[range];
         char *token, str[100];
@@ -726,7 +726,9 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         }
 
         fclose(result);
+        red();
         printf("Text Berhasil Disimpan di %s \n", out_dir);
+        reset();
     }
     
 }
