@@ -44,7 +44,7 @@ void Menu()
         } while (ngram <= 0);  
         break;
     case '3':
-        print_text("lut");
+        print_ref();
         break;
     case '4':
         process();
