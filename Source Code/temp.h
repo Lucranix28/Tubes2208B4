@@ -80,7 +80,7 @@ int count_key(node *key, value_node *value);
 int max_value(int range_value[], int range);
 void arrBuild();
 void process();
-
+ 
 void red()
 {
     printf("\033[1;31m");

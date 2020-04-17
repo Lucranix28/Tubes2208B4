@@ -1,0 +1,561 @@
+/*  
+*   STEP RESPONSE ANALYSIS
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Time Processing Setting
+double delta = 0.0001;
+double t_start = 0, t_end = 10, t_each = 0.01;
+
+// Component Value
+double Vi = 1;  // VSource Dc
+double R = 1;   // Resistance (Ohm)
+double C = 1;   // Capasitor (F)
+ 
+ // Component PRocessing Setting
+double Vo = 0;      // Initial voltage
+double temp_Vo = 0; // Voltage Before
+double dVo = 0;     // Voltage Change
+double I = 0;       // Current Passing Circuit
+
+// Storing Data
+FILE *Out;
+
+//Menu Setting
+int state = 0;
+/*
+0. Exit
+1. Set Time Output
+2. Set Component
+3. Show Setting
+4. Draw Circuit
+5. Process to Output
+*/
+
+// Function initial
+void Output();
+void Input_time();
+void Input_com();
+int Validate_com(double Input);
+int Validate_time();
+void Process();
+void Menu();
+void Print_menu();
+void Print_set();
+void Draw_Circuit();
+
+int main(void){
+    do
+    {
+        /* code */
+    Menu();
+    } while (state != 0);
+
+    printf("Program Berakhir");
+    return(0);
+}
+
+void Menu() {
+    Print_menu();
+    printf("Input pilihan menu : ");
+    scanf(" %d", &state);
+
+    switch (state)
+    {
+    case 0:
+        break;
+    case 1:
+        Input_time();
+        break;
+    case 2:
+        Input_com();
+        break;
+    case 3:
+        Print_set();
+        break;
+    case 4:
+        Draw_Circuit();
+        break;
+    case 5:
+        Output();
+        break;
+    default:
+        printf("--Input Menu Keliru--\n");
+        Menu();
+        break;
+    }
+}
+
+void Print_menu(){
+    printf("\n Menu :\n");
+    printf("\t1. Set Time Output \n");
+    printf("\t2. Set Component \n");
+    printf("\t3. Show Setting \n");
+    printf("\t4. Draw Circuit \n");
+    printf("\t5. Process & Output \n");
+    printf("\t0. Exit \n");
+
+}
+
+int Validate_com(double Input){
+    if (Input > 0)
+    {
+        return 1;
+    }
+    printf("--Input Komponen Keliru--\n");
+    return 0;
+}
+
+int Validate_time(){
+    if(t_start >=t_end)
+    {
+        printf("\n--Input Waktu Keliru--\n");
+        return 0;
+    }
+    if (t_each >= (t_start - t_end))
+    {
+        printf("\n--Input Ketelitian Keliru--\n");
+        return 0;
+    }
+    return 1;
+
+}
+void Input_com(){
+    
+    printf("\nMasukkan Tegangan Supply (Vi) : ");
+    scanf("%lf", &Vi);
+
+    printf("Masukkan Tegangan awal kapasitor (Vo) : ");
+    scanf("%lf", &Vo);
+
+    do
+    {
+        /* code */
+        printf("Masukkan Nilai Resistansi(ohm) : ");
+        scanf("%lf", &R);
+    } while (!Validate_com(R));
+
+    do
+    {
+        /* code */
+        printf("Masukkan Nilai Kapasitor(Farad) : ");
+        scanf("%lf", &C);
+    } while (!Validate_com(C));
+
+    printf("\n Input Nilai Komponen Berhasil \n");
+}
+
+void Input_time(){
+    do
+    {
+        /* code */
+        printf("Masukkan Waktu Mulai Mencatat(ms) :");
+        scanf("%lf", &t_start);
+        printf("Masukkan Waktu Akhir Mencatat(ms) :");
+        scanf("%lf", &t_end);
+        printf("Masukkan ketelitian waktu mencatat(ms) :");
+        scanf("%lf", &t_each);
+    } while (!Validate_time());
+
+    printf("\n Input Nilai Output Waktu Berhasil \n");
+}
+
+void Output()
+{
+    Out = fopen("Output/Data.txt", "w");
+    for (double t = 0; t < t_end; t += delta)
+    {
+        /* code */
+        Process();
+        if (t >= t_start)
+        {
+            /* code */
+            fprintf(Out, "%.4lf;%.4lf;%.4lf \n", t, Vo, I);
+            t_start+=t_each;
+        }
+    }
+    printf("Hasil telah dicetak pada file Output/Data.txt\n\n");
+    fclose(Out);
+}
+
+void Process(){
+    temp_Vo = Vo;
+    I = (Vi - Vo) / R;
+    dVo = (I * delta) / C;
+    Vo = temp_Vo + dVo;
+}
+
+void Draw_Circuit()
+{
+    printf("\n(Ground) - VSupply - (%lf V) - RES/%lf OHM - (%lf V) - CAP/%lf F - (Ground)\n", Vi, R, Vo, C);
+}
+
+void Print_set(){
+    printf("\nSetting Waktu :");
+    printf("\n\t Waktu Mulai\t\t\t:\t%lf s", t_start);
+    printf("\n\t Waktu Selesai\t\t\t:\t%lf s", t_end);
+    printf("\n\t Increment waktu mencatat\t:\t%lf s", t_each);
+    printf("\n\t Delta T ketelitian \t\t:\t%lf s", delta);
+
+    printf("\n");
+
+    printf("\nSetting Component :");
+    printf("\n\t Tegangan Supply\t\t:\t%lf V", Vi);
+    printf("\n\t Resistansi\t\t\t:\t%lf OHM", R);
+    printf("\n\t Kapasitansi\t\t\t:\t%lf F", C);
+    printf("\n\t Tegangan Awal Kapasitor\t:\t%lf V", Vo);
+
+    printf("\n");
+}
+
+// Global Variabel -> default
+float w = 50, dt = 0.02;
+int n_komponen = 0;
+float time, time_start, time_end;
+
+int main(void)
+{
+    char net_name[] = "netlist/", dir_out[] = "output/", s[MaxChar], c, temp[MaxChar], *token, *tipe, *nodeA, *nodeB, *var; 
+    const char space[2] = " ";
+
+    int i = 0, j = 0;
+    float param;
+    FILE *netlist, *output;
+
+    printf("Input nama netlist : ");
+    scanf(" %s", s);
+
+    strcat(net_name, s);
+    strcat(net_name, ".txt");
+    netlist = fopen(net_name, "r");
+    
+    // Input W
+    fgets(temp,MaxChar, netlist);
+    w = atof(temp);
+    printf("w = %.2f \n", w);
+    dt = 1/w;
+    printf("dt = %.4f \n\n", dt);
+
+    // Input Komponen
+    while(fgets(temp,MaxChar, netlist) != NULL)
+    {
+        n_komponen++;
+        if (temp[strlen(temp) - 1] == '\n')
+        {
+            temp[strlen(temp) - 1] = '\0';
+        }
+
+        printf("Netlist ke-%d : %s \n", n_komponen, temp);
+        token = strtok(temp, " ");
+        tipe = token;
+
+        token = strtok(NULL, " ");
+        nodeA = token;
+
+        token = strtok(NULL, " ");
+        nodeB = token;
+        
+        token = strtok(NULL, " ");
+        param = atof(token);
+        
+        printf("\t ID Komponen : %s \n", tipe);
+        printf("\t Node pangkal : %s", nodeA);
+        printf("\t Node ujung : %s", nodeB);
+        printf("\t Parameter : %f \n", param);
+        
+        newBranch(n_komponen, tipe, nodeA, nodeB, param);
+    }
+    fclose(netlist);
+    
+    printf("Input nama file output : ");
+    scanf(" %s", s);
+
+    strcat(dir_out, s);
+    strcat(dir_out, ".txt");
+    output = fopen(dir_out, "w");
+
+    printf("Masukkan waktu mulai input ke file : ");
+    scanf(" %f", time_start);
+    printf("Masukkan waktu akhir input ke file : ");
+    scanf(" %f", time_end);
+
+    // Proses Output
+    
+    for (time = 0; time < time_end; time += dt)
+    {
+        /* code */
+        ProcessMat();
+
+        if (time >= time_start)
+        {
+            /* code */
+            OutToFile(output);
+        }
+    }
+
+    fclose(output);
+
+    return (0);
+}
+
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+* Modul : 8
+* Percobaan : 2
+* Hari dan Tanggal : Jumat, 3 April 2020
+* Nama (NIM) : Andy Lucky (13218058)
+* Asisten (NIM) : Rizky Ardi Maulana (13217054)
+* Nama File : 13218058_8_2.c
+* Deskripsi : Aplikasi DFS untuk Pathfinding
+*/
+
+/*
+asumsikan area selalu berukuran 4 x 4, 
+input file peta selalu benar, dan 
+input koordinat makanan tidak pernah diluar area.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define N 4
+
+int NotAvailabel(int x, int y, int map[N][N]);
+void printMap(const int map[N][N]);
+int MapSolver(int map[N][N], int x, int y, int path[N][N], int food_x, int food_y);
+int DFS(int map[N][N], int food_x, int food_y);
+
+int main(void){
+    int map[4][4], food_x, food_y;
+    char temp[10];
+    const char s[2] = " ";
+    int i = 0, j;
+    FILE *fp;
+
+    printf("Masukkan file peta : ");
+    scanf(" %s", temp);
+
+    fp = fopen(temp, "r");
+    for (i = 0; i < N; i++)
+    {
+        fgets(temp, 10, fp);
+        map[i][0] = atoi(strtok(temp, s));
+        for (j = 1; j < N; j++)
+        {
+            map[i][j] = atoi(strtok(NULL, s));
+        }
+    }
+
+    printMap(map);
+
+    do
+    {
+        printf("Masukkan koordinat makanan banteng: ");
+        scanf(" %d", &food_x);
+        scanf(" %d", &food_y);
+        if (NotAvailabel((food_x - 1), (food_y - 1), map))
+        {
+            printf("Tidak bisa meletakkan makanan disana!\n");
+        }
+
+    } while (NotAvailabel((food_x - 1), (food_y - 1), map));
+
+    printf("Jalan yang ditempuh banteng:\n");
+    DFS(map, food_x, food_y);
+
+    fclose(fp);
+    return 0;
+}
+
+void printMap(const int map[N][N]){
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            printf("%d ", map[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int NotAvailabel(int x, int y, int map[N][N]){
+    if (x >= 0 && x < N && y >= 0 && y < N && map[y][x] == 1)
+        return 0;
+
+    return 1;
+}
+
+int DFS(int map[N][N], int food_x, int food_y)
+{
+    int path[N][N];
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            path[i][j] = 0;
+        }
+    }
+
+    if (MapSolver(map, 0, 0, path, food_x, food_y) == 0)
+    {
+        printf("Banteng tidak bisa mencapai makanan :(");
+        return 0;
+    }
+
+    printMap(path);
+    return 1;
+}
+
+// DFS dengan Rekursif dan Backtrack
+int MapSolver(int map[N][N], int x, int y, int path[N][N], int food_x, int food_y)
+{
+    // Posisi Banteng dan Makanan sama
+    if (x == food_x - 1 && y == food_y - 1)
+    {
+        path[y][x] = 1;
+        return 1;
+    }
+    if (!NotAvailabel(x, y, map))
+    {
+        // mark x, y as part of solution path
+        path[y][x] = 1;
+
+        // Bukan Solusi, Geser kekanan
+        if (MapSolver(map, x + 1, y, path, food_x, food_y) == 1)
+            return 1;
+        
+        // Bukan Solusi, Geser kebawah
+        if (MapSolver(map, x, y + 1, path, food_x, food_y) == 1)
+            return 1;
+
+        // Tidak ada Solusi
+        path[y][x] = 0;
+        return 0;
+    }
+    return 0;
+}
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+* Modul : 7
+* Percobaan : 2
+* Hari dan Tanggal : Jumat, 27 Maret 2020
+* Nama (NIM) : Andy Lucky (13218058)
+* Asisten (NIM) : Wuri Utami (13217024)
+* Nama File : 13218058_7_2.c
+* Deskripsi : Aplikasi Queue dengan Linked List untuk Sorting
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+} *head, *tail, *new;
+
+void push(int data); // Prosedur Push ke Queue
+void peek_all(struct Node *tail); // Prosedur Peek/ Output nilai dari Queue
+void sortList(struct Node *tail); // Prosedur Sorting dengan Bubble Sort
+void swap(struct Node *a, struct Node *b); // Prosedur menukar nilai Node
+
+int main(void)
+{
+    // Deklarasi Variabel
+    int temp;
+    char temp_in[255], input[255];
+    const char s[2] = " ";
+    char *token;
+
+    // Input Data
+    printf("Masukkan deret bilangan yang akan diurut: ");
+    gets(temp_in);
+    strcat(input, s);
+    strcat(input, temp_in);
+
+    // Input data ke Queue
+    token = strtok(input, s);
+    temp = atoi(token);
+
+    while (token != NULL)
+    {
+        push(temp); 
+        token = strtok(NULL, s);
+        temp = atoi(token);
+    }
+
+    printf("Deret bilangan setelah diurut:\n");
+    sortList(tail);
+    peek_all(tail);
+    return (0);
+}
+
+// push to head
+void push(int data)
+{
+    new = (struct Node *)malloc(sizeof(struct Node));
+    new->data = data;
+
+    if (head == NULL)
+    {
+        head = tail = new;
+    }
+    else
+    {
+        head->next = new;
+        head = new;
+    }
+    head->next = NULL;
+}
+
+/* Bubble sort the given linked list */
+void sortList(struct Node *tail)
+{
+    int iSwap, i;
+    struct Node *temp;
+    struct Node *last = NULL;
+
+    /* Checking for empty list */
+    if (tail == NULL)
+        return;
+
+    do
+    {
+        iSwap = 0;
+        temp = tail;
+
+        while (temp->next != last)
+        {
+            if (temp->data > temp->next->data)
+            {
+                swap(temp, temp->next);
+                iSwap = 1;
+            }
+            temp = temp->next;
+        }
+        last = temp;
+    } while (iSwap);
+}
+
+/* function to swap data of two nodes a and b*/
+void swap(struct Node *a, struct Node *b)
+{   
+    int temp = a->data;
+    a->data = b->data;
+    b->data = temp;
+}
+
+/* function to peek all data from queueu*/
+void peek_all(struct Node *tail)
+{
+    struct Node *temp = tail;
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
