@@ -39,10 +39,47 @@ FILE *ref_text, *buff, *result, *LUT;
 char out_dir[] = "text samples/out.txt";
 char lut_dir[] = "text samples/lut.txt";
 char file_dir[64] = "text samples/";
+char file_out[64] = "text samples/";
 char default_folder[] = "text samples/";
 char filename[64];
 
-int w_len = 10;
+int w_len = 10; // Panjang kata rata-rata untuk rata tengah
+
+// Fungsi untuk mewarnai text output pada terminal
+void red();
+void yellow();
+void blue();
+void reset();
+
+int isReady();
+int isLUT_ready();
+
+void inverse_node(node **head);
+void processing(node *head);
+void prepare_text();
+void print_text(char *type);
+void readFile(node **head);
+int check(node *check, char data[]);
+int key_valid(node *t_key, int n_gram);
+int num_Len(int counter);
+void display_LUT(node *key, value_node *value);
+void save_LUT(node *key, value_node *value);
+
+void display_value(node *head);
+void display_save(node *head, FILE* LUT);
+
+node *link_gram(node *head, int n_gram);
+node *link_key(node *head, node *gram, int n_gram);
+value_node *link_value(node *key_head, node *link_gram_head, int n_gram);
+
+int st_wordRemove(char *s, char *w);
+int printRandoms(int upper);
+void output(char **key, char ***value, int arr[], int range, int Ngram);
+void count_value(node *key, value_node *value, int range_value[]);
+int count_key(node *key, value_node *value);
+int max_value(int range_value[], int range);
+void arrBuild();
+void process();
 
 void red()
 {
@@ -156,8 +193,13 @@ void prepare_text(){
     
 }
 
-void print_ref(){
+void print_text(char *s)
+{
     char c;
+
+    strcpy(file_out, default_folder);
+    strcat(file_out, s);
+    strcat(file_out, ".txt");
 
     buff = fopen(file_dir, "r");
     c = fgetc(buff);
@@ -169,23 +211,6 @@ void print_ref(){
 
     red();
     printf("\n\nEND OF %s \n", file_dir);
-    reset();
-}
-
-void print_out()
-{
-    char c;
-
-    buff = fopen(out_dir, "r");
-    c = fgetc(buff);
-    while (c != EOF)
-    {
-        printf("%c", c);
-        c = fgetc(buff);
-    }
-
-    red();
-    printf("\n\nEND OF %s \n", out_dir);
     reset();
 }
 
@@ -321,15 +346,6 @@ int key_valid(node *t_key, int n_gram)
     else
     {
         return (1);
-    }
-}
-
-void display(node *head)
-{
-    while (head != NULL)
-    {
-        printf("%s\n", head->data);
-        head = head->next;
     }
 }
 
@@ -618,7 +634,7 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         /* code */
         char count;
 
-        
+
         int num_words, counter, choosen_value, choosen_key, choosen_to_key, same_1_word = 0, i, end = 0;
         int index_selected[range];
         char *token, str[100];
@@ -726,6 +742,7 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         }
 
         fclose(result);
+
         red();
         printf("Text Berhasil Disimpan di %s \n", out_dir);
         reset();

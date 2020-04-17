@@ -60,7 +60,7 @@ void Menu()
         scanf("%d", &ngram);
         break;
     case '3' :
-        print_ref();
+        print_text("LUT");
         break;
     case '4' :
         process();
@@ -75,7 +75,7 @@ void Menu()
         output(arrKey, arrValue, range_value, range_key, ngram);
         break;
     case '8':
-        print_out();
+        print_text("OUT");
         break;
     default:
         printf("--Input Menu Keliru--\n");

@@ -42,6 +42,7 @@ char file_dir[64] = "text samples/";
 char default_folder[] = "text samples/";
 char filename[64];
 
+int w_len = 10;
 
 void red()
 {
@@ -82,7 +83,7 @@ int isReady(){
 
 int isLUT_ready(){
     int is = 1;
-    if (key == NULL && !isReady())
+    if (key == NULL)
     {
         printf("LUT not ready yet\n");
         is = 0;
@@ -167,7 +168,7 @@ void print_ref(){
     }
 
     red();
-    printf("\nEND OF %s \n", file_dir);
+    printf("\n\nEND OF %s \n", file_dir);
     reset();
 }
 
@@ -182,6 +183,10 @@ void print_out()
         printf("%c", c);
         c = fgetc(buff);
     }
+
+    red();
+    printf("\n\nEND OF %s \n", out_dir);
+    reset();
 }
 
 void readFile(node **head)
@@ -347,16 +352,18 @@ void display_value(node *head)
 int num_Len(int counter){
     return floor(log10(abs(counter))) + 1;
 }
+
 void display_LUT(node *key, value_node *value)
 {
-    char str[ngram*10]; // Asusmsi word rata"sepanjang 10 char
+    int len =ngram*w_len; 
+    char str[len]; // Asusmsi word rata"sepanjang 10 char
     int counter = 1, num_len;
     printf("|\tKey  %-15s|\tValue\n","");
     while (key != NULL)
     {
         num_len = num_Len(counter);
         strcpy(str,key->data);
-        printf(" %d%-*s|\t%*s%*s|\t{",counter,7-num_len, " ", ngram * 5 + strlen(str) / 2, str, ngram * 5 - strlen(str) / 2, "");
+        printf(" %d%*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", (len / 2) + (strlen(str) / 2), str, (len / 2) - (strlen(str) / 2), "");
         display_value(value->value);
         value = value->nexts;
         printf("}\n");
@@ -381,18 +388,19 @@ void display_save(node *head, FILE* LUT)
     }
 }
 
-void save_LUT()
+void save_LUT(node *key, value_node *value)
 {
-    char str[ngram * 10]; // Asusmsi word rata"sepanjang 10 char
+    int len = ngram * w_len;
+    char str[len]; // Asusmsi word rata"sepanjang 10 char
     int counter = 1, num_len;
     LUT = fopen(lut_dir,"w");
-    printf("Saving LUT");
+    printf("Saving LUT \n");
     fprintf(LUT,"|\tKey  %-15s|\tValue\n", "");
     while (key != NULL)
     {
         num_len = num_Len(counter);
         strcpy(str, key->data);
-        fprintf(LUT, "%d%-*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", ngram * 5 + strlen(str) / 2, str, ngram * 5 - strlen(str) / 2, "");
+        fprintf(LUT, "%d%*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", (len / 2) + (strlen(str) / 2), str, (len / 2) - (strlen(str) / 2), "");
         display_save(value->value, LUT);
         value = value->nexts;
         fprintf(LUT, "}\n");
@@ -400,8 +408,9 @@ void save_LUT()
         counter++;
     }
     fclose(LUT);
-    printf("LUT saved in %s",lut_dir);
+    printf("LUT saved in %s \n",lut_dir);
 }
+
 node *link_gram(node *head, int n_gram)
 {
     char temp_2[1000];
@@ -607,7 +616,8 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
     if (isLUT_ready())
     {
         /* code */
-        result = fopen(out_dir,"w");
+        char count;
+
 
         int num_words, counter, choosen_value, choosen_key, choosen_to_key, same_1_word = 0, i, end = 0;
         int index_selected[range];
@@ -617,9 +627,23 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         {
             /* code */
             printf("\nMasukkan jumlah kata yang ingin ditampilkan : ");
-            scanf("%d", &num_words);
+            scanf(" %d", &num_words);
         } while (num_words < ngram+1);
-        
+
+        do
+        {
+            /* code */
+            printf("\n Apakah perlu counter (Y/N) : ");
+            scanf(" %c", &count);
+        } while (!((count == 'Y') ^ (count == 'N')));
+
+        red();
+        printf("SAVING..\n");
+        reset();
+    	
+        result = fopen(out_dir, "w");
+
+
         fprintf(result,"\n...");
 
         char **key_temp = (char **)malloc(range * sizeof(char *));
@@ -684,7 +708,12 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
             }
 
             counter += 1;
-            fprintf(result,"(%d)", counter);
+            if ((counter % 10 == 0) && (count == 'Y'))
+            {
+                /* code */
+                fprintf(result,"(%d)", counter);
+            }
+            
         }
 
         if (end == 1)
@@ -697,7 +726,10 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         }
 
         fclose(result);
+        
+        red();
         printf("Text Berhasil Disimpan di %s \n", out_dir);
+        reset();
     }
     
 }
