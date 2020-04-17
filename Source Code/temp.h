@@ -83,7 +83,7 @@ int isReady(){
 
 int isLUT_ready(){
     int is = 1;
-    if (key == NULL && !isReady())
+    if (key == NULL)
     {
         printf("LUT not ready yet\n");
         is = 0;
@@ -348,6 +348,7 @@ void display_value(node *head)
 int num_Len(int counter){
     return floor(log10(abs(counter))) + 1;
 }
+
 void display_LUT(node *key, value_node *value)
 {
     int len =ngram*w_len; 
@@ -358,7 +359,7 @@ void display_LUT(node *key, value_node *value)
     {
         num_len = num_Len(counter);
         strcpy(str,key->data);
-        printf(" %d%-*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", (len / 2) + (strlen(str) / 2), str, (len / 2) - (strlen(str) / 2), "");
+        printf(" %d%*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", (len / 2) + (strlen(str) / 2), str, (len / 2) - (strlen(str) / 2), "");
         display_value(value->value);
         value = value->nexts;
         printf("}\n");
@@ -383,13 +384,13 @@ void display_save(node *head, FILE* LUT)
     }
 }
 
-void save_LUT()
+void save_LUT(node *key, value_node *value)
 {
     int len = ngram * w_len;
     char str[len]; // Asusmsi word rata"sepanjang 10 char
     int counter = 1, num_len;
     LUT = fopen(lut_dir,"w");
-    printf("Saving LUT");
+    printf("Saving LUT \n");
     fprintf(LUT,"|\tKey  %-15s|\tValue\n", "");
     while (key != NULL)
     {
@@ -403,8 +404,9 @@ void save_LUT()
         counter++;
     }
     fclose(LUT);
-    printf("LUT saved in %s",lut_dir);
+    printf("LUT saved in %s \n",lut_dir);
 }
+
 node *link_gram(node *head, int n_gram)
 {
     char temp_2[1000];

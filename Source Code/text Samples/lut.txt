@@ -1,234 +1,2085 @@
 |	Key                 |	Value
-1      |	#include <stdio.h>  |	{ #include }
-2      |	<stdio.h> #include  |	{ <stdlib.h> }
-3      |	#include <stdlib.h> |	{ #include }
-4      |	<stdlib.h> #include |	{ <string.h> }
-5      |	#include <string.h> |	{ #include }
-6      |	<string.h> #include |	{ <time.h> }
-7      |	 #include <time.h>  |	{ #include }
-8      |	 <time.h> #include  |	{ <math.h> }
-9      |	 #include <math.h>  |	{ typedef }
-10     |	 <math.h> typedef   |	{ struct }
-11     |	  typedef struct    |	{ node , value_node }
-12     |	    struct node     |	{ { , *next; }
-13     |	      node {        |	{ char }
-14     |	      { char        |	{ data[1024]; , c; , temp[1024]; , str[ngram*10]; , str[ngram , temp_2[1000]; , temp_2[1000]; , temp_gram[1000]; }
-15     |	 char data[1024];   |	{ struct }
-16     |	data[1024]; struct  |	{ node }
-17     |	    node *next;     |	{ } }
-18     |	     *next; }       |	{ node; }
-19     |	      } node;       |	{ typedef }
-20     |	   node; typedef    |	{ struct }
-21     |	 struct value_node  |	{ { , *nexts; }
-22     |	   value_node {     |	{ node }
-23     |	      { node        |	{ *value; , *p, , *temp , *temp_check }
-24     |	   node *value;     |	{ struct }
-25     |	  *value; struct    |	{ value_node }
-26     |	value_node *nexts;  |	{ } }
-27     |	     *nexts; }      |	{ value_node; }
-28     |	   } value_node;    |	{ node }
-29     |	 value_node; node   |	{ *words; }
-30     |	   node *words;     |	{ node }
-31     |	   *words; node     |	{ *linked_list; }
-32     |	node *linked_list;  |	{ node }
-33     |	*linked_list; node  |	{ *key, }
-34     |	    node *key,      |	{ *key1, }
-35     |	   *key, *key1,     |	{ *key2; }
-36     |	   *key1, *key2;    |	{ value_node }
-37     |	 *key2; value_node  |	{ *value, }
-38     |	value_node *value,  |	{ *value1, , int }
-39     |	 *value, *value1,   |	{ *value2; }
-40     |	 *value1, *value2;  |	{ node }
-41     |	   *value2; node    |	{ *word_store; }
-42     |	 node *word_store;  |	{ node }
-43     |	 *word_store; node  |	{ *head_new; }
-44     |	  node *head_new;   |	{ node }
-45     |	  *head_new; node   |	{ *lines; }
-46     |	   node *lines;     |	{ node }
-47     |	   *lines; node     |	{ *lines_new; }
-48     |	 node *lines_new;   |	{ int }
-49     |	  *lines_new; int   |	{ ngram, }
-50     |	    int ngram,      |	{ range_key, }
-51     |	 ngram, range_key,  |	{ maksimum }
-52     |	range_key, maksimum |	{ = }
-53     |	    maksimum =      |	{ 0; , 0; , range_value[i]; , max_value(range_value, }
-54     |	       = 0;         |	{ char , printf("Reference , printf("'N'-Gram , } , //IO , i , } , j , i , } , } , i , } , break; , while , (y , (y , i , for , s[i]; , for , i , for , w[l]; , i , int , i , i , i , while , if , while , while , while , for , i , while , i , i , i , j }
-55     |	      0; char       |	{ **arrKey; }
-56     |	  char **arrKey;    |	{ char }
-57     |	  **arrKey; char    |	{ **arrKey_temp; }
-58     |	char **arrKey_temp; |	{ char }
-59     |	**arrKey_temp; char |	{ ***arrValue; }
-60     |	 char ***arrValue;  |	{ int }
-61     |	 ***arrValue; int   |	{ *range_value; }
-62     |	 int *range_value;  |	{ // }
-63     |	 *range_value; //   |	{ File }
-64     |	      // File       |	{ Setting }
-65     |	   File Setting     |	{ FILE }
-66     |	   Setting FILE     |	{ *ref_text, }
-67     |	  FILE *ref_text,   |	{ *buff, }
-68     |	 *ref_text, *buff,  |	{ *result, }
-69     |	  *buff, *result,   |	{ *LUT; }
-70     |	  *result, *LUT;    |	{ char }
-71     |	    *LUT; char      |	{ out_dir[] }
-72     |	  char out_dir[]    |	{ = }
-73     |	    out_dir[] =     |	{ "text }
-74     |	      = "text       |	{ samples/out.txt"; , samples/lut.txt"; , samples/"; , samples/"; }
-75     |	"text samples/out.txt";   |	{ char }
-76     |	samples/out.txt"; char  |	{ lut_dir[] }
-77     |	  char lut_dir[]    |	{ = }
-78     |	    lut_dir[] =     |	{ "text }
-79     |	"text samples/lut.txt";   |	{ char }
-80     |	samples/lut.txt"; char  |	{ file_dir[64] }
-81     |	 char file_dir[64]  |	{ = }
-82     |	  file_dir[64] =    |	{ "text }
-83     |	 "text samples/";   |	{ char , char }
-84     |	  samples/"; char   |	{ default_folder[] , filename[64]; }
-85     |	char default_folder[]  |	{ = }
-86     |	default_folder[] =  |	{ "text }
-87     |	char filename[64];  |	{ void }
-88     |	filename[64]; void  |	{ red() }
-89     |	    void red()      |	{ { }
-90     |	      red() {       |	{ printf("\033[1;31m"); }
-91     |	{ printf("\033[1;31m");   |	{ } }
-92     |	printf("\033[1;31m"); }   |	{ void }
-93     |	      } void        |	{ yellow() , blue() , reset() , processing(node , prepare_text(){ , print_ref(){ , print_out() , readFile(node , display(node , display_value(node , display_LUT(node , display_save(node , save_LUT() , output(char , count_value(node , arrBuild() , process(){ }
-94     |	   void yellow()    |	{ { }
-95     |	    yellow() {      |	{ printf("\033[1;33m"); }
-96     |	{ printf("\033[1;33m");   |	{ } }
-97     |	printf("\033[1;33m"); }   |	{ void }
-98     |	    void blue()     |	{ { }
-99     |	     blue() {       |	{ printf("\033[1;34m"); }
-100    |	{ printf("\033[1;34m");   |	{ } }
-101    |	printf("\033[1;34m"); }   |	{ void }
-102    |	   void reset()     |	{ { }
-103    |	     reset() {      |	{ printf("\033[0m"); }
-104    |	{ printf("\033[0m"); |	{ } }
-105    |	printf("\033[0m"); } |	{ int }
-106    |	       } int        |	{ isReady(){ , isLUT_ready(){ , key_valid(node , num_Len(int , printRandoms(int , count_key(node , max_value(int }
-107    |	  int isReady(){    |	{ int }
-108    |	  isReady(){ int    |	{ is }
-109    |	      int is        |	{ = , = }
-110    |	       is =         |	{ 1; , 0; , 0; , 1; , 0; }
-111    |	       = 1;         |	{ buff , if , } , } }
-112    |	      1; buff       |	{ = }
-113    |	      buff =        |	{ fopen(file_dir, , fopen(file_dir, , fopen(out_dir, }
-114    |	 = fopen(file_dir,  |	{ "r"); , "r"); , "r"); }
-115    |	fopen(file_dir, "r");  |	{ if , if , c }
-116    |	     "r"); if       |	{ (buff , (ref_text }
-117    |	     if (buff       |	{ == }
-118    |	     (buff ==       |	{ NULL) }
-119    |	     == NULL)       |	{ { , { , { , { , { , { , { , { , { , { }
-120    |	      NULL) {       |	{ is , r , if , perror("File , for , if , return , printf("%s\n", , if , printf(" , num_len , if , fprintf(LUT, , num_len , tempo , temp , tempo , temp , temp2 , strcpy(temp_gram, , temp_tok , new_node , tempo->value , temp_value , value , range_value[count] , range_value[count] , strcpy(arrKey[counter], , if , strcpy(arrValue[counter][i], }
-121    |	       { is         |	{ = , = }
-122    |	0; printf("Reference |	{ Text }
-123    |	printf("Reference Text  |	{ Not }
-124    |	     Text Not       |	{ Exist }
-125    |	     Not Exist      |	{ yet }
-126    |	     Exist yet      |	{ \n"); }
-127    |	     yet \n");      |	{ } }
-128    |	      \n"); }       |	{ if }
-129    |	       } if         |	{ (ngram , (t_key , (temp_tok , (temp_value , (t , (end }
-130    |	     if (ngram      |	{ == }
-131    |	     (ngram ==      |	{ 0) }
-132    |	       == 0)        |	{ { , { , { , { }
-133    |	       0) {         |	{ is , } , return , temp_tok , index_selected[same_1_word] }
-134    |	0; printf("'N'-Gram |	{ Not }
-135    |	printf("'N'-Gram Not |	{ Set }
-136    |	      Not Set       |	{ Yet\n"); }
-137    |	   Set Yet\n");     |	{ } }
-138    |	    Yet\n"); }      |	{ return }
-139    |	     } return       |	{ is; , is; , (1); , (temp); , (temp); , (temp_value); , range_key; , maksimum; }
-140    |	    return is;      |	{ } , } }
-141    |	       is; }        |	{ int , // }
-142    |	int isLUT_ready(){  |	{ int }
-143    |	isLUT_ready(){ int  |	{ is }
-144    |	       1; if        |	{ (key }
-145    |	      if (key       |	{ == }
-146    |	      (key ==       |	{ NULL }
-147    |	      == NULL       |	{ && }
-148    |	      NULL &&       |	{ !isReady()) }
-149    |	  && !isReady())    |	{ { }
-150    |	   !isReady()) {    |	{ printf("LUT }
-151    |	   { printf("LUT    |	{ not }
-152    |	  printf("LUT not   |	{ ready }
-153    |	     not ready      |	{ yet\n"); }
-154    |	  ready yet\n");    |	{ is }
-155    |	    yet\n"); is     |	{ = }
-156    |	       0; }         |	{ return , //to , j_last , else , //printf("->%s", }
-157    |	       } //         |	{ Naoko , Raka }
-158    |	     // Naoko       |	{ Punya }
-159    |	    Naoko Punya     |	{ void }
-160    |	    Punya void      |	{ inverse_node(node }
-161    |	void inverse_node(node  |	{ **head) }
-162    |	inverse_node(node **head)    |	{ { }
-163    |	     **head) {      |	{ node , char }
-164    |	     node *p,       |	{ *q, }
-165    |	      *p, *q,       |	{ *r; }
-166    |	      *q, *r;       |	{ p }
-167    |	       *r; p        |	{ = }
-168    |	        p =         |	{ q , p->next->next; , p->next; }
-169    |	        = q         |	{ = }
-170    |	        q =         |	{ r , q->next; , p; }
-171    |	        = r         |	{ = }
-172    |	        r =         |	{ *head; , q; }
-173    |	     = *head;       |	{ p }
-174    |	     *head; p       |	{ = }
-175    |	 = p->next->next;   |	{ q }
-176    |	 p->next->next; q   |	{ = }
-177    |	    = q->next;      |	{ r->next }
-178    |	 q->next; r->next   |	{ = }
-179    |	     r->next =      |	{ NULL; }
-180    |	      = NULL;       |	{ q->next , word_store , //read , node , prev , prev->next , node , prev , prev->next , value_node , while , prev , prev->next , tempo_prev , tempo_prev->nexts }
-181    |	   NULL; q->next    |	{ = }
-182    |	     q->next =      |	{ r; , r; }
-183    |	       = r;         |	{ while , } }
-184    |	     r; while       |	{ (p }
-185    |	     while (p       |	{ != }
-186    |	       (p !=        |	{ NULL) }
-187    |	     != NULL)       |	{ { , { , { , { , { , { , { , { , { , { , { , { , { , { , { , { , { , { , { , { }
-188    |	        { r         |	{ = }
-189    |	       = q;         |	{ q , } }
-190    |	       q; q         |	{ = }
-191    |	       = p;         |	{ p }
-192    |	       p; p         |	{ = }
-193    |	    = p->next;      |	{ q->next }
-194    |	 p->next; q->next   |	{ = }
-195    |	       r; }         |	{ *head }
-196    |	      } *head       |	{ = }
-197    |	      *head =       |	{ q; , word_store; }
-198    |	       q; }         |	{ void }
-199    |	void processing(node |	{ *head) }
-200    |	processing(node *head)  |	{ { }
-201    |	     *head) {       |	{ node , while , while }
-202    |	    node *temp      |	{ = , = , = }
-203    |	      *temp =       |	{ head; , NULL; , NULL; }
-204    |	      = head;       |	{ while , node , node }
-205    |	    head; while     |	{ (temp->next }
-206    |	 while (temp->next  |	{ != }
-207    |	  (temp->next !=    |	{ NULL) }
-208    |	       { if         |	{ (temp->next->data[0] , (lines->data[j] , (strcmp(data, , (head->next , (head->next , (temp , (temp_tok , (s[i] , (s[l , (strcmp(key_temp[i], , (maksimum , (value2->value->next }
-209    |	if (temp->next->data[0]   |	{ == }
-210    |	(temp->next->data[0] ==   |	{ 0 }
-211    |	       == 0         |	{ || }
-212    |	       0 ||         |	{ temp->next->data[0] }
-213    |	|| temp->next->data[0]  |	{ == }
-214    |	temp->next->data[0] ==  |	{ 9) }
-215    |	       == 9)        |	{ { , { }
-216    |	       9) {         |	{ temp->next , //puts("a"); }
-217    |	   { temp->next     |	{ = }
-218    |	   temp->next =     |	{ temp->next->next; , NULL; , NULL; }
-219    |	= temp->next->next; |	{ } }
-220    |	temp->next->next; } |	{ else }
-221    |	      } else        |	{ { , { , if , if , if , { , { , { , { , { , { , { , { , { , { , { }
-222    |	      else {        |	{ temp , printf("File , temp[j_last] , temp_check , return , printf(" , fprintf(LUT," , new_node->next , new_node->next , new_node->next , tempo->nexts , fprintf(result,"..."); , strcpy(arrValue[counter][i], }
-223    |	      { temp        |	{ = , = , = }
-224    |	      temp =        |	{ temp->next; , (node , (node }
-225    |	   = temp->next;    |	{ } }
-226    |	   temp->next; }    |	{ } }
-227    |	        } }         |	{ } , void , void , void , lines , return , void , void , int , void , void , strcpy(temp_2, , if , } , temp2 , a[k++] , if , j , int , int , int , return , void , arrBuild(key2, }
-228    |	void prepare_text(){ |	{ printf("File }
-229    |	prepare_text(){ printf("File     |	{ Name }
-230    |	 printf("File Name  |	{ in }
-231    |	      Name in       |	{ Directory }
-232    |	   in Directory     |	{ text }
-23
+1      |	           You've gotta a lotta lotta             |	{ nerve }
+2      |	            gotta a lotta lotta nerve             |	{ Coming }
+3      |	           a lotta lotta nerve Coming             |	{ here }
+4      |	          lotta lotta nerve Coming here           |	{ when }
+5      |	          lotta nerve Coming here when            |	{ I'm }
+6      |	           nerve Coming here when I'm             |	{ still }
+7      |	           Coming here when I'm still             |	{ with }
+8      |	            here when I'm still with              |	{ him }
+9      |	             when I'm still with him              |	{ And }
+10     |	             I'm still with him And               |	{ I }
+11     |	              still with him And I                |	{ can't }
+12     |	              with him And I can't                |	{ have }
+13     |	              him And I can't have                |	{ you, }
+14     |	              And I can't have you,               |	{ it }
+15     |	              I can't have you, it                |	{ isn't }
+16     |	            can't have you, it isn't              |	{ fair }
+17     |	             have you, it isn't fair              |	{ Born }
+18     |	             you, it isn't fair Born              |	{ March }
+19     |	            it isn't fair Born March              |	{ of }
+20     |	            isn't fair Born March of              |	{ '86, }
+21     |	             fair Born March of '86,              |	{ my }
+22     |	              Born March of '86, my               |	{ birthday's }
+23     |	           March of '86, my birthday's            |	{ coming }
+24     |	          of '86, my birthday's coming            |	{ And }
+25     |	          '86, my birthday's coming And           |	{ if }
+26     |	           my birthday's coming And if            |	{ I }
+27     |	           birthday's coming And if I             |	{ had }
+28     |	               coming And if I had                |	{ one }
+29     |	                And if I had one                  |	{ wish, }
+30     |	               if I had one wish,                 |	{ yeah, }
+31     |	              I had one wish, yeah,               |	{ you'd }
+32     |	            had one wish, yeah, you'd             |	{ be }
+33     |	            one wish, yeah, you'd be              |	{ it }
+34     |	             wish, yeah, you'd be it              |	{ When }
+35     |	             yeah, you'd be it When               |	{ you're }
+36     |	             you'd be it When you're              |	{ 'round }
+37     |	            be it When you're 'round              |	{ I }
+38     |	             it When you're 'round I              |	{ lose }
+39     |	            When you're 'round I lose             |	{ myself , myself }
+40     |	           you're 'round I lose myself            |	{ inside , inside }
+41     |	           'round I lose myself inside            |	{ your , your }
+42     |	            I lose myself inside your             |	{ mouth , mouth }
+43     |	          lose myself inside your mouth           |	{ You've , You've }
+44     |	         myself inside your mouth You've          |	{ got , got }
+45     |	          inside your mouth You've got            |	{ brown , brown }
+46     |	           your mouth You've got brown            |	{ eyes , eyes }
+47     |	           mouth You've got brown eyes            |	{ like , like }
+48     |	           You've got brown eyes like             |	{ no , no }
+49     |	             got brown eyes like no               |	{ one , one }
+50     |	             brown eyes like no one               |	{ else , else }
+51     |	              eyes like no one else               |	{ Baby, , Baby, }
+52     |	             like no one else Baby,               |	{ make , make }
+53     |	             no one else Baby, make               |	{ it , it }
+54     |	             one else Baby, make it               |	{ to , to }
+55     |	              else Baby, make it to               |	{ me , me }
+56     |	               Baby, make it to me                |	{ Again , Again }
+57     |	               make it to me Again                |	{ and , and }
+58     |	               it to me Again and                 |	{ again, , again, }
+59     |	             to me Again and again,               |	{ again, , again, }
+60     |	           me Again and again, again,             |	{ again, , again, }
+61     |	         Again and again, again, again,           |	{ again, , again, , again, , again, }
+62     |	         and again, again, again, again,          |	{ again , again , again , again }
+63     |	        again, again, again, again, again         |	{ Never , Never , Never , Never }
+64     |	        again, again, again, again Never          |	{ stop , stop, , stop , stop, }
+65     |	         again, again, again Never stop           |	{ Again , Again }
+66     |	          again, again Never stop Again           |	{ and , and }
+67     |	           again Never stop Again and             |	{ again, , again, }
+68     |	           Never stop Again and again,            |	{ again, , again, }
+69     |	          stop Again and again, again,            |	{ again, , again, }
+70     |	         again, again, again Never stop,          |	{ oh , oh }
+71     |	           again, again Never stop, oh            |	{ He , They }
+72     |	             again Never stop, oh He              |	{ never }
+73     |	             Never stop, oh He never              |	{ really }
+74     |	            stop, oh He never really              |	{ saw }
+75     |	             oh He never really saw               |	{ me }
+76     |	             He never really saw me               |	{ Or }
+77     |	             never really saw me Or               |	{ waited }
+78     |	             really saw me Or waited              |	{ when }
+79     |	              saw me Or waited when               |	{ we }
+80     |	              me Or waited when we                |	{ were }
+81     |	             Or waited when we were               |	{ hooking }
+82     |	           waited when we were hooking            |	{ up }
+83     |	             when we were hooking up              |	{ Yeah, }
+84     |	            we were hooking up Yeah,              |	{ he'd }
+85     |	           were hooking up Yeah, he'd             |	{ a }
+86     |	             hooking up Yeah, he'd a              |	{ never }
+87     |	              up Yeah, he'd a never               |	{ last }
+88     |	             Yeah, he'd a never last              |	{ Last }
+89     |	             he'd a never last Last               |	{ week }
+90     |	             a never last Last week               |	{ when }
+91     |	            never last Last week when             |	{ I }
+92     |	              last Last week when I               |	{ was }
+93     |	              Last week when I was                |	{ sad }
+94     |	               week when I was sad                |	{ You }
+95     |	               when I was sad You                 |	{ said }
+96     |	               I was sad You said                 |	{ that }
+97     |	              was sad You said that               |	{ you }
+98     |	              sad You said that you               |	{ knew }
+99     |	             You said that you knew               |	{ My }
+100    |	              said that you knew My               |	{ eyes }
+101    |	              that you knew My eyes               |	{ change }
+102    |	             you knew My eyes change              |	{ from }
+103    |	            knew My eyes change from              |	{ kinda }
+104    |	            My eyes change from kinda             |	{ green }
+105    |	          eyes change from kinda green            |	{ To }
+106    |	           change from kinda green To             |	{ kind }
+107    |	            from kinda green To kind              |	{ blue, }
+108    |	            kinda green To kind blue,             |	{ heya }
+109    |	            green To kind blue, heya              |	{ When }
+110    |	             To kind blue, heya When              |	{ you're }
+111    |	           kind blue, heya When you're            |	{ 'round }
+112    |	          blue, heya When you're 'round           |	{ I }
+113    |	            heya When you're 'round I             |	{ lose }
+114    |	            again Never stop, oh They             |	{ tell }
+115    |	            Never stop, oh They tell              |	{ me }
+116    |	              stop, oh They tell me               |	{ if }
+117    |	               oh They tell me if                 |	{ I }
+118    |	                They tell me if I                 |	{ leave }
+119    |	               tell me if I leave                 |	{ him }
+120    |	                me if I leave him                 |	{ Baby, }
+121    |	              if I leave him Baby,                |	{ would }
+122    |	             I leave him Baby, would              |	{ you }
+123    |	            leave him Baby, would you             |	{ be }
+124    |	             him Baby, would you be               |	{ there? }
+125    |	            Baby, would you be there?             |	{ 'Cause }
+126    |	           would you be there? 'Cause             |	{ maybe }
+127    |	           you be there? 'Cause maybe             |	{ you }
+128    |	           be there? 'Cause maybe you             |	{ could }
+129    |	          there? 'Cause maybe you could           |	{ Be }
+130    |	            'Cause maybe you could Be             |	{ m-m-mine }
+131    |	           maybe you could Be m-m-mine            |	{ all }
+132    |	            you could Be m-m-mine all             |	{ the }
+133    |	            could Be m-m-mine all the             |	{ t-t-time }
+134    |	          Be m-m-mine all the t-t-time            |	{ I'm }
+135    |	          m-m-mine all the t-t-time I'm           |	{ beautiful }
+136    |	         all the t-t-time I'm beautiful           |	{ in }
+137    |	          the t-t-time I'm beautiful in           |	{ my }
+138    |	          t-t-time I'm beautiful in my            |	{ way }
+139    |	             I'm beautiful in my way              |	{ Cause }
+140    |	            beautiful in my way Cause             |	{ God }
+141    |	               in my way Cause God                |	{ makes }
+142    |	             my way Cause God makes               |	{ no }
+143    |	             way Cause God makes no               |	{ mistakes }
+144    |	           Cause God makes no mistakes            |	{ I'm }
+145    |	            God makes no mistakes I'm             |	{ on }
+146    |	            makes no mistakes I'm on              |	{ the }
+147    |	             no mistakes I'm on the               |	{ right }
+148    |	            mistakes I'm on the right             |	{ track }
+149    |	             I'm on the right track               |	{ Baby }
+150    |	             on the right track Baby              |	{ I }
+151    |	             the right track Baby I               |	{ was }
+152    |	             right track Baby I was               |	{ born }
+153    |	              track Baby I was born               |	{ this }
+154    |	              Baby I was born this                |	{ way. }
+155    |	              I was born this way.                |	{ One }
+156    |	             was born this way. One               |	{ look }
+157    |	             born this way. One look              |	{ and }
+158    |	             this way. One look and               |	{ I'm }
+159    |	              way. One look and I'm               |	{ done }
+160    |	              One look and I'm done               |	{ One }
+161    |	              look and I'm done One               |	{ glance }
+162    |	             and I'm done One glance              |	{ from }
+163    |	            I'm done One glance from              |	{ your }
+164    |	            done One glance from your             |	{ eyes }
+165    |	            One glance from your eyes             |	{ And }
+166    |	            glance from your eyes And             |	{ I'm }
+167    |	             from your eyes And I'm               |	{ captivated }
+168    |	          your eyes And I'm captivated            |	{ The }
+169    |	           eyes And I'm captivated The            |	{ taste }
+170    |	          And I'm captivated The taste            |	{ of }
+171    |	           I'm captivated The taste of            |	{ your }
+172    |	          captivated The taste of your            |	{ skin }
+173    |	             The taste of your skin               |	{ The }
+174    |	             taste of your skin The               |	{ warmth }
+175    |	             of your skin The warmth              |	{ of }
+176    |	             your skin The warmth of              |	{ your }
+177    |	             skin The warmth of your              |	{ hungry }
+178    |	            The warmth of your hungry             |	{ lips }
+179    |	           warmth of your hungry lips             |	{ Has }
+180    |	             of your hungry lips Has              |	{ me }
+181    |	             your hungry lips Has me              |	{ so }
+182    |	              hungry lips Has me so               |	{ taken }
+183    |	              lips Has me so taken                |	{ and }
+184    |	               Has me so taken and                |	{ I }
+185    |	                me so taken and I                 |	{ Love }
+186    |	               so taken and I Love                |	{ the }
+187    |	              taken and I Love the                |	{ way }
+188    |	               and I Love the way                 |	{ you , you }
+189    |	               I Love the way you                 |	{ can , can }
+190    |	              Love the way you can                |	{ make , make }
+191    |	              the way you can make                |	{ me , me }
+192    |	               way you can make me                |	{ dance , dance }
+193    |	              you can make me dance               |	{ From , From }
+194    |	             can make me dance From               |	{ miles , miles }
+195    |	            make me dance From miles              |	{ away , away }
+196    |	            me dance From miles away              |	{ When , When }
+197    |	           dance From miles away When             |	{ I'm , I'm }
+198    |	            From miles away When I'm              |	{ with , with }
+199    |	            miles away When I'm with              |	{ you , you }
+200    |	             away When I'm with you               |	{ I'm , I'm }
+201    |	              When I'm with you I'm               |	{ so , never }
+202    |	               I'm with you I'm so                |	{ sedated }
+203    |	             with you I'm so sedated              |	{ I'm }
+204    |	             you I'm so sedated I'm               |	{ captivated }
+205    |	          I'm so sedated I'm captivated           |	{ by }
+206    |	          so sedated I'm captivated by            |	{ you }
+207    |	          sedated I'm captivated by you           |	{ You're }
+208    |	          I'm captivated by you You're            |	{ just }
+209    |	          captivated by you You're just           |	{ like }
+210    |	             by you You're just like              |	{ the }
+211    |	            you You're just like the              |	{ wind }
+212    |	            You're just like the wind             |	{ 'cuz }
+213    |	             just like the wind 'cuz              |	{ Everything }
+214    |	          like the wind 'cuz Everything           |	{ moves }
+215    |	         the wind 'cuz Everything moves           |	{ away }
+216    |	         wind 'cuz Everything moves away          |	{ when }
+217    |	         'cuz Everything moves away when          |	{ you're }
+218    |	        Everything moves away when you're         |	{ around }
+219    |	          moves away when you're around           |	{ it }
+220    |	           away when you're around it             |	{ The }
+221    |	            when you're around it The             |	{ sun }
+222    |	            you're around it The sun              |	{ is }
+223    |	              around it The sun is                |	{ just }
+224    |	               it The sun is just                 |	{ like }
+225    |	              The sun is just like                |	{ the }
+226    |	              sun is just like the                |	{ sound }
+227    |	             is just like the sound               |	{ of }
+228    |	             just like the sound of               |	{ your }
+229    |	             like the sound of your               |	{ voice }
+230    |	             the sound of your voice              |	{ in }
+231    |	             sound of your voice in               |	{ the }
+232    |	              of your voice in the                |	{ morning }
+233    |	            your voice in the morning             |	{ When }
+234    |	            voice in the morning When             |	{ you }
+235    |	             in the morning When you              |	{ light }
+236    |	           the morning When you light             |	{ my }
+237    |	            morning When you light my             |	{ world }
+238    |	             When you light my world              |	{ up }
+239    |	              you light my world up               |	{ and }
+240    |	              light my world up and               |	{ I }
+241    |	                my world up and I                 |	{ Love }
+242    |	               world up and I Love                |	{ the }
+243    |	                up and I Love the                 |	{ way }
+244    |	             I'm with you I'm never               |	{ jaded, }
+245    |	            with you I'm never jaded,             |	{ I'm }
+246    |	            you I'm never jaded, I'm              |	{ captivated }
+247    |	         I'm never jaded, I'm captivated          |	{ Ooh }
+248    |	         never jaded, I'm captivated Ooh          |	{ ooh }
+249    |	          jaded, I'm captivated Ooh ooh           |	{ ohh }
+250    |	           I'm captivated Ooh ooh ohh             |	{ oh }
+251    |	            captivated Ooh ooh ohh oh             |	{ oh }
+252    |	                Ooh ooh ohh oh oh                 |	{ oh , oh , oh }
+253    |	                ooh ohh oh oh oh                  |	{ Ooh , oooh , Silicone, }
+254    |	                ohh oh oh oh Ooh                  |	{ ooh }
+255    |	                oh oh oh Ooh ooh                  |	{ ohh }
+256    |	                oh oh Ooh ooh ohh                 |	{ oh }
+257    |	                oh Ooh ooh ohh oh                 |	{ oh }
+258    |	                ohh oh oh oh oooh                 |	{ oh }
+259    |	                oh oh oh oooh oh                  |	{ oh }
+260    |	                oh oh oooh oh oh                  |	{ oooh , ooh }
+261    |	               oh oooh oh oh oooh                 |	{ oh }
+262    |	               oooh oh oh oooh oh                 |	{ oh }
+263    |	                oh oooh oh oh ooh                 |	{ ooh }
+264    |	               oooh oh oh ooh ooh                 |	{ ooh }
+265    |	                oh oh ooh ooh ooh                 |	{ ooh }
+266    |	               oh ooh ooh ooh ooh                 |	{ I, }
+267    |	               ooh ooh ooh ooh I,                 |	{ need }
+268    |	               ooh ooh ooh I, need                |	{ somebody }
+269    |	            ooh ooh I, need somebody              |	{ who }
+270    |	            ooh I, need somebody who              |	{ calls }
+271    |	           I, need somebody who calls             |	{ my }
+272    |	           need somebody who calls my             |	{ name }
+273    |	           somebody who calls my name             |	{ When }
+274    |	             who calls my name When               |	{ clouds }
+275    |	            calls my name When clouds             |	{ are }
+276    |	             my name When clouds are              |	{ smokin }
+277    |	           name When clouds are smokin            |	{ up }
+278    |	            When clouds are smokin up             |	{ my }
+279    |	             clouds are smokin up my              |	{ way }
+280    |	              are smokin up my way                |	{ You }
+281    |	              smokin up my way You                |	{ get }
+282    |	                up my way You get                 |	{ me }
+283    |	                my way You get me                 |	{ through }
+284    |	             way You get me through               |	{ these }
+285    |	            You get me through these              |	{ ch-changing , ch-changing }
+286    |	        get me through these ch-changing          |	{ skies , skies }
+287    |	       me through these ch-changing skies         |	{ I, , Give }
+288    |	       through these ch-changing skies I,         |	{ don't }
+289    |	        these ch-changing skies I, don't          |	{ wanna }
+290    |	        ch-changing skies I, don't wanna          |	{ be }
+291    |	             skies I, don't wanna be              |	{ afraid }
+292    |	            I, don't wanna be afraid              |	{ again }
+293    |	           don't wanna be afraid again            |	{ It's }
+294    |	           wanna be afraid again It's             |	{ just }
+295    |	            be afraid again It's just             |	{ that }
+296    |	           afraid again It's just that            |	{ I }
+297    |	             again It's just that I               |	{ could }
+298    |	             It's just that I could               |	{ use }
+299    |	              just that I could use               |	{ a }
+300    |	               that I could use a                 |	{ friend }
+301    |	              I could use a friend                |	{ You }
+302    |	             could use a friend You               |	{ get }
+303    |	              use a friend You get                |	{ me }
+304    |	               a friend You get me                |	{ through }
+305    |	            friend You get me through             |	{ these }
+306    |	      through these ch-changing skies Give        |	{ me }
+307    |	         these ch-changing skies Give me          |	{ something }
+308    |	       ch-changing skies Give me something        |	{ that }
+309    |	          skies Give me something that            |	{ I }
+310    |	            Give me something that I              |	{ Can }
+311    |	             me something that I Can              |	{ wrestle }
+312    |	          something that I Can wrestle            |	{ to }
+313    |	              that I Can wrestle to               |	{ the }
+314    |	              I Can wrestle to the                |	{ ground }
+315    |	            Can wrestle to the ground             |	{ There }
+316    |	           wrestle to the ground There            |	{ isnt }
+317    |	            to the ground There isnt              |	{ anything }
+318    |	         the ground There isnt anything           |	{ that }
+319    |	         ground There isnt anything that          |	{ I }
+320    |	           There isnt anything that I             |	{ can't }
+321    |	           isnt anything that I can't             |	{ handle }
+322    |	          anything that I can't handle            |	{ now. }
+323    |	            that I can't handle now.              |	{ We're }
+324    |	            I can't handle now. We're             |	{ out }
+325    |	           can't handle now. We're out            |	{ Believe }
+326    |	          handle now. We're out Believe           |	{ me }
+327    |	            now. We're out Believe me             |	{ when }
+328    |	            We're out Believe me when             |	{ I }
+329    |	              out Believe me when I               |	{ say }
+330    |	              Believe me when I say               |	{ That }
+331    |	               me when I say That                 |	{ I }
+332    |	                when I say That I                 |	{ Will }
+333    |	                I say That I Will                 |	{ Be }
+334    |	               say That I Will Be                 |	{ Okay }
+335    |	               That I Will Be Okay                |	{ And }
+336    |	               I Will Be Okay And                 |	{ listen }
+337    |	             Will Be Okay And listen              |	{ that's }
+338    |	            Be Okay And listen that's             |	{ advised }
+339    |	         Okay And listen that's advised           |	{ and }
+340    |	          And listen that's advised and           |	{ my }
+341    |	          listen that's advised and my            |	{ Ch-Changing }
+342    |	        that's advised and my Ch-Changing         |	{ skies }
+343    |	        advised and my Ch-Changing skies          |	{ Changing }
+344    |	        and my Ch-Changing skies Changing         |	{ skies }
+345    |	       my Ch-Changing skies Changing skies        |	{ Ch-ch-ch-changing }
+346    |	Ch-Changing skies Changing skies Ch-ch-ch-changing |	{ Changing }
+347    |	 skies Changing skies Ch-ch-ch-changing Changing  |	{ skies }
+348    |	 Changing skies Ch-ch-ch-changing Changing skies  |	{ Ch-ch-ch-changing , Changing }
+349    |	skies Ch-ch-ch-changing Changing skies Ch-ch-ch-changing    |	{ Changing }
+350    |	Ch-ch-ch-changing Changing skies Ch-ch-ch-changing Changing      |	{ skies }
+351    |	 skies Ch-ch-ch-changing Changing skies Changing  |	{ skies }
+352    |	 Ch-ch-ch-changing Changing skies Changing skies  |	{ Changing }
+353    |	     Changing skies Changing skies Changing       |	{ skies }
+354    |	       skies Changing skies Changing skies        |	{ Ch-ch-ch-changing }
+355    |	 Changing skies Changing skies Ch-ch-ch-changing  |	{ Ooh }
+356    |	   skies Changing skies Ch-ch-ch-changing Ooh     |	{ ooh }
+357    |	    Changing skies Ch-ch-ch-changing Ooh ooh      |	{ ohh }
+358    |	       skies Ch-ch-ch-changing Ooh ooh ohh        |	{ oh }
+359    |	        Ch-ch-ch-changing Ooh ooh ohh oh          |	{ oh }
+360    |	             ohh oh oh oh Silicone,               |	{ saline, }
+361    |	           oh oh oh Silicone, saline,             |	{ poison, }
+362    |	         oh oh Silicone, saline, poison,          |	{ inject }
+363    |	       oh Silicone, saline, poison, inject        |	{ me, }
+364    |	      Silicone, saline, poison, inject me,        |	{ baby }
+365    |	         saline, poison, inject me, baby          |	{ I'm }
+366    |	           poison, inject me, baby I'm            |	{ a }
+367    |	              inject me, baby I'm a               |	{ free }
+368    |	               me, baby I'm a free                |	{ bitch }
+369    |	              baby I'm a free bitch               |	{ I'm }
+370    |	              I'm a free bitch I'm                |	{ a }
+371    |	               a free bitch I'm a                 |	{ free }
+372    |	              free bitch I'm a free               |	{ bitch }
+373    |	             bitch I'm a free bitch               |	{ Some }
+374    |	              I'm a free bitch Some               |	{ girls }
+375    |	             a free bitch Some girls              |	{ won't }
+376    |	           free bitch Some girls won't            |	{ dance }
+377    |	          bitch Some girls won't dance            |	{ to }
+378    |	            Some girls won't dance to             |	{ the }
+379    |	            girls won't dance to the              |	{ beat }
+380    |	             won't dance to the beat              |	{ of }
+381    |	              dance to the beat of                |	{ the }
+382    |	               to the beat of the                 |	{ track }
+383    |	              the beat of the track               |	{ She }
+384    |	              beat of the track She               |	{ won't }
+385    |	             of the track She won't               |	{ walk }
+386    |	            the track She won't walk              |	{ away, }
+387    |	           track She won't walk away,             |	{ but }
+388    |	            She won't walk away, but              |	{ she }
+389    |	            won't walk away, but she              |	{ won't }
+390    |	            walk away, but she won't              |	{ look }
+391    |	            away, but she won't look              |	{ back }
+392    |	             but she won't look back              |	{ She }
+393    |	             she won't look back She              |	{ looks }
+394    |	            won't look back She looks             |	{ good, }
+395    |	            look back She looks good,             |	{ but }
+396    |	            back She looks good, but              |	{ her }
+397    |	             She looks good, but her              |	{ boyfriend , boyfriend }
+398    |	          looks good, but her boyfriend           |	{ says , says }
+399    |	          good, but her boyfriend says            |	{ she's , she's }
+400    |	          but her boyfriend says she's            |	{ a , a }
+401    |	           her boyfriend says she's a             |	{ mess , tramp }
+402    |	           boyfriend says she's a mess            |	{ She's }
+403    |	             says she's a mess She's              |	{ a }
+404    |	              she's a mess She's a                |	{ mess, }
+405    |	              a mess She's a mess,                |	{ she's }
+406    |	            mess She's a mess, she's              |	{ a }
+407    |	              She's a mess, she's a               |	{ mess, , mess, }
+408    |	              a mess, she's a mess,               |	{ now , she's , she's }
+409    |	             mess, she's a mess, now              |	{ the }
+410    |	              she's a mess, now the               |	{ girl }
+411    |	              a mess, now the girl                |	{ is }
+412    |	              mess, now the girl is               |	{ stressed }
+413    |	            now the girl is stressed              |	{ She's }
+414    |	           the girl is stressed She's             |	{ a }
+415    |	            girl is stressed She's a              |	{ mess, }
+416    |	            is stressed She's a mess,             |	{ she's }
+417    |	          stressed She's a mess, she's            |	{ a }
+418    |	            mess, she's a mess, she's             |	{ a , a }
+419    |	              she's a mess, she's a               |	{ mess, , mess }
+420    |	              a mess, she's a mess                |	{ Baby }
+421    |	             mess, she's a mess Baby              |	{ loves }
+422    |	             she's a mess Baby loves              |	{ to }
+423    |	              a mess Baby loves to                |	{ dance }
+424    |	            mess Baby loves to dance              |	{ in }
+425    |	             Baby loves to dance in               |	{ the , the , the , the , the , the , the , the , the }
+426    |	              loves to dance in the               |	{ dark , dark , dark , dark , dark , dark , dark , dark , dark , dark , dark , dark, , dark , dark }
+427    |	              to dance in the dark                |	{ 'Cause , Baby , 'Cause , Run, , 'Cause , Baby , 'Cause , In , In , Marilyn, , 'Cause , 'Cause , In }
+428    |	            dance in the dark 'Cause              |	{ when , when , when , when , when , when }
+429    |	             in the dark 'Cause when              |	{ he's , he's , he's , he's , he's , he's }
+430    |	            the dark 'Cause when he's             |	{ lookin' , lookin' , lookin' , lookin' , lookin' , lookin' }
+431    |	          dark 'Cause when he's lookin'           |	{ she , she , she , she , she , she }
+432    |	          'Cause when he's lookin' she            |	{ falls , falls , falls , falls , falls , falls }
+433    |	           when he's lookin' she falls            |	{ apart , apart , apart , apart , apart , apart }
+434    |	          he's lookin' she falls apart            |	{ Baby , Baby , Baby , Baby , Baby , Baby }
+435    |	          lookin' she falls apart Baby            |	{ loves , loves , loves , loves , loves , loves }
+436    |	           she falls apart Baby loves             |	{ to , to , to , to , to , to }
+437    |	            falls apart Baby loves to             |	{ dance , dance, , dance , dance, , dance , dance, }
+438    |	            apart Baby loves to dance             |	{ in , in , in }
+439    |	             dance in the dark Baby               |	{ loves , loves , loves }
+440    |	             in the dark Baby loves               |	{ to , to , to }
+441    |	             the dark Baby loves to               |	{ dance , dance , dance }
+442    |	            dark Baby loves to dance              |	{ in , in , in }
+443    |	           apart Baby loves to dance,             |	{ loves , loves , loves }
+444    |	           Baby loves to dance, loves             |	{ to , to , to }
+445    |	            loves to dance, loves to              |	{ dance , dance , dance }
+446    |	            to dance, loves to dance              |	{ in , in , in }
+447    |	            dance, loves to dance in              |	{ the , the , the }
+448    |	             dance in the dark Run,               |	{ run }
+449    |	              in the dark Run, run                |	{ her }
+450    |	              the dark Run, run her               |	{ kiss }
+451    |	             dark Run, run her kiss               |	{ is }
+452    |	              Run, run her kiss is                |	{ a }
+453    |	                run her kiss is a                 |	{ vampire }
+454    |	              her kiss is a vampire               |	{ grin }
+455    |	             kiss is a vampire grin               |	{ The }
+456    |	              is a vampire grin The               |	{ moon }
+457    |	             a vampire grin The moon              |	{ lights }
+458    |	          vampire grin The moon lights            |	{ away }
+459    |	            grin The moon lights away             |	{ while }
+460    |	           The moon lights away while             |	{ she's }
+461    |	          moon lights away while she's            |	{ howlin' }
+462    |	         lights away while she's howlin'          |	{ at }
+463    |	           away while she's howlin' at            |	{ him }
+464    |	           while she's howlin' at him             |	{ She }
+465    |	            she's howlin' at him She              |	{ looks }
+466    |	            howlin' at him She looks              |	{ good, }
+467    |	             at him She looks good,               |	{ but }
+468    |	             him She looks good, but              |	{ her }
+469    |	          boyfriend says she's a tramp            |	{ She's }
+470    |	            says she's a tramp She's              |	{ a }
+471    |	              she's a tramp She's a               |	{ tramp, }
+472    |	             a tramp She's a tramp,               |	{ she's }
+473    |	           tramp She's a tramp, she's             |	{ a }
+474    |	             She's a tramp, she's a               |	{ vamp, , vamp, }
+475    |	             a tramp, she's a vamp,               |	{ but , but }
+476    |	            tramp, she's a vamp, but              |	{ she , she }
+477    |	              she's a vamp, but she               |	{ still , still }
+478    |	              a vamp, but she still               |	{ does , kills }
+479    |	            vamp, but she still does              |	{ her }
+480    |	             but she still does her               |	{ dance }
+481    |	            she still does her dance              |	{ She's }
+482    |	           still does her dance She's             |	{ a }
+483    |	             does her dance She's a               |	{ tramp, }
+484    |	            her dance She's a tramp,              |	{ she's }
+485    |	           dance She's a tramp, she's             |	{ a }
+486    |	            vamp, but she still kills             |	{ the }
+487    |	             but she still kills the              |	{ dance }
+488    |	            she still kills the dance             |	{ Baby }
+489    |	           still kills the dance Baby             |	{ loves }
+490    |	           kills the dance Baby loves             |	{ to }
+491    |	             the dance Baby loves to              |	{ dance }
+492    |	            dance Baby loves to dance             |	{ in }
+493    |	              dance in the dark In                |	{ the , the , the }
+494    |	               in the dark In the                 |	{ dark, , dark, , dark }
+495    |	              the dark In the dark,               |	{ she , she }
+496    |	              dark In the dark, she               |	{ loves , loves, }
+497    |	             In the dark, she loves               |	{ to }
+498    |	             the dark, she loves to               |	{ dance }
+499    |	            dark, she loves to dance              |	{ in }
+500    |	              she loves to dance in               |	{ the , the }
+501    |	             In the dark, she loves,              |	{ she }
+502    |	            the dark, she loves, she              |	{ loves }
+503    |	           dark, she loves, she loves             |	{ to }
+504    |	             she loves, she loves to              |	{ dance }
+505    |	            loves, she loves to dance             |	{ in }
+506    |	           dance in the dark Marilyn,             |	{ Judy, }
+507    |	           in the dark Marilyn, Judy,             |	{ Sylvia, }
+508    |	         the dark Marilyn, Judy, Sylvia,          |	{ tell }
+509    |	        dark Marilyn, Judy, Sylvia, tell          |	{ 'em }
+510    |	         Marilyn, Judy, Sylvia, tell 'em          |	{ how }
+511    |	           Judy, Sylvia, tell 'em how             |	{ you }
+512    |	            Sylvia, tell 'em how you              |	{ feel, }
+513    |	             tell 'em how you feel,               |	{ girls }
+514    |	             'em how you feel, girls              |	{ Work }
+515    |	            how you feel, girls Work              |	{ your }
+516    |	            you feel, girls Work your             |	{ blond, }
+517    |	          feel, girls Work your blond,            |	{ Benet }
+518    |	          girls Work your blond, Benet            |	{ Ramsey }
+519    |	          Work your blond, Benet Ramsey           |	{ will }
+520    |	          your blond, Benet Ramsey will           |	{ haunt }
+521    |	         blond, Benet Ramsey will haunt           |	{ like }
+522    |	          Benet Ramsey will haunt like            |	{ Liberace }
+523    |	         Ramsey will haunt like Liberace          |	{ Find }
+524    |	          will haunt like Liberace Find           |	{ your }
+525    |	          haunt like Liberace Find your           |	{ freedom }
+526    |	         like Liberace Find your freedom          |	{ in }
+527    |	          Liberace Find your freedom in           |	{ the }
+528    |	            Find your freedom in the              |	{ music }
+529    |	            your freedom in the music             |	{ Find }
+530    |	            freedom in the music Find             |	{ your }
+531    |	             in the music Find your               |	{ Jesus, }
+532    |	           the music Find your Jesus,             |	{ find }
+533    |	           music Find your Jesus, find            |	{ your }
+534    |	           Find your Jesus, find your             |	{ Kubrick }
+535    |	          your Jesus, find your Kubrick           |	{ You }
+536    |	          Jesus, find your Kubrick You            |	{ will }
+537    |	           find your Kubrick You will             |	{ never }
+538    |	           your Kubrick You will never            |	{ fall }
+539    |	           Kubrick You will never fall            |	{ apart }
+540    |	            You will never fall apart             |	{ Diana }
+541    |	           will never fall apart Diana            |	{ you're }
+542    |	          never fall apart Diana you're           |	{ still }
+543    |	          fall apart Diana you're still           |	{ in }
+544    |	           apart Diana you're still in            |	{ our }
+545    |	            Diana you're still in our             |	{ hearts }
+546    |	           you're still in our hearts             |	{ Never }
+547    |	            still in our hearts Never             |	{ let }
+548    |	             in our hearts Never let              |	{ you }
+549    |	            our hearts Never let you              |	{ fall }
+550    |	            hearts Never let you fall             |	{ apart }
+551    |	            Never let you fall apart              |	{ Together }
+552    |	           let you fall apart Together            |	{ we'll }
+553    |	          you fall apart Together we'll           |	{ dance }
+554    |	         fall apart Together we'll dance          |	{ in }
+555    |	          apart Together we'll dance in           |	{ the }
+556    |	           Together we'll dance in the            |	{ dark }
+557    |	             we'll dance in the dark              |	{ Baby }
+558    |	              to dance in the dark,               |	{ baby }
+559    |	             dance in the dark, baby              |	{ Baby }
+560    |	             in the dark, baby Baby               |	{ loves }
+561    |	            the dark, baby Baby loves             |	{ to }
+562    |	            dark, baby Baby loves to              |	{ dance }
+563    |	            baby Baby loves to dance              |	{ in }
+564    |	              the dark In the dark                |	{ Oh, }
+565    |	              dark In the dark Oh,                |	{ the }
+566    |	               In the dark Oh, the                |	{ disco }
+567    |	             the dark Oh, the disco               |	{ heaven }
+568    |	            dark Oh, the disco heaven             |	{ Oh, }
+569    |	            Oh, the disco heaven Oh,              |	{ the }
+570    |	            the disco heaven Oh, the              |	{ disco }
+571    |	           disco heaven Oh, the disco             |	{ heaven }
+572    |	           heaven Oh, the disco heaven            |	{ Get }
+573    |	            Oh, the disco heaven Get              |	{ back, }
+574    |	           the disco heaven Get back,             |	{ bunny }
+575    |	          disco heaven Get back, bunny            |	{ It's }
+576    |	           heaven Get back, bunny It's            |	{ getting }
+577    |	          Get back, bunny It's getting            |	{ cold }
+578    |	          back, bunny It's getting cold           |	{ in }
+579    |	           bunny It's getting cold in             |	{ here }
+580    |	            It's getting cold in here             |	{ little }
+581    |	           getting cold in here little            |	{ honey }
+582    |	            cold in here little honey             |	{ We }
+583    |	             in here little honey We              |	{ got }
+584    |	            here little honey We got              |	{ a }
+585    |	              little honey We got a               |	{ show }
+586    |	               honey We got a show                |	{ to }
+587    |	                We got a show to                  |	{ put , put }
+588    |	                got a show to put                 |	{ on , on }
+589    |	                a show to put on                  |	{ your , your }
+590    |	               show to put on your                |	{ dress , dress }
+591    |	              to put on your dress                |	{ Take , Take }
+592    |	             put on your dress Take               |	{ a , a }
+593    |	              on your dress Take a                |	{ minute , minute }
+594    |	            your dress Take a minute              |	{ for , for }
+595    |	             dress Take a minute for              |	{ us , us }
+596    |	              Take a minute for us                |	{ and , and }
+597    |	               a minute for us and                |	{ relax, , relax, }
+598    |	            minute for us and relax,              |	{ relax , relax }
+599    |	             for us and relax, relax              |	{ Cupid's , The }
+600    |	           us and relax, relax Cupid's            |	{ got }
+601    |	          and relax, relax Cupid's got            |	{ me, }
+602    |	          relax, relax Cupid's got me,            |	{ oh }
+603    |	            relax Cupid's got me, oh              |	{ with }
+604    |	             Cupid's got me, oh with              |	{ his }
+605    |	               got me, oh with his                |	{ bow }
+606    |	               me, oh with his bow                |	{ & }
+607    |	                oh with his bow &                 |	{ arrow, }
+608    |	              with his bow & arrow,               |	{ baby }
+609    |	              his bow & arrow, baby               |	{ He'll }
+610    |	             bow & arrow, baby He'll              |	{ hit }
+611    |	             & arrow, baby He'll hit              |	{ you }
+612    |	            arrow, baby He'll hit you             |	{ in }
+613    |	              baby He'll hit you in               |	{ the }
+614    |	              He'll hit you in the                |	{ pants, }
+615    |	              hit you in the pants,               |	{ hot }
+616    |	              you in the pants, hot               |	{ pants }
+617    |	             in the pants, hot pants              |	{ Get }
+618    |	            the pants, hot pants Get              |	{ the }
+619    |	            pants, hot pants Get the              |	{ people }
+620    |	            hot pants Get the people              |	{ to }
+621    |	             pants Get the people to              |	{ dance }
+622    |	             Get the people to dance              |	{ and }
+623    |	             the people to dance and              |	{ relax, }
+624    |	           people to dance and relax,             |	{ relax }
+625    |	            to dance and relax, relax             |	{ Oh }
+626    |	            dance and relax, relax Oh             |	{ the }
+627    |	             and relax, relax Oh the              |	{ lights }
+628    |	           relax, relax Oh the lights             |	{ still }
+629    |	            relax Oh the lights still             |	{ on, }
+630    |	             Oh the lights still on,              |	{ we're , we're , we're , we're }
+631    |	           the lights still on, we're             |	{ dancing , dancing , dancing , dancing }
+632    |	         lights still on, we're dancing           |	{ Yeah , Yeah , Yeah , I }
+633    |	          still on, we're dancing Yeah            |	{ the , the , the }
+634    |	           on, we're dancing Yeah the             |	{ floor , floor , floor }
+635    |	          we're dancing Yeah the floor            |	{ is , is , is }
+636    |	            dancing Yeah the floor is             |	{ shaking , shaking , shaking }
+637    |	            Yeah the floor is shaking             |	{ In , In , In }
+638    |	             the floor is shaking In              |	{ this , this , this }
+639    |	            floor is shaking In this              |	{ disco , disco , disco }
+640    |	            is shaking In this disco              |	{ heaven , heaven , heaven }
+641    |	          shaking In this disco heaven            |	{ oh, , oh, , oh, }
+642    |	            In this disco heaven oh,              |	{ the , the , the }
+643    |	            this disco heaven oh, the             |	{ disco , disco , disco }
+644    |	           disco heaven oh, the disco             |	{ heaven , heaven , heaven , heaven , heaven , heaven }
+645    |	           heaven oh, the disco heaven            |	{ The , Oh , The , Throw , The , Oh }
+646    |	            oh, the disco heaven The              |	{ disco , disco , disco }
+647    |	           the disco heaven The disco             |	{ heaven , heaven , heaven }
+648    |	          disco heaven The disco heaven           |	{ oh, , oh, , oh, }
+649    |	           heaven The disco heaven oh,            |	{ the , the , the }
+650    |	            The disco heaven oh, the              |	{ disco , disco , disco }
+651    |	             oh, the disco heaven Oh              |	{ the , the }
+652    |	             the disco heaven Oh the              |	{ lights , lights }
+653    |	           disco heaven Oh the lights             |	{ still , still }
+654    |	           heaven Oh the lights still             |	{ on, , on, }
+655    |	           oh, the disco heaven Throw             |	{ your }
+656    |	           the disco heaven Throw your            |	{ head }
+657    |	          disco heaven Throw your head            |	{ back, }
+658    |	          heaven Throw your head back,            |	{ girly }
+659    |	           Throw your head back, girly            |	{ Throw }
+660    |	           your head back, girly Throw            |	{ it }
+661    |	            head back, girly Throw it             |	{ like }
+662    |	            back, girly Throw it like             |	{ those }
+663    |	            girly Throw it like those             |	{ girls }
+664    |	            Throw it like those girls             |	{ in }
+665    |	             it like those girls in               |	{ the }
+666    |	             like those girls in the              |	{ movies }
+667    |	            those girls in the movies             |	{ We }
+668    |	             girls in the movies We               |	{ got }
+669    |	              in the movies We got                |	{ a }
+670    |	               the movies We got a                |	{ show }
+671    |	              movies We got a show                |	{ to }
+672    |	             us and relax, relax The              |	{ ball }
+673    |	            and relax, relax The ball             |	{ is }
+674    |	            relax, relax The ball is              |	{ turning, }
+675    |	           relax The ball is turning,             |	{ 300 }
+676    |	            The ball is turning, 300              |	{ mirrors }
+677    |	          ball is turning, 300 mirrors            |	{ burning }
+678    |	         is turning, 300 mirrors burning          |	{ Through }
+679    |	      turning, 300 mirrors burning Through        |	{ the }
+680    |	         300 mirrors burning Through the          |	{ hearts }
+681    |	       mirrors burning Through the hearts         |	{ of }
+682    |	          burning Through the hearts of           |	{ the }
+683    |	            Through the hearts of the             |	{ crowd }
+684    |	             the hearts of the crowd              |	{ In }
+685    |	             hearts of the crowd In               |	{ the }
+686    |	               of the crowd In the                |	{ back }
+687    |	              the crowd In the back               |	{ hips }
+688    |	             crowd In the back hips               |	{ just }
+689    |	              In the back hips just               |	{ banging }
+690    |	           the back hips just banging             |	{ the }
+691    |	           back hips just banging the             |	{ track }
+692    |	           hips just banging the track            |	{ To }
+693    |	            just banging the track To             |	{ the }
+694    |	            banging the track To the              |	{ music, }
+695    |	             the track To the music,              |	{ the }
+696    |	             track To the music, the              |	{ music }
+697    |	             To the music, the music              |	{ Oh }
+698    |	             the music, the music Oh              |	{ the }
+699    |	             music, the music Oh the              |	{ lights }
+700    |	             the music Oh the lights              |	{ still }
+701    |	            music Oh the lights still             |	{ on, }
+702    |	            still on, we're dancing I             |	{ know }
+703    |	            on, we're dancing I know              |	{ that }
+704    |	            we're dancing I know that             |	{ we }
+705    |	             dancing I know that we               |	{ are }
+706    |	               I know that we are                 |	{ young , young }
+707    |	             know that we are young               |	{ And , and }
+708    |	              that we are young And               |	{ I }
+709    |	               we are young And I                 |	{ know }
+710    |	              are young And I know                |	{ that }
+711    |	              young And I know that               |	{ you }
+712    |	               And I know that you                |	{ may }
+713    |	               I know that you may                |	{ love }
+714    |	             know that you may love               |	{ me }
+715    |	              that you may love me                |	{ But }
+716    |	               you may love me But                |	{ I }
+717    |	                may love me But I                 |	{ just , just }
+718    |	               love me But I just                 |	{ can't , can't }
+719    |	               me But I just can't                |	{ be , be }
+720    |	               But I just can't be                |	{ with , with }
+721    |	              I just can't be with                |	{ you , you }
+722    |	             just can't be with you               |	{ like , like }
+723    |	             can't be with you like               |	{ this , this }
+724    |	              be with you like this               |	{ anymore , anymore }
+725    |	           with you like this anymore             |	{ Alejandro , She's }
+726    |	         you like this anymore Alejandro          |	{ Ohh.. }
+727    |	        like this anymore Alejandro Ohh..         |	{ She's }
+728    |	       this anymore Alejandro Ohh.. She's         |	{ got }
+729    |	        anymore Alejandro Ohh.. She's got         |	{ both }
+730    |	         Alejandro Ohh.. She's got both           |	{ hands }
+731    |	           Ohh.. She's got both hands             |	{ In }
+732    |	             She's got both hands In              |	{ her }
+733    |	              got both hands In her               |	{ pockets }
+734    |	            both hands In her pockets             |	{ And }
+735    |	            hands In her pockets And              |	{ she }
+736    |	             In her pockets And she               |	{ won't }
+737    |	            her pockets And she won't             |	{ look }
+738    |	           pockets And she won't look             |	{ at }
+739    |	              And she won't look at               |	{ you }
+740    |	              she won't look at you               |	{ Won't }
+741    |	             won't look at you Won't              |	{ look }
+742    |	             look at you Won't look               |	{ at }
+743    |	              at you Won't look at                |	{ you }
+744    |	              you Won't look at you               |	{ She }
+745    |	              Won't look at you She               |	{ hides }
+746    |	              look at you She hides               |	{ through }
+747    |	            at you She hides through              |	{ love }
+748    |	           you She hides through love             |	{ en }
+749    |	            She hides through love en             |	{ su , su }
+750    |	            hides through love en su              |	{ bolsillo , bolsillo }
+751    |	           through love en su bolsillo            |	{ She , She }
+752    |	             love en su bolsillo She              |	{ got , got }
+753    |	             en su bolsillo She got               |	{ a , a }
+754    |	              su bolsillo She got a               |	{ halo , halo }
+755    |	             bolsillo She got a halo              |	{ around , around }
+756    |	              She got a halo around               |	{ her , her }
+757    |	              got a halo around her               |	{ finger , finger }
+758    |	            a halo around her finger              |	{ Around , around }
+759    |	          halo around her finger Around           |	{ you }
+760    |	          around her finger Around you            |	{ You }
+761    |	            her finger Around you You             |	{ know }
+762    |	           finger Around you You know             |	{ that }
+763    |	            Around you You know that              |	{ I }
+764    |	               you You know that I                |	{ love }
+765    |	              You know that I love                |	{ you , you , you , you }
+766    |	              know that I love you                |	{ boy , boy , boy , boy }
+767    |	               that I love you boy                |	{ Hot , Hot , Hot , Hot }
+768    |	               I love you boy Hot                 |	{ like , like , like , like }
+769    |	              love you boy Hot like               |	{ Mexico, , Mexico, , Mexico, , Mexico, }
+770    |	            you boy Hot like Mexico,              |	{ rejoice , rejoice , rejoice , rejoice }
+771    |	          boy Hot like Mexico, rejoice            |	{ At , At , At , At }
+772    |	           Hot like Mexico, rejoice At            |	{ this , this , this , this }
+773    |	          like Mexico, rejoice At this            |	{ point , point , point , point }
+774    |	          Mexico, rejoice At this point           |	{ I , I , I , I }
+775    |	             rejoice At this point I              |	{ gotta , gotta , gotta , gotta }
+776    |	              At this point I gotta               |	{ choose , choose , choose , choose }
+777    |	            this point I gotta choose             |	{ Nothing , Nothing , Nothing , Nothing }
+778    |	          point I gotta choose Nothing            |	{ to , to , to , loose }
+779    |	            I gotta choose Nothing to             |	{ loose , loose , loose }
+780    |	          gotta choose Nothing to loose           |	{ Don't , Don't , Don't }
+781    |	          choose Nothing to loose Don't           |	{ call , call , call }
+782    |	           Nothing to loose Don't call            |	{ my , my , my }
+783    |	             to loose Don't call my               |	{ name , name , name }
+784    |	            loose Don't call my name              |	{ Don't , Don't , Don't , Don't }
+785    |	            Don't call my name Don't              |	{ call , call , call , call , call , call }
+786    |	             call my name Don't call              |	{ my , my , my , my , my , my }
+787    |	              my name Don't call my               |	{ name, , name, , name, , name, , name, , name, }
+788    |	            name Don't call my name,              |	{ Alejandro , Roberto , Alejandro , Alejandro , Roberto , Alejandro }
+789    |	          Don't call my name, Alejandro           |	{ I'm , I'm , I'm , Cherry, }
+790    |	           call my name, Alejandro I'm            |	{ not , not , not }
+791    |	           my name, Alejandro I'm not             |	{ your , your , your }
+792    |	          name, Alejandro I'm not your            |	{ babe , babe , babe }
+793    |	           Alejandro I'm not your babe            |	{ I'm , I , I'm }
+794    |	              I'm not your babe I'm               |	{ not , not }
+795    |	              not your babe I'm not               |	{ your , your }
+796    |	             your babe I'm not your               |	{ babe, , babe, }
+797    |	             babe I'm not your babe,              |	{ Fernando , Fernando }
+798    |	           I'm not your babe, Fernando            |	{ Don't , Don't }
+799    |	          not your babe, Fernando Don't           |	{ wanna , wanna }
+800    |	         your babe, Fernando Don't wanna          |	{ kiss, , kiss, }
+801    |	        babe, Fernando Don't wanna kiss,          |	{ don't , don't }
+802    |	        Fernando Don't wanna kiss, don't          |	{ wanna , wanna }
+803    |	          Don't wanna kiss, don't wanna           |	{ touch , touch }
+804    |	          wanna kiss, don't wanna touch           |	{ Just , Just }
+805    |	          kiss, don't wanna touch Just            |	{ smoke , smoke }
+806    |	          don't wanna touch Just smoke            |	{ one , one }
+807    |	           wanna touch Just smoke one             |	{ cigarette , cigarette }
+808    |	         touch Just smoke one cigarette           |	{ more , and }
+809    |	          Just smoke one cigarette more           |	{ Don't }
+810    |	         smoke one cigarette more Don't           |	{ call }
+811    |	          one cigarette more Don't call           |	{ my }
+812    |	          cigarette more Don't call my            |	{ name }
+813    |	             more Don't call my name              |	{ Don't }
+814    |	           Don't call my name, Roberto            |	{ Alejandro , Alejandro }
+815    |	         call my name, Roberto Alejandro          |	{ Alejandro , Alejandro }
+816    |	      my name, Roberto Alejandro Alejandro        |	{ Ale-ale-jandro , Ale-ale-jandro }
+817    |	name, Roberto Alejandro Alejandro Ale-ale-jandro  |	{ Ale-ale-jandro , Ale-ale-jandro }
+818    |	Roberto Alejandro Alejandro Ale-ale-jandro Ale-ale-jandro     |	{ Just , Just }
+819    |	Alejandro Alejandro Ale-ale-jandro Ale-ale-jandro Just   |	{ stop , stop }
+820    |	Alejandro Ale-ale-jandro Ale-ale-jandro Just stop |	{ Please, , Please, }
+821    |	 Ale-ale-jandro Ale-ale-jandro Just stop Please,  |	{ Just , Just }
+822    |	      Ale-ale-jandro Just stop Please, Just       |	{ let , let }
+823    |	           Just stop Please, Just let             |	{ me , me }
+824    |	            stop Please, Just let me              |	{ go , go }
+825    |	             Please, Just let me go               |	{ Alejandro, , Alejandro, }
+826    |	            Just let me go Alejandro,             |	{ Just , Just }
+827    |	            let me go Alejandro, Just             |	{ let , let }
+828    |	            me go Alejandro, Just let             |	{ me , me }
+829    |	            go Alejandro, Just let me             |	{ go , go }
+830    |	            Alejandro, Just let me go             |	{ She's , She's }
+831    |	              Just let me go She's                |	{ not , not }
+832    |	               let me go She's not                |	{ broken , broken }
+833    |	             me go She's not broken               |	{ She's , She's }
+834    |	            go She's not broken She's             |	{ just , just }
+835    |	           She's not broken She's just            |	{ a , a }
+836    |	             not broken She's just a              |	{ baby , baby }
+837    |	            broken She's just a baby              |	{ But , But }
+838    |	              She's just a baby But               |	{ her , her }
+839    |	               just a baby But her                |	{ boyfriend's , boyfriend's }
+840    |	           a baby But her boyfriend's             |	{ like , like }
+841    |	          baby But her boyfriend's like           |	{ a , a }
+842    |	           But her boyfriend's like a             |	{ dad, , dad, }
+843    |	           her boyfriend's like a dad,            |	{ just , just }
+844    |	          boyfriend's like a dad, just            |	{ like , like }
+845    |	              like a dad, just like               |	{ a , a }
+846    |	               a dad, just like a                 |	{ dad , dad }
+847    |	              dad, just like a dad                |	{ Draw , Draw }
+848    |	              just like a dad Draw                |	{ those , those }
+849    |	              like a dad Draw those               |	{ flames , flames }
+850    |	             a dad Draw those flames              |	{ that , that }
+851    |	           dad Draw those flames that             |	{ burn , burn }
+852    |	           Draw those flames that burn            |	{ before , before }
+853    |	          those flames that burn before           |	{ him , him }
+854    |	           flames that burn before him            |	{ Now , Now }
+855    |	            that burn before him Now              |	{ he's , he's }
+856    |	            burn before him Now he's              |	{ gonna , gonna }
+857    |	            before him Now he's gonna             |	{ find , find }
+858    |	             him Now he's gonna find              |	{ a , a }
+859    |	              Now he's gonna find a               |	{ fight, , fight, }
+860    |	            he's gonna find a fight,              |	{ gonna , gonna }
+861    |	            gonna find a fight, gonna             |	{ fool , fool }
+862    |	            find a fight, gonna fool              |	{ the , the }
+863    |	             a fight, gonna fool the              |	{ bad , bad }
+864    |	            fight, gonna fool the bad             |	{ You , You }
+865    |	             gonna fool the bad You               |	{ know , know }
+866    |	              fool the bad You know               |	{ that , that }
+867    |	              the bad You know that               |	{ I , I }
+868    |	               bad You know that I                |	{ love , love }
+869    |	               I'm not your babe I                |	{ know }
+870    |	              not your babe I know                |	{ that }
+871    |	              your babe I know that               |	{ we }
+872    |	               babe I know that we                |	{ are }
+873    |	              that we are young and               |	{ I }
+874    |	               we are young and I                 |	{ know }
+875    |	              are young and I know                |	{ that }
+876    |	              young and I know that               |	{ he }
+877    |	               and I know that he                 |	{ may }
+878    |	               I know that he may                 |	{ love }
+879    |	              know that he may love               |	{ me }
+880    |	               that he may love me                |	{ But }
+881    |	               he may love me But                 |	{ I }
+882    |	           you like this anymore She's            |	{ got }
+883    |	           like this anymore She's got            |	{ both }
+884    |	           this anymore She's got both            |	{ hands }
+885    |	          anymore She's got both hands            |	{ in }
+886    |	             She's got both hands in              |	{ her }
+887    |	              got both hands in her               |	{ pocket }
+888    |	            both hands in her pocket              |	{ and }
+889    |	             hands in her pocket and              |	{ she }
+890    |	              in her pocket and she               |	{ won't }
+891    |	            her pocket and she won't              |	{ look }
+892    |	            pocket and she won't look             |	{ at }
+893    |	              and she won't look at               |	{ you, }
+894    |	             she won't look at you,               |	{ won't }
+895    |	            won't look at you, won't              |	{ look }
+896    |	             look at you, won't look              |	{ at }
+897    |	              at you, won't look at               |	{ you }
+898    |	             you, won't look at you               |	{ oh }
+899    |	              won't look at you oh                |	{ She }
+900    |	               look at you oh She                 |	{ hides }
+901    |	               at you oh She hides                |	{ through }
+902    |	            you oh She hides through              |	{ love }
+903    |	            oh She hides through love             |	{ en }
+904    |	          halo around her finger around           |	{ you }
+905    |	          around her finger around you            |	{ oh }
+906    |	            her finger around you oh              |	{ You }
+907    |	            finger around you oh You              |	{ know }
+908    |	             around you oh You know               |	{ that }
+909    |	              you oh You know that                |	{ I }
+910    |	               oh You know that I                 |	{ love }
+911    |	          Just smoke one cigarette and            |	{ run. }
+912    |	          smoke one cigarette and run.            |	{ Don't }
+913    |	          one cigarette and run. Don't            |	{ call }
+914    |	          cigarette and run. Don't call           |	{ my }
+915    |	             and run. Don't call my               |	{ name }
+916    |	             run. Don't call my name              |	{ Don't }
+917    |	          I gotta choose Nothing loose            |	{ Don't }
+918    |	        gotta choose Nothing loose Don't          |	{ call }
+919    |	         choose Nothing loose Don't call          |	{ my }
+920    |	           Nothing loose Don't call my            |	{ name }
+921    |	         call my name, Alejandro Cherry,          |	{ cherry, }
+922    |	       my name, Alejandro Cherry, cherry,         |	{ boom, }
+923    |	      name, Alejandro Cherry, cherry, boom,       |	{ boom }
+924    |	      Alejandro Cherry, cherry, boom, boom        |	{ Gaga }
+925    |	         Cherry, cherry, boom, boom Gaga          |	{ Boy, }
+926    |	          cherry, boom, boom Gaga Boy,            |	{ we've }
+927    |	           boom, boom Gaga Boy, we've             |	{ had }
+928    |	            boom Gaga Boy, we've had              |	{ a }
+929    |	              Gaga Boy, we've had a               |	{ real }
+930    |	              Boy, we've had a real               |	{ good }
+931    |	              we've had a real good               |	{ time }
+932    |	              had a real good time                |	{ And }
+933    |	              a real good time And                |	{ I }
+934    |	              real good time And I                |	{ wish }
+935    |	              good time And I wish                |	{ you }
+936    |	               time And I wish you                |	{ the }
+937    |	               And I wish you the                 |	{ best }
+938    |	               I wish you the best                |	{ on }
+939    |	              wish you the best on                |	{ your }
+940    |	              you the best on your                |	{ way, }
+941    |	              the best on your way,               |	{ eh, }
+942    |	              best on your way, eh,               |	{ eh }
+943    |	               on your way, eh, eh                |	{ I }
+944    |	               your way, eh, eh I                 |	{ didn't }
+945    |	              way, eh, eh I didn't                |	{ mean }
+946    |	              eh, eh I didn't mean                |	{ to }
+947    |	               eh I didn't mean to                |	{ hurt }
+948    |	              I didn't mean to hurt               |	{ you }
+949    |	             didn't mean to hurt you              |	{ I }
+950    |	               mean to hurt you I                 |	{ never }
+951    |	               to hurt you I never                |	{ thought }
+952    |	            hurt you I never thought              |	{ we'd }
+953    |	            you I never thought we'd              |	{ fall }
+954    |	            I never thought we'd fall             |	{ out }
+955    |	           never thought we'd fall out            |	{ of }
+956    |	            thought we'd fall out of              |	{ place, }
+957    |	             we'd fall out of place,              |	{ eh, }
+958    |	             fall out of place, eh,               |	{ eh }
+959    |	              out of place, eh, eh                |	{ I }
+960    |	               of place, eh, eh I                 |	{ have }
+961    |	              place, eh, eh I have                |	{ something }
+962    |	             eh, eh I have something              |	{ that , that }
+963    |	            eh I have something that              |	{ I , I , I }
+964    |	             I have something that I              |	{ love , love , love }
+965    |	           have something that I love             |	{ long, , long, , long, }
+966    |	           something that I love long,            |	{ long , long , long }
+967    |	             that I love long, long               |	{ But , But , But }
+968    |	              I love long, long But               |	{ my , my , my }
+969    |	             love long, long But my               |	{ friends , friends , friends }
+970    |	            long, long But my friends             |	{ keepa' , keepa' , keepa' }
+971    |	           long But my friends keepa'             |	{ tellin' , tellin' , tellin' }
+972    |	          But my friends keepa' tellin'           |	{ me , me , me }
+973    |	          my friends keepa' tellin' me            |	{ that , that , that }
+974    |	         friends keepa' tellin' me that           |	{ something's , something's , something's }
+975    |	       keepa' tellin' me that something's         |	{ wrong , wrong , wrong }
+976    |	        tellin' me that something's wrong         |	{ Then , Then , Then }
+977    |	         me that something's wrong Then           |	{ I , I , I }
+978    |	          that something's wrong Then I           |	{ met , met , met }
+979    |	          something's wrong Then I met            |	{ someone , someone , someone }
+980    |	            wrong Then I met someone              |	{ And , And , And }
+981    |	             Then I met someone And               |	{ eh, , eh, , eh, }
+982    |	              I met someone And eh,               |	{ there's , there's , there's }
+983    |	           met someone And eh, there's            |	{ nothing , nothing , nothing }
+984    |	         someone And eh, there's nothing          |	{ else , else , else }
+985    |	          And eh, there's nothing else            |	{ I , I , I }
+986    |	           eh, there's nothing else I             |	{ can , can , can , can , can , can , can , can , can , can }
+987    |	           there's nothing else I can             |	{ say , say , say , say , say , say , say , say , say , say }
+988    |	             nothing else I can say               |	{ Eh, , Eh, , Eh, , Eh, , Eh, , Eh, , Eh, , Eh, , Eh, , Eh, }
+989    |	               else I can say Eh,                 |	{ eh, , eh, , eh , eh, , eh, , eh , eh, , eh, , eh, , eh, }
+990    |	                I can say Eh, eh,                 |	{ there's , I , there's , I , eh, , wish , wish , cherry, }
+991    |	             can say Eh, eh, there's              |	{ nothing , nothing }
+992    |	           say Eh, eh, there's nothing            |	{ else , else }
+993    |	          Eh, eh, there's nothing else            |	{ I , I , I , I , I , I }
+994    |	                can say Eh, eh, I                 |	{ wish , wish }
+995    |	               say Eh, eh, I wish                 |	{ he , he }
+996    |	                Eh, eh, I wish he                 |	{ never , never }
+997    |	               eh, I wish he never                |	{ looked , looked }
+998    |	             I wish he never looked               |	{ at , at }
+999    |	             wish he never looked at              |	{ me , me , me , me }
+1000   |	              he never looked at me               |	{ that , that , that , that }
+1001   |	             never looked at me that              |	{ way , way , way , way }
+1002   |	              looked at me that way               |	{ Eh, , Eh, , Eh, , Eh, }
+1003   |	               at me that way Eh,                 |	{ eh, , eh, , eh, , eh, }
+1004   |	               me that way Eh, eh,                |	{ there's , there's , there's , there's }
+1005   |	            that way Eh, eh, there's              |	{ nothing , nothing , nothing , nothing }
+1006   |	           way Eh, eh, there's nothing            |	{ else , else , else , else }
+1007   |	                I can say Eh, eh                  |	{ Not , I }
+1008   |	               can say Eh, eh Not                 |	{ that }
+1009   |	               say Eh, eh Not that                |	{ I }
+1010   |	                Eh, eh Not that I                 |	{ don't }
+1011   |	               eh Not that I don't                |	{ care }
+1012   |	              Not that I don't care               |	{ about }
+1013   |	             that I don't care about              |	{ you }
+1014   |	             I don't care about you               |	{ Just }
+1015   |	            don't care about you Just             |	{ that }
+1016   |	            care about you Just that              |	{ things }
+1017   |	           about you Just that things             |	{ got }
+1018   |	            you Just that things got              |	{ so }
+1019   |	             Just that things got so              |	{ complique, }
+1020   |	          that things got so complique,           |	{ eh, }
+1021   |	          things got so complique, eh,            |	{ eh }
+1022   |	            got so complique, eh, eh              |	{ I }
+1023   |	             so complique, eh, eh I               |	{ met }
+1024   |	             complique, eh, eh I met              |	{ somebody }
+1025   |	              eh, eh I met somebody               |	{ cute }
+1026   |	             eh I met somebody cute               |	{ and }
+1027   |	             I met somebody cute and              |	{ funny }
+1028   |	           met somebody cute and funny            |	{ Got }
+1029   |	           somebody cute and funny Got            |	{ each }
+1030   |	             cute and funny Got each              |	{ other }
+1031   |	            and funny Got each other              |	{ and }
+1032   |	            funny Got each other and              |	{ that's }
+1033   |	            Got each other and that's             |	{ funny, }
+1034   |	          each other and that's funny,            |	{ eh, }
+1035   |	           other and that's funny, eh,            |	{ eh, }
+1036   |	            and that's funny, eh, eh,             |	{ eh }
+1037   |	            that's funny, eh, eh, eh              |	{ I }
+1038   |	               funny, eh, eh, eh I                |	{ have }
+1039   |	                eh, eh, eh I have                 |	{ something }
+1040   |	                can say Eh, eh I                  |	{ have }
+1041   |	                say Eh, eh I have                 |	{ something }
+1042   |	             Eh, eh I have something              |	{ that }
+1043   |	               can say Eh, eh, eh,                |	{ eh, }
+1044   |	               say Eh, eh, eh, eh,                |	{ eh, }
+1045   |	               Eh, eh, eh, eh, eh,                |	{ there's }
+1046   |	             eh, eh, eh, eh, there's              |	{ nothing }
+1047   |	           eh, eh, eh, there's nothing            |	{ else }
+1048   |	          eh, eh, there's nothing else            |	{ I }
+1049   |	              can say Eh, eh, wish                |	{ he , he }
+1050   |	               say Eh, eh, wish he                |	{ never , never }
+1051   |	              Eh, eh, wish he never               |	{ looked , looked }
+1052   |	            eh, wish he never looked              |	{ at , at }
+1053   |	             can say Eh, eh, cherry,              |	{ cherry, }
+1054   |	           say Eh, eh, cherry, cherry,            |	{ boom, }
+1055   |	          Eh, eh, cherry, cherry, boom,           |	{ boom }
+1056   |	         eh, cherry, cherry, boom, boom           |	{ Eh, }
+1057   |	         cherry, cherry, boom, boom Eh,           |	{ eh }
+1058   |	            cherry, boom, boom Eh, eh             |	{ Oh, }
+1059   |	              boom, boom Eh, eh Oh,               |	{ yeah }
+1060   |	              boom Eh, eh Oh, yeah                |	{ All }
+1061   |	               Eh, eh Oh, yeah All                |	{ I }
+1062   |	                eh Oh, yeah All I                 |	{ can }
+1063   |	               Oh, yeah All I can                 |	{ say }
+1064   |	               yeah All I can say                 |	{ is, }
+1065   |	                All I can say is,                 |	{ eh }
+1066   |	                I can say is, eh                  |	{ Red }
+1067   |	               can say is, eh Red                 |	{ one, }
+1068   |	               say is, eh Red one,                |	{ Heidi }
+1069   |	              is, eh Red one, Heidi               |	{ Oh, }
+1070   |	              eh Red one, Heidi Oh,               |	{ oh, }
+1071   |	             Red one, Heidi Oh, oh,               |	{ la, }
+1072   |	             one, Heidi Oh, oh, la,               |	{ la, }
+1073   |	              Heidi Oh, oh, la, la,               |	{ la }
+1074   |	               Oh, oh, la, la, la                 |	{ We , We , We , We , We , We }
+1075   |	                oh, la, la, la We                 |	{ love , love , love , love , love , love }
+1076   |	               la, la, la We love                 |	{ designer , designer , designer , designer , designer , designer }
+1077   |	             la, la We love designer              |	{ I , I , Oh, , Fashion , Oh, , I }
+1078   |	              la We love designer I               |	{ am, , need, , don't }
+1079   |	             We love designer I am,               |	{ I'm }
+1080   |	             love designer I am, I'm              |	{ too }
+1081   |	             designer I am, I'm too               |	{ fabulous }
+1082   |	             I am, I'm too fabulous               |	{ I'm }
+1083   |	            am, I'm too fabulous I'm              |	{ so }
+1084   |	             I'm too fabulous I'm so              |	{ fierce }
+1085   |	           too fabulous I'm so fierce             |	{ that }
+1086   |	           fabulous I'm so fierce that            |	{ it's }
+1087   |	             I'm so fierce that it's              |	{ so }
+1088   |	             so fierce that it's so               |	{ nuts }
+1089   |	            fierce that it's so nuts              |	{ I }
+1090   |	               that it's so nuts I                |	{ live, }
+1091   |	              it's so nuts I live,                |	{ to }
+1092   |	               so nuts I live, to                 |	{ be }
+1093   |	               nuts I live, to be                 |	{ model }
+1094   |	               I live, to be model                |	{ thin }
+1095   |	             live, to be model thin               |	{ Dress }
+1096   |	             to be model thin Dress               |	{ me, }
+1097   |	             be model thin Dress me,              |	{ I'm }
+1098   |	            model thin Dress me, I'm              |	{ your }
+1099   |	             thin Dress me, I'm your              |	{ mannequin }
+1100   |	          Dress me, I'm your mannequin            |	{ J'adore, }
+1101   |	         me, I'm your mannequin J'adore,          |	{ Vivienne }
+1102   |	      I'm your mannequin J'adore, Vivienne        |	{ I }
+1103   |	       your mannequin J'adore, Vivienne I         |	{ really }
+1104   |	      mannequin J'adore, Vivienne I really        |	{ want }
+1105   |	         J'adore, Vivienne I really want          |	{ Pucci, }
+1106   |	          Vivienne I really want Pucci,           |	{ Fendi, }
+1107   |	           I really want Pucci, Fendi,            |	{ and }
+1108   |	          really want Pucci, Fendi, and           |	{ Cardin, }
+1109   |	         want Pucci, Fendi, and Cardin,           |	{ Valentino, }
+1110   |	      Pucci, Fendi, and Cardin, Valentino,        |	{ Armani }
+1111   |	      Fendi, and Cardin, Valentino, Armani        |	{ too }
+1112   |	        and Cardin, Valentino, Armani too         |	{ Madame }
+1113   |	      Cardin, Valentino, Armani too Madame        |	{ love }
+1114   |	        Valentino, Armani too Madame love         |	{ them }
+1115   |	           Armani too Madame love them            |	{ Jimmy }
+1116   |	           too Madame love them Jimmy             |	{ Choo }
+1117   |	           Madame love them Jimmy Choo            |	{ Fashion }
+1118   |	          love them Jimmy Choo Fashion            |	{ put }
+1119   |	           them Jimmy Choo Fashion put            |	{ it }
+1120   |	            Jimmy Choo Fashion put it             |	{ all }
+1121   |	             Choo Fashion put it all              |	{ on }
+1122   |	              Fashion put it all on               |	{ me , me , me , me , me , me , me , me , me , me , me , me }
+1123   |	                put it all on me                  |	{ Don't , I , Don't , I , Don't , I , Don't , I , Don't , I , Don't , I }
+1124   |	               it all on me Don't                 |	{ you , you , you , you , you , you }
+1125   |	               all on me Don't you                |	{ want , want , want , want , want , want }
+1126   |	              on me Don't you want                |	{ to , to , to , to , to , to }
+1127   |	              me Don't you want to                |	{ see , see , see , see , see , see }
+1128   |	              Don't you want to see               |	{ these , these , these , these , these , these }
+1129   |	              you want to see these               |	{ clothes , clothes , clothes , clothes , clothes , clothes }
+1130   |	            want to see these clothes             |	{ on , on , on , on , on , on }
+1131   |	             to see these clothes on              |	{ me , me , me , me , me , me }
+1132   |	             see these clothes on me              |	{ Fashion , Fashion , Fashion , Fashion , Fashion , Fashion }
+1133   |	           these clothes on me Fashion            |	{ put , put , put , put , put , put }
+1134   |	            clothes on me Fashion put             |	{ it , it , it , it , it , it }
+1135   |	              on me Fashion put it                |	{ all , all , all , all , all , all }
+1136   |	              me Fashion put it all               |	{ on , on , on , on , on , on }
+1137   |	                 it all on me I                   |	{ am , am , am , am , am , am }
+1138   |	                 all on me I am                   |	{ anyone , anyone , anyone , anyone , anyone , anyone }
+1139   |	                on me I am anyone                 |	{ you , you , you , you , you , you }
+1140   |	               me I am anyone you                 |	{ want , want , want , want , want , want }
+1141   |	              I am anyone you want                |	{ me , me , me , me , me , me , me , me }
+1142   |	              am anyone you want me               |	{ to , to , to , to , to , to , to , to }
+1143   |	              anyone you want me to               |	{ be , be , be , be , be , be , be , be }
+1144   |	                you want me to be                 |	{ I , Oh, , I , Oh, , Fashion , Fashion , Fashion , Oh, }
+1145   |	                 want me to be I                  |	{ am , am }
+1146   |	                  me to be I am                   |	{ anyone , anyone }
+1147   |	                to be I am anyone                 |	{ you , you }
+1148   |	               be I am anyone you                 |	{ want , want }
+1149   |	                want me to be Oh,                 |	{ oh, , oh, , oh, }
+1150   |	                me to be Oh, oh,                  |	{ la, , la, , la, }
+1151   |	                to be Oh, oh, la,                 |	{ la, , la, , la, }
+1152   |	               be Oh, oh, la, la,                 |	{ la , la , la }
+1153   |	            We love designer I need,              |	{ some }
+1154   |	           love designer I need, some             |	{ new }
+1155   |	            designer I need, some new             |	{ stilettos }
+1156   |	           I need, some new stilettos             |	{ Can't }
+1157   |	         need, some new stilettos Can't           |	{ walk, }
+1158   |	         some new stilettos Can't walk,           |	{ down }
+1159   |	         new stilettos Can't walk, down           |	{ the }
+1160   |	         stilettos Can't walk, down the           |	{ street }
+1161   |	           Can't walk, down the street            |	{ in }
+1162   |	            walk, down the street in              |	{ those }
+1163   |	            down the street in those              |	{ You }
+1164   |	             the street in those You              |	{ are, }
+1165   |	            street in those You are,              |	{ who }
+1166   |	              in those You are, who               |	{ you }
+1167   |	             those You are, who you               |	{ wear }
+1168   |	              You are, who you wear               |	{ it's }
+1169   |	             are, who you wear it's               |	{ true }
+1170   |	             who you wear it's true               |	{ A }
+1171   |	              you wear it's true A                |	{ girl's }
+1172   |	             wear it's true A girl's              |	{ just }
+1173   |	             it's true A girl's just              |	{ as }
+1174   |	              true A girl's just as               |	{ hot }
+1175   |	              A girl's just as hot                |	{ as }
+1176   |	              girl's just as hot as               |	{ the }
+1177   |	               just as hot as the                 |	{ shoes }
+1178   |	               as hot as the shoes                |	{ she }
+1179   |	              hot as the shoes she                |	{ choose }
+1180   |	             as the shoes she choose              |	{ J'adore, }
+1181   |	          the shoes she choose J'adore,           |	{ Weitzman }
+1182   |	       shoes she choose J'adore, Weitzman         |	{ I }
+1183   |	         she choose J'adore, Weitzman I           |	{ really }
+1184   |	        choose J'adore, Weitzman I really         |	{ want }
+1185   |	         J'adore, Weitzman I really want          |	{ Louis, }
+1186   |	          Weitzman I really want Louis,           |	{ Dolce }
+1187   |	           I really want Louis, Dolce             |	{ Gabbana, }
+1188   |	        really want Louis, Dolce Gabbana,         |	{ Alexander }
+1189   |	      want Louis, Dolce Gabbana, Alexander        |	{ McQueen, }
+1190   |	    Louis, Dolce Gabbana, Alexander McQueen,      |	{ eh }
+1191   |	      Dolce Gabbana, Alexander McQueen, eh        |	{ ou }
+1192   |	        Gabbana, Alexander McQueen, eh ou         |	{ Madame }
+1193   |	         Alexander McQueen, eh ou Madame          |	{ love }
+1194   |	           McQueen, eh ou Madame love             |	{ those }
+1195   |	             eh ou Madame love those              |	{ Minolo }
+1196   |	           ou Madame love those Minolo            |	{ Fashion }
+1197   |	        Madame love those Minolo Fashion          |	{ put }
+1198   |	          love those Minolo Fashion put           |	{ it }
+1199   |	           those Minolo Fashion put it            |	{ all }
+1200   |	            Minolo Fashion put it all             |	{ on }
+1201   |	             la We love designer Oh,              |	{ oh, , oh, }
+1202   |	            We love designer Oh, oh,              |	{ la, , la, }
+1203   |	            love designer Oh, oh, la,             |	{ la, , la, }
+1204   |	            designer Oh, oh, la, la,              |	{ la , la }
+1205   |	           la We love designer Fashion            |	{ put }
+1206   |	          We love designer Fashion put            |	{ it }
+1207   |	          love designer Fashion put it            |	{ all }
+1208   |	           designer Fashion put it all            |	{ on }
+1209   |	              want me to be Fashion               |	{ put , put , put }
+1210   |	              me to be Fashion put                |	{ it , it , it }
+1211   |	              to be Fashion put it                |	{ all , all , all }
+1212   |	              be Fashion put it all               |	{ on , on , on }
+1213   |	            We love designer I don't              |	{ know }
+1214   |	           love designer I don't know             |	{ why }
+1215   |	            designer I don't know why             |	{ you're }
+1216   |	             I don't know why you're              |	{ hurt , hurt }
+1217   |	           don't know why you're hurt             |	{ inside , inside }
+1218   |	           know why you're hurt inside            |	{ Or , Or }
+1219   |	            why you're hurt inside Or             |	{ what , what }
+1220   |	           you're hurt inside Or what             |	{ was , was }
+1221   |	             hurt inside Or what was              |	{ said , said }
+1222   |	             inside Or what was said              |	{ to , to }
+1223   |	               Or what was said to                |	{ make , make }
+1224   |	              what was said to make               |	{ you , you }
+1225   |	              was said to make you                |	{ cry , cry }
+1226   |	              said to make you cry                |	{ I , I }
+1227   |	                to make you cry I                 |	{ hope , hope }
+1228   |	               make you cry I hope                |	{ that , that }
+1229   |	               you cry I hope that                |	{ you , you }
+1230   |	               cry I hope that you                |	{ can , can }
+1231   |	               I hope that you can                |	{ see , see , see , see }
+1232   |	              hope that you can see               |	{ You , you , you , you }
+1233   |	              that you can see You                |	{ are }
+1234   |	               you can see You are                |	{ the }
+1235   |	               can see You are the                |	{ greatest }
+1236   |	            see You are the greatest              |	{ thing }
+1237   |	           You are the greatest thing             |	{ to }
+1238   |	            are the greatest thing to             |	{ me }
+1239   |	            the greatest thing to me              |	{ and }
+1240   |	            greatest thing to me and              |	{ when }
+1241   |	              thing to me and when                |	{ You }
+1242   |	               to me and when You                 |	{ feel }
+1243   |	              me and when You feel                |	{ like }
+1244   |	             and when You feel like               |	{ your }
+1245   |	             when You feel like your              |	{ not }
+1246   |	             You feel like your not               |	{ enough , enough }
+1247   |	            feel like your not enough             |	{ I'll , I'll }
+1248   |	            like your not enough I'll             |	{ give , give }
+1249   |	            your not enough I'll give             |	{ you , you }
+1250   |	            not enough I'll give you              |	{ wings , wings }
+1251   |	           enough I'll give you wings             |	{ I'll , I'll }
+1252   |	            I'll give you wings I'll              |	{ lift , lift }
+1253   |	            give you wings I'll lift              |	{ you , you }
+1254   |	             you wings I'll lift you              |	{ up , up }
+1255   |	             wings I'll lift you up               |	{ I , I }
+1256   |	               I'll lift you up I                 |	{ hope , hope }
+1257   |	               lift you up I hope                 |	{ that , that }
+1258   |	               you up I hope that                 |	{ you , you }
+1259   |	               up I hope that you                 |	{ can , can }
+1260   |	              that you can see you                |	{ are , are , are }
+1261   |	               you can see you are                |	{ The , the , the }
+1262   |	               can see you are The                |	{ greatest, }
+1263   |	            see you are The greatest,             |	{ greatest }
+1264   |	         you are The greatest, greatest           |	{ thing }
+1265   |	        are The greatest, greatest thing          |	{ to }
+1266   |	         The greatest, greatest thing to          |	{ me }
+1267   |	         greatest, greatest thing to me           |	{ I }
+1268   |	             greatest thing to me I               |	{ don't }
+1269   |	               thing to me I don't                |	{ wanna }
+1270   |	               to me I don't wanna                |	{ waste }
+1271   |	             me I don't wanna waste               |	{ another }
+1272   |	           I don't wanna waste another            |	{ day }
+1273   |	          don't wanna waste another day           |	{ And }
+1274   |	           wanna waste another day And            |	{ took }
+1275   |	           waste another day And took             |	{ hand }
+1276   |	            another day And took hand             |	{ off }
+1277   |	              day And took hand off               |	{ you }
+1278   |	              And took hand off you               |	{ up }
+1279   |	              took hand off you up                |	{ in }
+1280   |	               hand off you up in                 |	{ the }
+1281   |	                off you up in the                 |	{ middle }
+1282   |	              you up in the middle                |	{ of }
+1283   |	               up in the middle of                |	{ the }
+1284   |	              in the middle of the                |	{ day }
+1285   |	              the middle of the day               |	{ ? }
+1286   |	               middle of the day ?                |	{ What }
+1287   |	                of the day ? What                 |	{ I }
+1288   |	                the day ? What I                  |	{ can }
+1289   |	                day ? What I can                  |	{ see }
+1290   |	                ? What I can see                  |	{ is }
+1291   |	                What I can see is                 |	{ you }
+1292   |	                I can see is you                  |	{ waste }
+1293   |	              can see is you waste                |	{ another }
+1294   |	            see is you waste another              |	{ day }
+1295   |	            is you waste another day              |	{ Cuz }
+1296   |	            you waste another day Cuz             |	{ when }
+1297   |	           waste another day Cuz when             |	{ Im }
+1298   |	             another day Cuz when Im              |	{ with }
+1299   |	              day Cuz when Im with                |	{ you }
+1300   |	              Cuz when Im with you                |	{ I }
+1301   |	               when Im with you I                 |	{ fall }
+1302   |	               Im with you I fall                 |	{ apart, }
+1303   |	             with you I fall apart,               |	{ I }
+1304   |	               you I fall apart, I                |	{ see }
+1305   |	               I fall apart, I see                |	{ your }
+1306   |	             fall apart, I see your               |	{ permanently }
+1307   |	          apart, I see your permanently           |	{ broken }
+1308   |	          I see your permanently broken           |	{ heart. }
+1309   |	       see your permanently broken heart.         |	{ Baby, }
+1310   |	      your permanently broken heart. Baby,        |	{ your }
+1311   |	      permanently broken heart. Baby, your        |	{ the }
+1312   |	          broken heart. Baby, your the            |	{ greatest }
+1313   |	         heart. Baby, your the greatest           |	{ to }
+1314   |	           Baby, your the greatest to             |	{ me, }
+1315   |	            your the greatest to me,              |	{ No, }
+1316   |	             the greatest to me, No,              |	{ no }
+1317   |	             greatest to me, No, no               |	{ matter }
+1318   |	              to me, No, no matter                |	{ what, }
+1319   |	             me, No, no matter what,              |	{ what, }
+1320   |	            No, no matter what, what,             |	{ what }
+1321   |	           no matter what, what, what             |	{ I }
+1322   |	            matter what, what, what I             |	{ don't }
+1323   |	            what, what, what I don't              |	{ know }
+1324   |	             what, what I don't know              |	{ why }
+1325   |	              what I don't know why               |	{ you're }
+1326   |	               can see you are the                |	{ greatest , greatest }
+1327   |	            see you are the greatest              |	{ Thing , Greatest }
+1328   |	           you are the greatest Thing             |	{ to }
+1329   |	            are the greatest Thing to             |	{ me }
+1330   |	            the greatest Thing to me              |	{ and }
+1331   |	            greatest Thing to me and              |	{ when }
+1332   |	              Thing to me and when                |	{ anekatips }
+1333   |	            to me and when anekatips              |	{ You }
+1334   |	            me and when anekatips You             |	{ feel }
+1335   |	           and when anekatips You feel            |	{ like }
+1336   |	          when anekatips You feel like            |	{ your }
+1337   |	          anekatips You feel like your            |	{ not }
+1338   |	          you are the greatest Greatest           |	{ thing }
+1339   |	         are the greatest Greatest thing          |	{ to }
+1340   |	         the greatest Greatest thing to           |	{ me }
+1341   |	          greatest Greatest thing to me           |	{ RedOne, }
+1342   |	          Greatest thing to me RedOne,            |	{ Konvict }
+1343   |	           thing to me RedOne, Konvict            |	{ GaGa, }
+1344   |	           to me RedOne, Konvict GaGa,            |	{ oh-oh, }
+1345   |	         me RedOne, Konvict GaGa, oh-oh,          |	{ eh }
+1346   |	         RedOne, Konvict GaGa, oh-oh, eh          |	{ I've }
+1347   |	          Konvict GaGa, oh-oh, eh I've            |	{ had }
+1348   |	            GaGa, oh-oh, eh I've had              |	{ a }
+1349   |	              oh-oh, eh I've had a                |	{ little }
+1350   |	              eh I've had a little                |	{ bit }
+1351   |	              I've had a little bit               |	{ too }
+1352   |	              had a little bit too                |	{ much, }
+1353   |	             a little bit too much,               |	{ much }
+1354   |	            little bit too much, much             |	{ All }
+1355   |	             bit too much, much All               |	{ of }
+1356   |	              too much, much All of               |	{ the }
+1357   |	              much, much All of the               |	{ people }
+1358   |	             much All of the people               |	{ start }
+1359   |	             All of the people start              |	{ to }
+1360   |	             of the people start to               |	{ rush, }
+1361   |	            the people start to rush,             |	{ start }
+1362   |	           people start to rush, start            |	{ to }
+1363   |	             start to rush, start to              |	{ rush }
+1364   |	             to rush, start to rush               |	{ by }
+1365   |	             rush, start to rush by               |	{ How }
+1366   |	              start to rush by How                |	{ does }
+1367   |	               to rush by How does                |	{ he }
+1368   |	               rush by How does he                |	{ twist }
+1369   |	              by How does he twist                |	{ the }
+1370   |	              How does he twist the               |	{ dance? }
+1371   |	            does he twist the dance?              |	{ Can't }
+1372   |	            he twist the dance? Can't             |	{ find }
+1373   |	           twist the dance? Can't find            |	{ a }
+1374   |	             the dance? Can't find a              |	{ drink, }
+1375   |	           dance? Can't find a drink,             |	{ oh }
+1376   |	             Can't find a drink, oh               |	{ man }
+1377   |	              find a drink, oh man                |	{ Where }
+1378   |	              a drink, oh man Where               |	{ are }
+1379   |	             drink, oh man Where are              |	{ my }
+1380   |	               oh man Where are my                |	{ keys? }
+1381   |	             man Where are my keys?               |	{ I }
+1382   |	              Where are my keys? I                |	{ lost }
+1383   |	               are my keys? I lost                |	{ my }
+1384   |	               my keys? I lost my                 |	{ phone, }
+1385   |	             keys? I lost my phone,               |	{ phone }
+1386   |	             I lost my phone, phone               |	{ What's }
+1387   |	           lost my phone, phone What's            |	{ going }
+1388   |	          my phone, phone What's going            |	{ on }
+1389   |	          phone, phone What's going on            |	{ on }
+1390   |	            phone What's going on on              |	{ the }
+1391   |	             What's going on on the               |	{ floor? , floor? }
+1392   |	             going on on the floor?               |	{ I , I }
+1393   |	               on on the floor? I                 |	{ love , love }
+1394   |	              on the floor? I love                |	{ this , this }
+1395   |	             the floor? I love this               |	{ record , record }
+1396   |	            floor? I love this record             |	{ baby , baby }
+1397   |	             I love this record baby              |	{ but , but }
+1398   |	            love this record baby but             |	{ I , I }
+1399   |	             this record baby but I               |	{ can't , can't }
+1400   |	             record baby but I can't              |	{ see , see }
+1401   |	              baby but I can't see                |	{ straight , straight }
+1402   |	            but I can't see straight              |	{ anymore , anymore }
+1403   |	          I can't see straight anymore            |	{ Keep , Keep }
+1404   |	         can't see straight anymore Keep          |	{ it , it }
+1405   |	          see straight anymore Keep it            |	{ cool, , cool, }
+1406   |	         straight anymore Keep it cool,           |	{ what's , what's }
+1407   |	          anymore Keep it cool, what's            |	{ the , the }
+1408   |	            Keep it cool, what's the              |	{ name , name }
+1409   |	            it cool, what's the name              |	{ of , of }
+1410   |	            cool, what's the name of              |	{ this , this }
+1411   |	             what's the name of this              |	{ club? , club? }
+1412   |	             the name of this club?               |	{ I , I }
+1413   |	              name of this club? I                |	{ can't , can't }
+1414   |	              of this club? I can't               |	{ remember , remember }
+1415   |	           this club? I can't remember            |	{ but , but }
+1416   |	           club? I can't remember but             |	{ it's , it's }
+1417   |	            I can't remember but it's             |	{ alright, , alright, }
+1418   |	        can't remember but it's alright,          |	{ a-alright , a-alright }
+1419   |	      remember but it's alright, a-alright        |	{ Just , Just }
+1420   |	        but it's alright, a-alright Just          |	{ dance, , dance, }
+1421   |	       it's alright, a-alright Just dance,        |	{ gonna , gonna }
+1422   |	      alright, a-alright Just dance, gonna        |	{ be , be }
+1423   |	         a-alright Just dance, gonna be           |	{ okay, , okay, }
+1424   |	           Just dance, gonna be okay,             |	{ da , d-d-d-dance , da , d-d-d-dance , da , d-d-d-dance , da , da , d-d-d-dance }
+1425   |	            dance, gonna be okay, da              |	{ da , da , da , da , da , da }
+1426   |	              gonna be okay, da da                |	{ doo-doo-mmm , doo-doo-mmm , doo-doo-mmm , doo-doo-mmm , doo-doo-mmm , doo-doo-mmm }
+1427   |	           be okay, da da doo-doo-mmm             |	{ Just , Just , Just , Just , Just , Just }
+1428   |	          okay, da da doo-doo-mmm Just            |	{ dance, , dance, , dance, , dance, , dance, , dance, }
+1429   |	          da da doo-doo-mmm Just dance,           |	{ spin , gonna , spin , gonna , spin , gonna , spin , gonna , spin , gonna , spin , gonna }
+1430   |	         da doo-doo-mmm Just dance, spin          |	{ that , that , that , that , that , that }
+1431   |	        doo-doo-mmm Just dance, spin that         |	{ record , record , record , record , record , record }
+1432   |	          Just dance, spin that record            |	{ babe, , babe, , babe, , babe, , babe, , babe, }
+1433   |	          dance, spin that record babe,           |	{ da , da , da , da , da , da }
+1434   |	            spin that record babe, da             |	{ da , da , da , da , da , da }
+1435   |	             that record babe, da da              |	{ doo-doo-mmm , doo-doo-mmm , doo-doo-mmm , doo-doo-mmm , doo-doo-mmm , doo-doo-mmm }
+1436   |	         record babe, da da doo-doo-mmm           |	{ Just , Just , Just , Just , Just , Just }
+1437   |	          babe, da da doo-doo-mmm Just            |	{ dance, , dance, , dance, , dance, , dance, , dance, }
+1438   |	        da doo-doo-mmm Just dance, gonna          |	{ be , be , be , be , be , be }
+1439   |	        doo-doo-mmm Just dance, gonna be          |	{ okay, , okay, , okay, , okay, , okay, , okay, }
+1440   |	        dance, gonna be okay, d-d-d-dance         |	{ Dance, , Dance, , Dance, , Dance, }
+1441   |	        gonna be okay, d-d-d-dance Dance,         |	{ dance, , dance, , dance, , dance, }
+1442   |	       be okay, d-d-d-dance Dance, dance,         |	{ just, , just, , just, , just, }
+1443   |	      okay, d-d-d-dance Dance, dance, just,       |	{ j-j-just , j-j-just , j-j-just , j-j-just }
+1444   |	    d-d-d-dance Dance, dance, just, j-j-just      |	{ dance , When , dance , dance }
+1445   |	       Dance, dance, just, j-j-just dance         |	{ Wish , Woo! , We }
+1446   |	        dance, just, j-j-just dance Wish          |	{ I }
+1447   |	           just, j-j-just dance Wish I            |	{ could }
+1448   |	           j-j-just dance Wish I could            |	{ shut }
+1449   |	             dance Wish I could shut              |	{ my }
+1450   |	              Wish I could shut my                |	{ playboy }
+1451   |	             I could shut my playboy              |	{ mouth, }
+1452   |	          could shut my playboy mouth,            |	{ oh }
+1453   |	            shut my playboy mouth, oh             |	{ oh }
+1454   |	             my playboy mouth, oh oh              |	{ oh-oh }
+1455   |	           playboy mouth, oh oh oh-oh             |	{ How'd }
+1456   |	            mouth, oh oh oh-oh How'd              |	{ I }
+1457   |	               oh oh oh-oh How'd I                |	{ turn }
+1458   |	              oh oh-oh How'd I turn               |	{ my }
+1459   |	              oh-oh How'd I turn my               |	{ shirt }
+1460   |	              How'd I turn my shirt               |	{ inside }
+1461   |	             I turn my shirt inside               |	{ out? }
+1462   |	            turn my shirt inside out?             |	{ Inside }
+1463   |	           my shirt inside out? Inside            |	{ outright }
+1464   |	        shirt inside out? Inside outright         |	{ Control }
+1465   |	       inside out? Inside outright Control        |	{ your }
+1466   |	        out? Inside outright Control your         |	{ poison }
+1467   |	       Inside outright Control your poison        |	{ babe, }
+1468   |	       outright Control your poison babe,         |	{ roses }
+1469   |	         Control your poison babe, roses          |	{ have }
+1470   |	          your poison babe, roses have            |	{ thorns }
+1471   |	         poison babe, roses have thorns           |	{ they }
+1472   |	          babe, roses have thorns they            |	{ say }
+1473   |	           roses have thorns they say             |	{ And }
+1474   |	            have thorns they say And              |	{ we're }
+1475   |	            thorns they say And we're             |	{ all }
+1476   |	             they say And we're all               |	{ getting }
+1477   |	            say And we're all getting             |	{ hosed }
+1478   |	           And we're all getting hosed            |	{ tonight, }
+1479   |	        we're all getting hosed tonight,          |	{ oh }
+1480   |	          all getting hosed tonight, oh           |	{ oh }
+1481   |	          getting hosed tonight, oh oh            |	{ oh-oh }
+1482   |	           hosed tonight, oh oh oh-oh             |	{ What's }
+1483   |	           tonight, oh oh oh-oh What's            |	{ going }
+1484   |	            oh oh oh-oh What's going              |	{ on }
+1485   |	            oh oh-oh What's going on              |	{ on }
+1486   |	            oh-oh What's going on on              |	{ the }
+1487   |	        Dance, dance, just, j-j-just When         |	{ I }
+1488   |	          dance, just, j-j-just When I            |	{ come }
+1489   |	           just, j-j-just When I come             |	{ through }
+1490   |	          j-j-just When I come through            |	{ on }
+1491   |	             When I come through on               |	{ the }
+1492   |	              I come through on the               |	{ dance }
+1493   |	            come through on the dance             |	{ floor }
+1494   |	           through on the dance floor             |	{ checkin' }
+1495   |	           on the dance floor checkin'            |	{ out }
+1496   |	          the dance floor checkin' out            |	{ that }
+1497   |	          dance floor checkin' out that           |	{ catalog }
+1498   |	         floor checkin' out that catalog          |	{ Can't }
+1499   |	         checkin' out that catalog Can't          |	{ believe }
+1500   |	         out that catalog Can't believe           |	{ my }
+1501   |	          that catalog Can't believe my           |	{ eyes, }
+1502   |	         catalog Can't believe my eyes,           |	{ so }
+1503   |	            Can't believe my eyes, so             |	{ many }
+1504   |	            believe my eyes, so many              |	{ women }
+1505   |	             my eyes, so many women               |	{ without }
+1506   |	           eyes, so many women without            |	{ a }
+1507   |	             so many women without a              |	{ flaw }
+1508   |	            many women without a flaw             |	{ And }
+1509   |	            women without a flaw And              |	{ I }
+1510   |	              without a flaw And I                |	{ ain't }
+1511   |	               a flaw And I ain't                 |	{ gon' }
+1512   |	              flaw And I ain't gon'               |	{ give }
+1513   |	              And I ain't gon' give               |	{ it }
+1514   |	              I ain't gon' give it                |	{ up, }
+1515   |	             ain't gon' give it up,               |	{ steady }
+1516   |	             gon' give it up, steady              |	{ tryin' }
+1517   |	            give it up, steady tryin'             |	{ to }
+1518   |	             it up, steady tryin' to              |	{ pick }
+1519   |	            up, steady tryin' to pick             |	{ it }
+1520   |	            steady tryin' to pick it              |	{ up }
+1521   |	              tryin' to pick it up                |	{ like }
+1522   |	               to pick it up like                 |	{ a }
+1523   |	                pick it up like a                 |	{ car }
+1524   |	                it up like a car                  |	{ I'ma }
+1525   |	               up like a car I'ma                 |	{ hit }
+1526   |	               like a car I'ma hit                |	{ it, }
+1527   |	               a car I'ma hit it,                 |	{ I'ma }
+1528   |	              car I'ma hit it, I'ma               |	{ hit }
+1529   |	              I'ma hit it, I'ma hit               |	{ it }
+1530   |	               hit it, I'ma hit it                |	{ and }
+1531   |	               it, I'ma hit it and                |	{ flex }
+1532   |	              I'ma hit it and flex                |	{ and }
+1533   |	               hit it and flex and                |	{ do }
+1534   |	               it and flex and do                 |	{ it }
+1535   |	               and flex and do it                 |	{ until }
+1536   |	              flex and do it until                |	{ tomorr' }
+1537   |	             and do it until tomorr'              |	{ yeah }
+1538   |	            do it until tomorr' yeah              |	{ Shawty }
+1539   |	          it until tomorr' yeah Shawty            |	{ I }
+1540   |	           until tomorr' yeah Shawty I            |	{ can }
+1541   |	            tomorr' yeah Shawty I can             |	{ see }
+1542   |	              yeah Shawty I can see               |	{ that }
+1543   |	              Shawty I can see that               |	{ you }
+1544   |	               I can see that you                 |	{ got }
+1545   |	              can see that you got                |	{ so }
+1546   |	               see that you got so                |	{ much }
+1547   |	              that you got so much                |	{ energy }
+1548   |	             you got so much energy               |	{ The }
+1549   |	             got so much energy The               |	{ way }
+1550   |	             so much energy The way               |	{ you're }
+1551   |	           much energy The way you're             |	{ twirlin' }
+1552   |	         energy The way you're twirlin'           |	{ up }
+1553   |	           The way you're twirlin' up             |	{ them }
+1554   |	           way you're twirlin' up them            |	{ hips }
+1555   |	          you're twirlin' up them hips            |	{ 'round }
+1556   |	          twirlin' up them hips 'round            |	{ and }
+1557   |	             up them hips 'round and              |	{ 'round }
+1558   |	           them hips 'round and 'round            |	{ And }
+1559   |	           hips 'round and 'round And             |	{ now }
+1560   |	            'round and 'round And now             |	{ there's }
+1561   |	           and 'round And now there's             |	{ no }
+1562   |	            'round And now there's no             |	{ reason }
+1563   |	            And now there's no reason             |	{ at }
+1564   |	            now there's no reason at              |	{ all }
+1565   |	            there's no reason at all              |	{ why }
+1566   |	              no reason at all why                |	{ you }
+1567   |	              reason at all why you               |	{ can't }
+1568   |	              at all why you can't                |	{ leave }
+1569   |	             all why you can't leave              |	{ here }
+1570   |	            why you can't leave here              |	{ with }
+1571   |	            you can't leave here with             |	{ me }
+1572   |	            can't leave here with me              |	{ In }
+1573   |	              leave here with me In               |	{ the }
+1574   |	               here with me In the                |	{ meantime }
+1575   |	             with me In the meantime              |	{ stay }
+1576   |	             me In the meantime stay              |	{ and }
+1577   |	            In the meantime stay and              |	{ let }
+1578   |	            the meantime stay and let             |	{ me }
+1579   |	            meantime stay and let me              |	{ watch }
+1580   |	              stay and let me watch               |	{ you }
+1581   |	              and let me watch you                |	{ break }
+1582   |	             let me watch you break               |	{ it }
+1583   |	              me watch you break it               |	{ down }
+1584   |	             watch you break it down              |	{ And }
+1585   |	              you break it down And               |	{ dance, }
+1586   |	            break it down And dance,              |	{ gonna }
+1587   |	            it down And dance, gonna              |	{ be }
+1588   |	            down And dance, gonna be              |	{ okay, }
+1589   |	            And dance, gonna be okay,             |	{ da }
+1590   |	        dance, just, j-j-just dance Woo!          |	{ Let's }
+1591   |	         just, j-j-just dance Woo! Let's          |	{ go! }
+1592   |	          j-j-just dance Woo! Let's go!           |	{ Half }
+1593   |	            dance Woo! Let's go! Half             |	{ psychotic, }
+1594   |	         Woo! Let's go! Half psychotic,           |	{ sick, }
+1595   |	         Let's go! Half psychotic, sick,          |	{ hypnotic }
+1596   |	       go! Half psychotic, sick, hypnotic         |	{ Got }
+1597   |	       Half psychotic, sick, hypnotic Got         |	{ my , my , my , my }
+1598   |	        psychotic, sick, hypnotic Got my          |	{ blueprint, , blueprint , blueprint, , blueprint }
+1599   |	        sick, hypnotic Got my blueprint,          |	{ it's , it's }
+1600   |	         hypnotic Got my blueprint, it's          |	{ symphonic , symphonic }
+1601   |	        Got my blueprint, it's symphonic          |	{ Half , Half }
+1602   |	        my blueprint, it's symphonic Half         |	{ psychotic, , psychotic, }
+1603   |	    blueprint, it's symphonic Half psychotic,     |	{ sick, , sick, }
+1604   |	      it's symphonic Half psychotic, sick,        |	{ hypnotic , hypnotic }
+1605   |	    symphonic Half psychotic, sick, hypnotic      |	{ Got , Got }
+1606   |	         sick, hypnotic Got my blueprint          |	{ electronic , electronic }
+1607   |	      hypnotic Got my blueprint electronic        |	{ Half , Go! }
+1608   |	        Got my blueprint electronic Half          |	{ psychotic, }
+1609   |	     my blueprint electronic Half psychotic,      |	{ sick, }
+1610   |	   blueprint electronic Half psychotic, sick,     |	{ hypnotic }
+1611   |	    electronic Half psychotic, sick, hypnotic     |	{ Got }
+1612   |	         Got my blueprint electronic Go!          |	{ Use }
+1613   |	         my blueprint electronic Go! Use          |	{ your }
+1614   |	        blueprint electronic Go! Use your         |	{ muscle, }
+1615   |	         electronic Go! Use your muscle,          |	{ carve }
+1616   |	           Go! Use your muscle, carve             |	{ it }
+1617   |	            Use your muscle, carve it             |	{ out, }
+1618   |	           your muscle, carve it out,             |	{ work }
+1619   |	           muscle, carve it out, work             |	{ it, }
+1620   |	             carve it out, work it,               |	{ hustle }
+1621   |	             it out, work it, hustle              |	{ I }
+1622   |	             out, work it, hustle I               |	{ got }
+1623   |	              work it, hustle I got               |	{ it, }
+1624   |	              it, hustle I got it,                |	{ just }
+1625   |	              hustle I got it, just               |	{ stay }
+1626   |	               I got it, just stay                |	{ close }
+1627   |	             got it, just stay close              |	{ enough }
+1628   |	           it, just stay close enough             |	{ to }
+1629   |	            just stay close enough to             |	{ get }
+1630   |	            stay close enough to get              |	{ it }
+1631   |	             close enough to get it               |	{ Don't }
+1632   |	             enough to get it Don't               |	{ slow! }
+1633   |	              to get it Don't slow!               |	{ Drive }
+1634   |	            get it Don't slow! Drive              |	{ it, }
+1635   |	            it Don't slow! Drive it,              |	{ clean }
+1636   |	           Don't slow! Drive it, clean            |	{ it, }
+1637   |	            slow! Drive it, clean it,             |	{ lights }
+1638   |	           Drive it, clean it, lights             |	{ out, }
+1639   |	            it, clean it, lights out,             |	{ bleed }
+1640   |	           clean it, lights out, bleed            |	{ it }
+1641   |	            it, lights out, bleed it              |	{ Spend }
+1642   |	           lights out, bleed it Spend             |	{ the }
+1643   |	             out, bleed it Spend the              |	{ lasto }
+1644   |	            bleed it Spend the lasto              |	{ I }
+1645   |	              it Spend the lasto I                |	{ got }
+1646   |	              Spend the lasto I got               |	{ it }
+1647   |	               the lasto I got it                 |	{ In }
+1648   |	                lasto I got it In                 |	{ your }
+1649   |	                I got it In your                  |	{ pocko }
+1650   |	              got it In your pocko                |	{ I }
+1651   |	               it In your pocko I                 |	{ got }
+1652   |	               In your pocko I got                |	{ it }
+1653   |	               your pocko I got it                |	{ Just }
+1654   |	               pocko I got it Just                |	{ dance, }
+1655   |	              I got it Just dance,                |	{ gonna }
+1656   |	            got it Just dance, gonna              |	{ be }
+1657   |	             it Just dance, gonna be              |	{ okay, }
+1658   |	         dance, just, j-j-just dance We           |	{ are }
+1659   |	           just, j-j-just dance We are            |	{ the }
+1660   |	            j-j-just dance We are the             |	{ crowd }
+1661   |	             dance We are the crowd               |	{ We're }
+1662   |	             We are the crowd We're               |	{ co-coming }
+1663   |	          are the crowd We're co-coming           |	{ out }
+1664   |	          the crowd We're co-coming out           |	{ Got }
+1665   |	          crowd We're co-coming out Got           |	{ my }
+1666   |	           We're co-coming out Got my             |	{ flash }
+1667   |	           co-coming out Got my flash             |	{ on, }
+1668   |	              out Got my flash on,                |	{ it's }
+1669   |	              Got my flash on, it's               |	{ true }
+1670   |	             my flash on, it's true               |	{ Need }
+1671   |	            flash on, it's true Need              |	{ that }
+1672   |	             on, it's true Need that              |	{ picture }
+1673   |	           it's true Need that picture            |	{ of }
+1674   |	            true Need that picture of             |	{ you }
+1675   |	            Need that picture of you              |	{ It's }
+1676   |	            that picture of you It's              |	{ so }
+1677   |	             picture of you It's so               |	{ magical }
+1678   |	             of you It's so magical               |	{ We'd }
+1679   |	            you It's so magical We'd              |	{ be }
+1680   |	             It's so magical We'd be              |	{ so }
+1681   |	              so magical We'd be so               |	{ fantastical }
+1682   |	         magical We'd be so fantastical           |	{ Leather }
+1683   |	         We'd be so fantastical Leather           |	{ and }
+1684   |	          be so fantastical Leather and           |	{ jeans }
+1685   |	        so fantastical Leather and jeans          |	{ Garage }
+1686   |	      fantastical Leather and jeans Garage        |	{ glamorous }
+1687   |	       Leather and jeans Garage glamorous         |	{ Not }
+1688   |	         and jeans Garage glamorous Not           |	{ sure }
+1689   |	         jeans Garage glamorous Not sure          |	{ what }
+1690   |	         Garage glamorous Not sure what           |	{ it }
+1691   |	           glamorous Not sure what it             |	{ means }
+1692   |	             Not sure what it means               |	{ But }
+1693   |	             sure what it means But               |	{ this }
+1694   |	             what it means But this               |	{ photo }
+1695   |	             it means But this photo              |	{ of }
+1696   |	             means But this photo of              |	{ us }
+1697   |	              But this photo of us                |	{ It }
+1698   |	               this photo of us It                |	{ don't }
+1699   |	              photo of us It don't                |	{ have }
+1700   |	               of us It don't have                |	{ a }
+1701   |	               us It don't have a                 |	{ price }
+1702   |	              It don't have a price               |	{ Ready , Loving }
+1703   |	            don't have a price Ready              |	{ for }
+1704   |	             have a price Ready for               |	{ those }
+1705   |	             a price Ready for those              |	{ flashing }
+1706   |	         price Ready for those flashing           |	{ lights }
+1707   |	         Ready for those flashing lights          |	{ 'Cause }
+1708   |	        for those flashing lights 'Cause          |	{ you }
+1709   |	        those flashing lights 'Cause you          |	{ know }
+1710   |	         flashing lights 'Cause you know          |	{ that, }
+1711   |	          lights 'Cause you know that,            |	{ baby, }
+1712   |	           'Cause you know that, baby,            |	{ I , I }
+1713   |	             you know that, baby, I               |	{ I'm , I'm }
+1714   |	             know that, baby, I I'm               |	{ your , your }
+1715   |	             that, baby, I I'm your               |	{ biggest , biggest }
+1716   |	            baby, I I'm your biggest              |	{ fan , fan }
+1717   |	             I I'm your biggest fan               |	{ I'll , I'll }
+1718   |	            I'm your biggest fan I'll             |	{ follow , follow , follow }
+1719   |	          your biggest fan I'll follow            |	{ you , you , you }
+1720   |	           biggest fan I'll follow you            |	{ until , until , until }
+1721   |	            fan I'll follow you until             |	{ you , you , you }
+1722   |	            I'll follow you until you             |	{ love , love , love }
+1723   |	            follow you until you love             |	{ me , me , me }
+1724   |	              you until you love me               |	{ Papa-paparazzi , Papa-paparazzi , Papa-paparazzi }
+1725   |	        until you love me Papa-paparazzi          |	{ Baby, , I'll , Baby, , Real , Baby, , Ow, }
+1726   |	        you love me Papa-paparazzi Baby,          |	{ there's , there's , there's }
+1727   |	      love me Papa-paparazzi Baby, there's        |	{ no , no , no }
+1728   |	       me Papa-paparazzi Baby, there's no         |	{ other , other , other }
+1729   |	      Papa-paparazzi Baby, there's no other       |	{ superstar , superstar , superstar }
+1730   |	        Baby, there's no other superstar          |	{ You , You , You }
+1731   |	         there's no other superstar You           |	{ know , know , know }
+1732   |	           no other superstar You know            |	{ that , that , that }
+1733   |	          other superstar You know that           |	{ I'll , I'll , I'll }
+1734   |	          superstar You know that I'll            |	{ be , be , be }
+1735   |	              You know that I'll be               |	{ Papa-paparazzi , Papa-paparazzi , Papa-paparazzi }
+1736   |	        know that I'll be Papa-paparazzi          |	{ Promise , Promise , Promise }
+1737   |	       that I'll be Papa-paparazzi Promise        |	{ I'll , I'll , I'll }
+1738   |	       I'll be Papa-paparazzi Promise I'll        |	{ be , be , be }
+1739   |	        be Papa-paparazzi Promise I'll be         |	{ kind , kind , kind }
+1740   |	       Papa-paparazzi Promise I'll be kind        |	{ But , But , But }
+1741   |	            Promise I'll be kind But              |	{ I , I , I }
+1742   |	               I'll be kind But I                 |	{ won't , won't , won't }
+1743   |	               be kind But I won't                |	{ stop , stop , stop }
+1744   |	              kind But I won't stop               |	{ Until , Until , Until }
+1745   |	             But I won't stop Until               |	{ that , that , that }
+1746   |	             I won't stop Until that              |	{ boy , boy , boy }
+1747   |	            won't stop Until that boy             |	{ is , is , is }
+1748   |	             stop Until that boy is               |	{ mine , mine , mine }
+1749   |	             Until that boy is mine               |	{ Baby, , Baby, , Baby, }
+1750   |	             that boy is mine Baby,               |	{ you'll , you'll , you'll }
+1751   |	            boy is mine Baby, you'll              |	{ be , be , be }
+1752   |	             is mine Baby, you'll be              |	{ famous , famous , famous }
+1753   |	           mine Baby, you'll be famous            |	{ Chase , Chase , Chase }
+1754   |	          Baby, you'll be famous Chase            |	{ you , you , you }
+1755   |	           you'll be famous Chase you             |	{ down , down , down }
+1756   |	            be famous Chase you down              |	{ until , until , until }
+1757   |	           famous Chase you down until            |	{ you , you , you }
+1758   |	            Chase you down until you              |	{ love , love , love }
+1759   |	             you down until you love              |	{ me , me , me }
+1760   |	             down until you love me               |	{ Papa-paparazzi , Papa-paparazzi , Papa-paparazzi }
+1761   |	         you love me Papa-paparazzi I'll          |	{ be }
+1762   |	         love me Papa-paparazzi I'll be           |	{ your }
+1763   |	         me Papa-paparazzi I'll be your           |	{ girl }
+1764   |	        Papa-paparazzi I'll be your girl          |	{ Backstage }
+1765   |	           I'll be your girl Backstage            |	{ at }
+1766   |	            be your girl Backstage at             |	{ your }
+1767   |	           your girl Backstage at your            |	{ show }
+1768   |	           girl Backstage at your show            |	{ Velvet }
+1769   |	          Backstage at your show Velvet           |	{ ropes }
+1770   |	            at your show Velvet ropes             |	{ and }
+1771   |	           your show Velvet ropes and             |	{ guitars }
+1772   |	          show Velvet ropes and guitars           |	{ Yeah, }
+1773   |	         Velvet ropes and guitars Yeah,           |	{ 'cause }
+1774   |	         ropes and guitars Yeah, 'cause           |	{ you }
+1775   |	          and guitars Yeah, 'cause you            |	{ know }
+1776   |	          guitars Yeah, 'cause you know           |	{ I'm }
+1777   |	            Yeah, 'cause you know I'm             |	{ starting }
+1778   |	          'cause you know I'm starting            |	{ Between }
+1779   |	          you know I'm starting Between           |	{ the }
+1780   |	          know I'm starting Between the           |	{ sets }
+1781   |	          I'm starting Between the sets           |	{ Eyeliner }
+1782   |	       starting Between the sets Eyeliner         |	{ and }
+1783   |	          Between the sets Eyeliner and           |	{ all }
+1784   |	            the sets Eyeliner and all             |	{ the }
+1785   |	            sets Eyeliner and all the             |	{ rest }
+1786   |	            Eyeliner and all the rest             |	{ Shadow }
+1787   |	             and all the rest Shadow              |	{ is }
+1788   |	             all the rest Shadow is               |	{ burnt }
+1789   |	            the rest Shadow is burnt              |	{ Yellow }
+1790   |	           rest Shadow is burnt Yellow            |	{ dance }
+1791   |	          Shadow is burnt Yellow dance            |	{ in }
+1792   |	            is burnt Yellow dance in              |	{ return }
+1793   |	          burnt Yellow dance in return            |	{ My }
+1794   |	            Yellow dance in return My             |	{ lashes }
+1795   |	            dance in return My lashes             |	{ are }
+1796   |	             in return My lashes are              |	{ dry }
+1797   |	            return My lashes are dry              |	{ Purple }
+1798   |	            My lashes are dry Purple              |	{ teardrops }
+1799   |	         lashes are dry Purple teardrops          |	{ I }
+1800   |	           are dry Purple teardrops I             |	{ cry }
+1801   |	           dry Purple teardrops I cry             |	{ It }
+1802   |	            Purple teardrops I cry It             |	{ don't }
+1803   |	            teardrops I cry It don't              |	{ have }
+1804   |	               I cry It don't have                |	{ a }
+1805   |	               cry It don't have a                |	{ price }
+1806   |	            don't have a price Loving             |	{ you }
+1807   |	             have a price Loving you              |	{ is }
+1808   |	              a price Loving you is               |	{ cherry }
+1809   |	           price Loving you is cherry             |	{ pie }
+1810   |	            Loving you is cherry pie              |	{ 'Cause }
+1811   |	            you is cherry pie 'Cause              |	{ you }
+1812   |	            is cherry pie 'Cause you              |	{ know }
+1813   |	           cherry pie 'Cause you know             |	{ that, }
+1814   |	            pie 'Cause you know that,             |	{ baby, }
+1815   |	         you love me Papa-paparazzi Real          |	{ good }
+1816   |	        love me Papa-paparazzi Real good          |	{ We're }
+1817   |	        me Papa-paparazzi Real good We're         |	{ dancin' }
+1818   |	     Papa-paparazzi Real good We're dancin'       |	{ in }
+1819   |	           Real good We're dancin' in             |	{ the }
+1820   |	            good We're dancin' in the             |	{ studio }
+1821   |	           We're dancin' in the studio            |	{ Stop, }
+1822   |	           dancin' in the studio Stop,            |	{ stop }
+1823   |	            in the studio Stop, stop              |	{ That }
+1824   |	           the studio Stop, stop That             |	{ song }
+1825   |	           studio Stop, stop That song            |	{ on }
+1826   |	             Stop, stop That song on              |	{ the }
+1827   |	              stop That song on the               |	{ radio }
+1828   |	             That song on the radio               |	{ Don't }
+1829   |	             song on the radio Don't              |	{ stop }
+1830   |	             on the radio Don't stop              |	{ For }
+1831   |	            the radio Don't stop For              |	{ anyone }
+1832   |	           radio Don't stop For anyone            |	{ We're }
+1833   |	           Don't stop For anyone We're            |	{ plastic }
+1834   |	          stop For anyone We're plastic           |	{ but }
+1835   |	          For anyone We're plastic but            |	{ We'll }
+1836   |	         anyone We're plastic but We'll           |	{ still }
+1837   |	          We're plastic but We'll still           |	{ have }
+1838   |	          plastic but We'll still have            |	{ fun }
+1839   |	            but We'll still have fun              |	{ I'm }
+1840   |	            We'll still have fun I'm              |	{ your }
+1841   |	             still have fun I'm your              |	{ biggest }
+1842   |	            have fun I'm your biggest             |	{ fan }
+1843   |	            fun I'm your biggest fan              |	{ I'll }
+1844   |	         you love me Papa-paparazzi Ow,           |	{ come }
+1845   |	         love me Papa-paparazzi Ow, come          |	{ here }
+1846   |	         me Papa-paparazzi Ow, come here          |	{ boy }
+1847   |	        Papa-paparazzi Ow, come here boy          |	{ I }
+1848   |	               Ow, come here boy I                |	{ met }
+1849   |	               come here boy I met                |	{ a }
+1850   |	                here boy I met a                  |	{ drummer }
+1851   |	               boy I met a drummer                |	{ last }
+1852   |	              I met a drummer last                |	{ week }
+1853   |	             met a drummer last week              |	{ At }
+1854   |	             a drummer last week At               |	{ a }
+1855   |	             drummer last week At a               |	{ pool }
+1856   |	               last week At a pool                |	{ bar, }
+1857   |	               week At a pool bar,                |	{ down }
+1858   |	               At a pool bar, down                |	{ b-by }
+1859   |	              a pool bar, down b-by               |	{ the }
+1860   |	             pool bar, down b-by the              |	{ shore }
+1861   |	            bar, down b-by the shore              |	{ With }
+1862   |	            down b-by the shore With              |	{ a }
+1863   |	              b-by the shore With a               |	{ body }
+1864   |	              the shore With a body               |	{ like }
+1865   |	             shore With a body like               |	{ that, }
+1866   |	             With a body like that,               |	{ and }
+1867   |	              a body like that, and               |	{ your }
+1868   |	            body like that, and your              |	{ stone }
+1869   |	            like that, and your stone             |	{ washed }
+1870   |	           that, and your stone washed            |	{ eyes }
+1871   |	           and your stone washed eyes             |	{ I }
+1872   |	            your stone washed eyes I              |	{ want }
+1873   |	            stone washed eyes I want              |	{ you }
+1874   |	             washed eyes I want you               |	{ more }
+1875   |	              eyes I want you more                |	{ He }
+1876   |	               I want you more He                 |	{ cried, , cried, }
+1877   |	             want you more He cried,              |	{ "Mother! , "Mother! }
+1878   |	           you more He cried, "Mother!            |	{ What'd , What'd }
+1879   |	         more He cried, "Mother! What'd           |	{ you , you }
+1880   |	          He cried, "Mother! What'd you           |	{ do , do }
+1881   |	          cried, "Mother! What'd you do           |	{ to , to }
+1882   |	            "Mother! What'd you do to             |	{ me?" , me?" }
+1883   |	              What'd you do to me?"               |	{ I , I }
+1884   |	                you do to me?" I                  |	{ said, , said, }
+1885   |	               do to me?" I said,                 |	{ "Mother , "Mother }
+1886   |	             to me?" I said, "Mother              |	{ mother , mother }
+1887   |	           me?" I said, "Mother mother            |	{ mother's , mother's }
+1888   |	         I said, "Mother mother mother's          |	{ for , for }
+1889   |	        said, "Mother mother mother's for         |	{ babies , babies }
+1890   |	       "Mother mother mother's for babies         |	{ Call , Call }
+1891   |	         mother mother's for babies Call          |	{ me , me }
+1892   |	           mother's for babies Call me            |	{ kitty." , kitty." }
+1893   |	           for babies Call me kitty."             |	{ Yeah , Oh, }
+1894   |	           babies Call me kitty." Yeah            |	{ Shake }
+1895   |	           Call me kitty." Yeah Shake             |	{ your }
+1896   |	           me kitty." Yeah Shake your             |	{ kitty }
+1897   |	          kitty." Yeah Shake your kitty           |	{ Shake }
+1898   |	           Yeah Shake your kitty Shake            |	{ your }
+1899   |	           Shake your kitty Shake your            |	{ kitty , kitty , kitty , kitty }
+1900   |	           your kitty Shake your kitty            |	{ meow , meow , meow , meow }
+1901   |	           kitty Shake your kitty meow            |	{ Put , Put , Put , Put , Put }
+1902   |	            Shake your kitty meow Put             |	{ your , your , your , your , your , your }
+1903   |	            your kitty meow Put your              |	{ arms , arms , arms , arms , arms , arms }
+1904   |	            kitty meow Put your arms              |	{ around , around , around , around , around , around }
+1905   |	            meow Put your arms around             |	{ me, , me, , me, , me, , me, , me, }
+1906   |	            Put your arms around me,              |	{ babe , babe , babe , babe , babe , babe }
+1907   |	            your arms around me, babe             |	{ I'm , I'm , I'm , I'm , I'm , I'm }
+1908   |	            arms around me, babe I'm              |	{ giving , giving , giving , giving , giving , giving }
+1909   |	           around me, babe I'm giving             |	{ you , you , you , you , you , you }
+1910   |	             me, babe I'm giving you              |	{ permission , permission , permission , permission , permission , permission }
+1911   |	         babe I'm giving you permission           |	{ to , to , to , to , to , to }
+1912   |	          I'm giving you permission to            |	{ feel , feel , feel , feel , feel , feel }
+1913   |	          giving you permission to feel           |	{ me , me , me , me , me , me }
+1914   |	            you permission to feel me             |	{ Shake , Shake , Shake , You , Shake , Uh,uh,oh }
+1915   |	           permission to feel me Shake            |	{ your , your , your , your }
+1916   |	              to feel me Shake your               |	{ kitty , shake , kitty , kitty }
+1917   |	            feel me Shake your kitty              |	{ Shake , Shake , Why }
+1918   |	            me Shake your kitty Shake             |	{ your , your }
+1919   |	            feel me Shake your shake              |	{ Shake }
+1920   |	            me Shake your shake Shake             |	{ shake }
+1921   |	          Shake your shake Shake shake            |	{ Shake }
+1922   |	          your shake Shake shake Shake            |	{ your }
+1923   |	          shake Shake shake Shake your            |	{ sh-shake }
+1924   |	         Shake shake Shake your sh-shake          |	{ Shake }
+1925   |	         shake Shake your sh-shake Shake          |	{ it, }
+1926   |	          Shake your sh-shake Shake it,           |	{ shake }
+1927   |	          your sh-shake Shake it, shake           |	{ it }
+1928   |	           sh-shake Shake it, shake it            |	{ Shake }
+1929   |	            Shake it, shake it Shake              |	{ it, , it, }
+1930   |	             it, shake it Shake it,               |	{ shake , shake }
+1931   |	            shake it Shake it, shake              |	{ it , I }
+1932   |	              it Shake it, shake it               |	{ Shake }
+1933   |	              it Shake it, shake I                |	{ took }
+1934   |	             Shake it, shake I took               |	{ a }
+1935   |	               it, shake I took a                 |	{ drummer }
+1936   |	             shake I took a drummer               |	{ by }
+1937   |	               I took a drummer by                |	{ the }
+1938   |	              took a drummer by the               |	{ hand }
+1939   |	              a drummer by the hand               |	{ To }
+1940   |	             drummer by the hand To               |	{ the }
+1941   |	               by the hand To the                 |	{ juke }
+1942   |	              the hand To the juke                |	{ box }
+1943   |	              hand To the juke box                |	{ then }
+1944   |	              To the juke box then                |	{ We }
+1945   |	              the juke box then We                |	{ hit }
+1946   |	              juke box then We hit                |	{ the }
+1947   |	               box then We hit the                |	{ floor }
+1948   |	              then We hit the floor               |	{ With }
+1949   |	              We hit the floor With               |	{ your }
+1950   |	             hit the floor With your              |	{ Van }
+1951   |	             the floor With your Van              |	{ Halen }
+1952   |	            floor With your Van Halen             |	{ pin }
+1953   |	             With your Van Halen pin              |	{ And }
+1954   |	             your Van Halen pin And               |	{ your }
+1955   |	             Van Halen pin And your               |	{ dark }
+1956   |	             Halen pin And your dark              |	{ side }
+1957   |	             pin And your dark side               |	{ burns }
+1958   |	            And your dark side burns              |	{ I }
+1959   |	             your dark side burns I               |	{ want }
+1960   |	             dark side burns I want               |	{ you }
+1961   |	              side burns I want you               |	{ more }
+1962   |	              burns I want you more               |	{ He }
+1963   |	           babies Call me kitty." Oh,             |	{ why }
+1964   |	             Call me kitty." Oh, why              |	{ dontcha }
+1965   |	           me kitty." Oh, why dontcha             |	{ Shake }
+1966   |	          kitty." Oh, why dontcha Shake           |	{ your }
+1967   |	           Oh, why dontcha Shake your             |	{ kitty }
+1968   |	          why dontcha Shake your kitty            |	{ Shake }
+1969   |	         dontcha Shake your kitty Shake           |	{ your }
+1970   |	            permission to feel me You             |	{ never }
+1971   |	              to feel me You never                |	{ call }
+1972   |	             feel me You never call               |	{ me }
+1973   |	              me You never call me                |	{ by }
+1974   |	              You never call me by                |	{ my }
+1975   |	               never call me by my                |	{ name }
+1976   |	               call me by my name                 |	{ But }
+1977   |	                me by my name But                 |	{ I }
+1978   |	                by my name But I                  |	{ still }
+1979   |	               my name But I still                |	{ want }
+1980   |	              name But I still want               |	{ you }
+1981   |	              But I still want you                |	{ You , Your , You're }
+1982   |	              I still want you You                |	{ play }
+1983   |	             still want you You play              |	{ some }
+1984   |	             want you You play some               |	{ pretty }
+1985   |	            you You play some pretty              |	{ tricky }
+1986   |	           You play some pretty tricky            |	{ games }
+1987   |	          play some pretty tricky games           |	{ But }
+1988   |	          some pretty tricky games But            |	{ I }
+1989   |	            pretty tricky games But I             |	{ still }
+1990   |	            tricky games But I still              |	{ want }
+1991   |	             games But I still want               |	{ you }
+1992   |	              I still want you Your               |	{ best }
+1993   |	            still want you Your best              |	{ friend }
+1994   |	            want you Your best friend             |	{ drives }
+1995   |	           you Your best friend drives            |	{ a }
+1996   |	            Your best friend drives a             |	{ fancy }
+1997   |	           best friend drives a fancy             |	{ car }
+1998   |	            friend drives a fancy car             |	{ But }
+1999   |	             drives a fancy car But               |	{ I }
+2000   |	                a fancy car But I                 |	{ still }
+2001   |	              fancy car But I still               |	{ want }
+2002   |	              car But I still want                |	{ you }
+2003   |	             I still want you You're              |	{ working }
+2004   |	          still want you You're working           |	{ every }
+2005   |	          want you You're working every           |	{ hour }
+2006   |	          you You're working every hour           |	{ But, }
+2007   |	         You're working every hour But,           |	{ but }
+2008   |	           working every hour But, but            |	{ I }
+2009   |	              every hour But, but I               |	{ still }
+2010   |	              hour But, but I still               |	{ want }
+2011   |	              But, but I still want               |	{ you }
+2012   |	              but I still want you                |	{ yeah! }
+2013   |	             I still want you yeah!               |	{ If }
+2014   |	             still want you yeah! If              |	{ you }
+2015   |	              want you yeah! If you               |	{ see }
+2016   |	              you yeah! If you see                |	{ a }
+2017   |	               yeah! If you see a                 |	{ girl }
+2018   |	                If you see a girl                 |	{ this }
+2019   |	               you see a girl this                |	{ pretty , pretty }
+2020   |	             see a girl this pretty               |	{ Shake , Shake }
+2021   |	            a girl this pretty Shake              |	{ her, , her, }
+2022   |	           girl this pretty Shake her,            |	{ shake , shake }
+2023   |	          this pretty Shake her, shake            |	{ her, , her, }
+2024   |	          pretty Shake her, shake her,            |	{ shake , shake }
+2025   |	           Shake her, shake her, shake            |	{ that , her }
+2026   |	           her, shake her, shake that             |	{ kitty }
+2027   |	           shake her, shake that kitty            |	{ When }
+2028   |	           her, shake that kitty When             |	{ you }
+2029   |	            shake that kitty When you             |	{ see }
+2030   |	             that kitty When you see              |	{ a }
+2031   |	              kitty When you see a                |	{ girl , girl }
+2032   |	               When you see a girl                |	{ that's , this , that's }
+2033   |	              you see a girl that's               |	{ pretty , pretty }
+2034   |	            see a girl that's pretty              |	{ Shake , Shake }
+2035   |	           a girl that's pretty Shake             |	{ it, , your, }
+2036   |	          girl that's pretty Shake it,            |	{ shake }
+2037   |	          that's pretty Shake it, shake           |	{ it, }
+2038   |	           pretty Shake it, shake it,             |	{ shake }
+2039   |	            Shake it, shake it, shake             |	{ that }
+2040   |	            it, shake it, shake that              |	{ kitty }
+2041   |	           shake it, shake that kitty             |	{ Shake }
+2042   |	           it, shake that kitty Shake             |	{ your }
+2043   |	           shake that kitty Shake your            |	{ kitty }
+2044   |	           that kitty Shake your kitty            |	{ meow }
+2045   |	             me Shake your kitty Why              |	{ don't }
+2046   |	           Shake your kitty Why don't             |	{ you }
+2047   |	            your kitty Why don't you              |	{ Shake }
+2048   |	            kitty Why don't you Shake             |	{ your }
+2049   |	            Why don't you Shake your              |	{ kitty }
+2050   |	           don't you Shake your kitty             |	{ meow }
+2051   |	            you Shake your kitty meow             |	{ Put }
+2052   |	         permission to feel me Uh,uh,oh           |	{ When }
+2053   |	            to feel me Uh,uh,oh When              |	{ you }
+2054   |	            feel me Uh,uh,oh When you             |	{ see }
+2055   |	            me Uh,uh,oh When you see              |	{ a }
+2056   |	             Uh,uh,oh When you see a              |	{ girl }
+2057   |	            her, shake her, shake her             |	{ kitty }
+2058   |	           shake her, shake her kitty             |	{ When }
+2059   |	            her, shake her kitty When             |	{ you }
+2060   |	            shake her kitty When you              |	{ see }
+2061   |	             her kitty When you see               |	{ a }
+2062   |	         girl that's pretty Shake your,           |	{ shake }
+2063   |	         that's pretty Shake your, shake          |	{ your, }
+2064   |	         pretty Shake your, shake your,           |	{ shake }
+2065   |	          Shake your, shake your, shake           |	{ that }
+2066   |	          your, shake your, shake that            |	{ kitty }
+2067   |	          shake your, shake that kitty            |	{ Shake }
+2068   |	          your, shake that kitty Shake            |	{ it, }
+2069   |	           shake that kitty Shake it,             |	{ shake }
+2070   |	           that kitty Shake it, shake             |	{ Shake }
+2071   |	           kitty Shake it, shake Shake            |	{ it, }
+2072   |	            Shake it, shake Shake it,             |	{ shake , shake }
+2073   |	            it, shake Shake it, shake             |	{ Shake , Meow! }
+2074   |	           shake Shake it, shake Shake            |	{ it, }
+2075   |	           shake Shake it, shake Meow!            |	{ Uh-ah,uhh-aww }
+2076   |	       Shake it, shake Meow! Uh-ah,uhh-aww        |	{ C'mon }
+2077   |	       it, shake Meow! Uh-ah,uhh-aww C'mon        |	{ and }
+2078   |	       shake Meow! Uh-ah,uhh-aww C'mon and        |	{ shake }
+2079   |	       Meow! Uh-ah,uhh-aww C'mon and shake        |	{ your }
+2080   |	       Uh-ah,uhh-aww C'mon and shake your         |	{ kitty }
+2081   |	           C'mon and shake your kitty             |	{ You're }
+2082   |	           and shake your kitty You're            |	{ so }
+2083   |	           shake your kitty You're so             |	{ pretty }
+2084   |	           your kitty You're so pretty            |	{ kitty }

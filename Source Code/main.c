@@ -66,7 +66,7 @@ void Menu()
         process();
         break;
     case '5':
-        save_LUT();
+        save_LUT(key, value);
         break;
     case '6':
         display_LUT(key, value);
