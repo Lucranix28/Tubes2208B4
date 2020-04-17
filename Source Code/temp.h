@@ -58,6 +58,7 @@ void inverse_node(node **head);
 void processing(node *head);
 void prepare_text();
 void print_text(char *type);
+void print_ref();
 void readFile(node **head);
 int check(node *check, char data[]);
 int key_valid(node *t_key, int n_gram);
@@ -214,6 +215,22 @@ void print_text(char *s)
     reset();
 }
 
+void print_ref()
+{
+    char c;
+
+    buff = fopen(file_dir, "r");
+    c = fgetc(buff);
+    while (c != EOF)
+    {
+        printf("%c", c);
+        c = fgetc(buff);
+    }
+
+    red();
+    printf("\n\nEND OF %s \n", file_dir);
+    reset();
+}
 void readFile(node **head)
 {
     char temp[1024];
