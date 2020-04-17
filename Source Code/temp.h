@@ -168,7 +168,7 @@ void print_ref(){
     }
 
     red();
-    printf("\nEND OF %s \n", file_dir);
+    printf("\n\nEND OF %s \n", file_dir);
     reset();
 }
 
@@ -183,6 +183,10 @@ void print_out()
         printf("%c", c);
         c = fgetc(buff);
     }
+
+    red();
+    printf("\n\nEND OF %s \n", out_dir);
+    reset();
 }
 
 void readFile(node **head)
@@ -689,7 +693,12 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
             }
 
             counter += 1;
-            fprintf(result,"(%d)", counter);
+            if (counter % 10 == 0)
+            {
+                /* code */
+                fprintf(result,"(%d)", counter);
+            }
+            
         }
 
         if (end == 1)
