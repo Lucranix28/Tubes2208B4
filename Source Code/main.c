@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "temp.h" // Copied From NGram_linkedlist_new_1_file.c
 #include "menu.h"
 
