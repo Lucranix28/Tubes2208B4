@@ -696,7 +696,7 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
             if (counter % 10 == 0)
             {
                 /* code */
-                fprintf(result,"(%d)", counter);
+                //fprintf(result,"(%d)", counter);
             }
             
         }
