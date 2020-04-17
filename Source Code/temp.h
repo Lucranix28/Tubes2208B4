@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 
 typedef struct node
 {
@@ -34,11 +35,33 @@ char ***arrValue;
 int *range_value;
 
 // File Setting
-FILE *ref_text, *buff, *result;
+FILE *ref_text, *buff, *result, *LUT;
 char out_dir[] = "text samples/out.txt";
+char lut_dir[] = "text samples/lut.txt";
 char file_dir[64] = "text samples/";
 char default_folder[] = "text samples/";
 char filename[64];
+
+
+void red()
+{
+    printf("\033[1;31m");
+}
+
+void yellow()
+{
+    printf("\033[1;33m");
+}
+
+void blue()
+{
+    printf("\033[1;34m");
+}
+
+void reset()
+{
+    printf("\033[0m");
+}
 
 int isReady(){
     int is = 1;
@@ -46,12 +69,12 @@ int isReady(){
     if (buff == NULL)
     {
         is = 0;
-        printf("\nReference Text Not Exist yet \n");
+        printf("Reference Text Not Exist yet \n");
     }
     if (ngram == 0)
     {
         is = 0;
-        printf("\n'N'-Gram Not Set Yet\n");
+        printf("'N'-Gram Not Set Yet\n");
     }
 
     return is;
@@ -59,9 +82,9 @@ int isReady(){
 
 int isLUT_ready(){
     int is = 1;
-    if (key == NULL && isReady())
+    if (key == NULL && !isReady())
     {
-        printf("LUT not ready yet");
+        printf("LUT not ready yet\n");
         is = 0;
     }
     return is;
@@ -120,12 +143,15 @@ void prepare_text(){
     ref_text = fopen(file_dir, "r");
     if (ref_text == NULL)
     {
-            /* code */
+            
         perror("File could not be opened.");
         prepare_text();
     }
-
-    printf("File Opened");
+    else
+    {
+        
+        printf("File Opened\n");
+    }
     
 }
 
@@ -133,6 +159,23 @@ void print_ref(){
     char c;
 
     buff = fopen(file_dir, "r");
+    c = fgetc(buff);
+    while (c != EOF)
+    {
+        printf("%c", c);
+        c = fgetc(buff);
+    }
+
+    red();
+    printf("\nEND OF %s \n", file_dir);
+    reset();
+}
+
+void print_out()
+{
+    char c;
+
+    buff = fopen(out_dir, "r");
     c = fgetc(buff);
     while (c != EOF)
     {
@@ -258,15 +301,15 @@ int check(node *check, char data[])
     return (1); // Tidak ada yang sama
 }
 
-int key_valid(node *key, int n_gram)
+int key_valid(node *t_key, int n_gram)
 {
     int i = 0;
-    while ((i < n_gram) && (key != NULL))
+    while ((i < n_gram) && (t_key != NULL))
     {
-        key = key->next;
+        t_key = t_key->next;
         i++;
     }
-    if (key == NULL)
+    if (t_key == NULL)
     {
         return (0);
     }
@@ -301,21 +344,64 @@ void display_value(node *head)
     }
 }
 
+int num_Len(int counter){
+    return floor(log10(abs(counter))) + 1;
+}
 void display_LUT(node *key, value_node *value)
 {
-    int counter = 0;
-    printf("|\tKey  %-15s|\tValue\n", "");
+    char str[ngram*10]; // Asusmsi word rata"sepanjang 10 char
+    int counter = 1, num_len;
+    printf("|\tKey  %-15s|\tValue\n","");
     while (key != NULL)
     {
-        printf("%d|\t%-20s|\t{", counter, key->data);
+        num_len = num_Len(counter);
+        strcpy(str,key->data);
+        printf(" %d%-*s|\t%*s%*s|\t{",counter,7-num_len, " ", ngram * 5 + strlen(str) / 2, str, ngram * 5 - strlen(str) / 2, "");
         display_value(value->value);
         value = value->nexts;
         printf("}\n");
         key = key->next;
-        counter += 1;
+        counter ++;
     }
 }
 
+void display_save(node *head, FILE* LUT)
+{
+    while (head != NULL)
+    {
+        if (head->next == NULL)
+        {
+            fprintf(LUT, " %s ", head->data);
+        }
+        else
+        {
+            fprintf(LUT," %s ,", head->data);
+        }
+        head = head->next;
+    }
+}
+
+void save_LUT()
+{
+    char str[ngram * 10]; // Asusmsi word rata"sepanjang 10 char
+    int counter = 1, num_len;
+    LUT = fopen(lut_dir,"w");
+    printf("Saving LUT");
+    fprintf(LUT,"|\tKey  %-15s|\tValue\n", "");
+    while (key != NULL)
+    {
+        num_len = num_Len(counter);
+        strcpy(str, key->data);
+        fprintf(LUT, "%d%-*s|\t%*s%*s|\t{", counter, 7 - num_len, " ", ngram * 5 + strlen(str) / 2, str, ngram * 5 - strlen(str) / 2, "");
+        display_save(value->value, LUT);
+        value = value->nexts;
+        fprintf(LUT, "}\n");
+        key = key->next;
+        counter++;
+    }
+    fclose(LUT);
+    printf("LUT saved in %s",lut_dir);
+}
 node *link_gram(node *head, int n_gram)
 {
     char temp_2[1000];
@@ -518,7 +604,7 @@ int printRandoms(int upper)
 
 void output(char **key, char ***value, int arr[], int range, int Ngram)
 { // ----> Raka
-    if (isLUT_ready)
+    if (isLUT_ready())
     {
         /* code */
         result = fopen(out_dir,"w");
@@ -530,7 +616,7 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         do
         {
             /* code */
-            printf("\nMasukkan jumlah kata yang ingin ditampilkan :");
+            printf("\nMasukkan jumlah kata yang ingin ditampilkan : ");
             scanf("%d", &num_words);
         } while (num_words < ngram+1);
         
@@ -611,10 +697,7 @@ void output(char **key, char ***value, int arr[], int range, int Ngram)
         }
 
         fclose(result);
-    }
-    else
-    {
-        /* code */
+        printf("Text Berhasil Disimpan di %s \n", out_dir);
     }
     
 }
@@ -665,113 +748,89 @@ int max_value(int range_value[], int range)
 
 void arrBuild()
 {
-    node *key = key2;
-    value_node *value = value2;
-    char **arr_key = arrKey;
-    char ***arr_value = arrValue;
-
     int counter = 0, i;
-    while (key != NULL)
+    while (key2 != NULL)
     {
-        strcpy(arr_key[counter], key->data);
+        strcpy(arrKey[counter], key2->data);
         i = 0;
-        while (value->value != NULL)
+        while (value2->value != NULL)
         {
-            if (value->value->next == NULL)
+            if (value2->value->next == NULL)
             {
-                strcpy(arr_value[counter][i], value->value->data);
+                strcpy(arrValue[counter][i], value2->value->data);
             }
             else
             {
-                strcpy(arr_value[counter][i], value->value->data);
+                strcpy(arrValue[counter][i], value2->value->data);
             }
             i += 1;
-            value->value = value->value->next;
+            value2->value = value2->value->next;
         }
-        value = value->nexts;
-        key = key->next;
+        value2 = value2->nexts;
+        key2 = key2->next;
         counter += 1;
     }
 }
 
-void red()
-{
-    printf("\033[1;31m");
-}
-
-void yellow()
-{
-    printf("\033[1;33m");
-}
-
-void blue()
-{
-    printf("\033[1;34m");
-}
-
-void reset()
-{
-    printf("\033[0m");
-}
 
 void process(){
     if(isReady()){
         
-    red();
-    printf("\nLinking Gram\n");
-    reset();
+        red();
+        printf("\nLinking %d-Gram of %s\n", ngram, file_dir);
+        reset();
 
-    linked_list = link_gram(words, ngram);
-    key = link_key(words, linked_list, ngram);
-    value = link_value(key, linked_list, ngram);
+        linked_list = link_gram(words, ngram);
+        key = link_key(words, linked_list, ngram);
+        value = link_value(key, linked_list, ngram);
 
-    blue();
-    printf("\nLinking Key 1\n");
-    reset();
-    key1 = link_key(words, linked_list, ngram);
-    value1 = link_value(key, linked_list, ngram);
+        blue();
+        printf("\nLinking Key 1\n");
+        reset();
+        key1 = link_key(words, linked_list, ngram);
+        value1 = link_value(key, linked_list, ngram);
 
-    yellow();
-    printf("\nLinking Key 2\n");
-    reset();
-    key2 = link_key(words, linked_list, ngram);
-    value2 = link_value(key, linked_list, ngram);
+        yellow();
+        printf("\nLinking Key 2\n");
+        reset();
+        key2 = link_key(words, linked_list, ngram);
+        value2 = link_value(key, linked_list, ngram);
 
-    red();
-    printf("\nDone Linking\nStatistic :");
+        red();
+        printf("\nDone Linking\nStatistic :");
 
-    range_key = count_key(key, value);
-    printf("\nRange : %d", range_key);
+        range_key = count_key(key, value);
+        printf("\nRange : %d", range_key);
 
-    int *range_value = (int *)malloc(range_key * sizeof(int));
+        range_value = (int *)malloc(range_key * sizeof(int));
 
-    count_value(key1, value1, range_value);
-    maksimum = max_value(range_value, range_key);
-    printf("\nMaksimum_value : %d \n", maksimum);
-    reset();
+        count_value(key1, value1, range_value);
+        maksimum = max_value(range_value, range_key);
+        printf("\nMaksimum_value : %d \n", maksimum);
+        reset();
 
-    char **arrKey = (char **)malloc(range_key * sizeof(char *));
-    for (int i = 0; i < range_key; i++)
-    {
-        arrKey[i] = (char *)malloc(100 * sizeof(char));
-    }
-
-    char **arrKey_temp = (char **)malloc(range_key * sizeof(char *));
-    for (int i = 0; i < range_key; i++)
-    {
-        arrKey_temp[i] = (char *)malloc(100 * sizeof(char));
-    }
-
-    char ***arrValue = (char ***)malloc(range_key * sizeof(char **));
-    for (int i = 0; i < range_key; i++)
-    {
-        arrValue[i] = (char **)malloc(range_value[i] * sizeof(char *));
-        for (int j = 0; j < range_value[i]; j++)
+        arrKey = (char **)malloc(range_key * sizeof(char *));
+        for (int i = 0; i < range_key; i++)
         {
-            arrValue[i][j] = (char *)malloc(100 * sizeof(char));
+            arrKey[i] = (char *)malloc(100 * sizeof(char));
         }
-    }
 
-    arrBuild(key2, value2, arrKey, arrValue);
+        arrKey_temp = (char **)malloc(range_key * sizeof(char *));
+        for (int i = 0; i < range_key; i++)
+        {
+            arrKey_temp[i] = (char *)malloc(100 * sizeof(char));
+        }
+
+        arrValue = (char ***)malloc(range_key * sizeof(char **));
+        for (int i = 0; i < range_key; i++)
+        {
+            arrValue[i] = (char **)malloc(range_value[i] * sizeof(char *));
+            for (int j = 0; j < range_value[i]; j++)
+            {
+                arrValue[i][j] = (char *)malloc(100 * sizeof(char));
+            }
+        }
+
+        arrBuild(key2, value2, arrKey, arrValue);
     }
 }

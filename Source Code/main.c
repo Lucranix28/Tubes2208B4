@@ -29,7 +29,7 @@ int main()
     {
         /* code */ 
         Menu();
-    } while (state != 0);
+    } while (state != '0');
 
     reset();
     printf("Program Ended");
@@ -46,8 +46,7 @@ void Menu()
     printf("Input pilihan menu : ");
     reset();
 
-    scanf(" %c", &state);
-
+    scanf(" %s", &state);
 
     switch (state)
     {
@@ -67,15 +66,16 @@ void Menu()
         process();
         break;
     case '5':
-        display_LUT(key, value);
+        save_LUT();
         break;
     case '6':
-        output(arrKey, arrValue, range_value, range_key, ngram);
+        display_LUT(key, value);
         break;
     case '7':
+        output(arrKey, arrValue, range_value, range_key, ngram);
         break;
     case '8':
-
+        print_out();
         break;
     default:
         printf("--Input Menu Keliru--\n");
@@ -91,9 +91,10 @@ void Print_menu()
     printf("\t2. Input(N) - Gram \n");
     printf("\t3. Print Text \n");
     printf("\t4. Process Key and Value \n");
-    printf("\t5. Print Key and Value \n");
-    printf("\t6. Generate N-Gram-ed Text \n");
-    printf("\t7. Print Result Text \n");
+    printf("\t5. Save Key and Value \n");
+    printf("\t6. Print Key and Value \n");
+    printf("\t7. Generate N-Gram-ed Text \n");
+    printf("\t8. Print Result Text \n");
     printf("\t0. Exit \n");
 }
 
