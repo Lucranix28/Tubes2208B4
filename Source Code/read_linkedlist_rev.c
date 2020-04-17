@@ -21,8 +21,8 @@ void processing(struct node *head);
 
 int main(){
     struct node *words;
+    char test_array[1][1024];
     readFile(&words); 
-
     //debug
     int count = 0;
     puts("DEBUGGGGG SLURR");
