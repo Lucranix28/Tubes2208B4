@@ -40,7 +40,7 @@ char out_dir[] = "output/out.txt";
 char lut_dir[] = "output/lut.txt";
 char file_dir[64] = "text samples/";
 char file_out[64] = "result/";
-char default_folder[] = "text samples/";
+char default_folder[] = "output/";
 char filename[64];
 
 int w_len = 10; // Panjang kata rata-rata untuk rata tengah
